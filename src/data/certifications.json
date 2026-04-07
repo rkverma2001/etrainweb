@@ -1,0 +1,74 @@
+[
+  {
+    "name": "IBM Certifications",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/IBM.svg",
+    "company": "IBM",
+    "slug": "/ibm-certifications"
+  },
+  {
+    "name": "Certified Digital Marketing Associate",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Meta.svg",
+    "company": "Meta",
+    "slug": "/META-DIGITALMARKETING-101"
+  },
+  {
+    "name": "PMI Project Management Ready™",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/PMI.svg",
+    "company": "PMI",
+    "slug": "/PMI-PROJECTMANAGEMENTREADY-101"
+  },
+  {
+    "name": "Information Technology Specialist",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Pearson.svg",
+    "company": "Pearson",
+    "slug": "/itspecialist"
+  },
+  {
+    "name": "App Development with Swift",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Apple.svg",
+    "company": "Apple",
+    "slug": "/apple"
+  },
+  {
+    "name": "Tally Certifications",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Tally.svg",
+    "company": "Tally",
+    "slug": "/tally"
+  },
+  {
+    "name": "Microsoft Office Specialist",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Microsoft.svg",
+    "company": "Microsoft",
+    "slug": "/mos"
+  },
+  {
+    "name": "Autodesk Certified User",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Autodesk.svg",
+    "company": "Autodesk",
+    "slug": "/autodesk"
+  },
+  {
+    "name": "Unity Certified User",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Unity.svg",
+    "company": "Unity",
+    "slug": "/unity"
+  },
+  {
+    "name": "Adobe Certified Professional",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Adobe.svg",
+    "company": "Adobe",
+    "slug": "/adobe"
+  },
+  {
+    "name": "Microsoft Certified Fundamentals",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Microsoft.svg",
+    "company": "Microsoft",
+    "slug": "/mcf"
+  },
+  {
+    "name": "Cisco Certified Security Technician",
+    "logo": "https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Cisco.svg",
+    "company": "Cisco",
+    "slug": "/cisco"
+  }
+]

@@ -1,0 +1,80 @@
+user =>
+full name ,
+email,
+password,
+confirm password,
+
+address,
+mobile number,
+orders: 
+order id:
+product id:
+product name:
+order date:
+order status:
+product details:
+
+product id:
+product name:
+product price:
+product description:
+product image:
+product category:
+product stock:
+product rating:
+product reviews:
+review id:
+review text:
+review rating:
+review date:
+
+
+Products: 
+ practice tests
+ certification
+ learn new technology
+
+product:
+ 
+product id:
+  product name:
+  product price:
+  product description:
+  product image:
+  product category:
+  product stock:
+  product rating:
+  product reviews:
+    review id:
+    review text:
+    review rating:
+    review date:
+
+order:
+  order id:
+    product id:
+    product name:
+    order date:
+    order status:
+    product details:
+      product id:
+        product name:
+        product price:
+        product description:
+        product image:
+        product category:
+        product stock:
+        product rating:
+        product reviews:
+          review id:
+          review text:
+          review rating:
+          review date:
+
+review:
+  review id:
+    review text:
+    review rating:
+    review date:
+
+    
