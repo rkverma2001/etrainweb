@@ -10,19 +10,20 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import DropdownWrapper from "./coursedropdown/DropdownWrapper";
 import SuggestionDropdown from "./search/SuggestionDropdown";
-
-const API_BASE = "http://localhost:8080/api/v1/course/search";
+import api from "@/services/api";
+import MobileCourseDropdown from "./coursedropdown/MobileCourseDropdown";
 
 const Navbar: React.FC = () => {
   const { openAuth } = useAuth();
   const navigate = useNavigate();
-
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -36,6 +37,13 @@ const Navbar: React.FC = () => {
     const token = localStorage.getItem("authToken");
     setIsAuthenticated(!!token);
   }, []);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+      setIsCoursesOpen(false);
+    }
+  }, [location]);
 
   useEffect(() => {
     if (!query || query.trim().length < 2) {
@@ -53,23 +61,22 @@ const Navbar: React.FC = () => {
 
   const fetchSuggestions = async (q: string) => {
     try {
-      const res = await fetch(`${API_BASE}?q=${encodeURIComponent(q)}`);
-      if (!res.ok) {
-        setSuggestions([]);
-        setIsSuggestionsOpen(false);
-        return;
-      }
-      const data = await res.json();
-      // Map to a small list of suggestion items
+      const { data } = await api.get("/course/search", {
+        params: {
+          q,
+        },
+      });
+
       const items = data.map((course: any) => ({
         id: course._id,
-        title: course.courseName || (course.tabData?.Bundle?.title ?? ""),
+        title: course.courseName || course.tabData?.Bundle?.title || "",
         code: course.courseCode,
         image:
           course.tabData?.Bundle?.image ||
           course.tabData?.Courseware?.image ||
           undefined,
       }));
+
       setSuggestions(items);
       setIsSuggestionsOpen(items.length > 0);
     } catch (err) {
@@ -95,8 +102,6 @@ const Navbar: React.FC = () => {
     setIsSuggestionsOpen(false);
     navigate(`/search?q=${encodeURIComponent(value)}`);
   };
-
-
 
   const handleLogout = () => {
     localStorage.removeItem("authToken");
@@ -131,30 +136,36 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Search */}
         <div className="hidden md:flex gap-4 items-center">
-          <form onSubmit={onSubmitSearch} className="flex flex-row relative gap-4">
-          <Input
+          <form
+            onSubmit={onSubmitSearch}
+            className="flex flex-row relative gap-4"
+          >
+            <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              onFocus={() => query.length >= 2 && setIsSuggestionsOpen(suggestions.length > 0)}
+              onFocus={() =>
+                query.length >= 2 &&
+                setIsSuggestionsOpen(suggestions.length > 0)
+              }
               onBlur={() => {
                 // delay closing to allow click
                 setTimeout(() => setIsSuggestionsOpen(false), 150);
               }}
-            type="text"
-            placeholder="Search Courses..."
-            className="border rounded-md p-2 hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200"
-          />
-          <Button
+              type="text"
+              placeholder="Search Courses..."
+              className="border rounded-md p-2 hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200"
+            />
+            <Button
               type="submit"
-            variant="ghost"
-            size="icon"
-            onClick={() => onSubmitSearch()}
-            className="hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200 hover:bg-transparent"
-          >
-            <Search className="h-6 w-6" />
-          </Button>
+              variant="ghost"
+              size="icon"
+              onClick={() => onSubmitSearch()}
+              className="hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200 hover:bg-transparent"
+            >
+              <Search className="h-6 w-6" />
+            </Button>
 
-          {isSuggestionsOpen && (
+            {isSuggestionsOpen && (
               <SuggestionDropdown
                 items={suggestions}
                 onSelect={(val) => onSuggestionClick(val)}
@@ -242,7 +253,11 @@ const Navbar: React.FC = () => {
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </Button>
         </div>
       </div>
@@ -258,7 +273,7 @@ const Navbar: React.FC = () => {
             Home
           </Link>
           <Link
-            to="/about"
+            to="/aboutus"
             onClick={() => setIsMobileMenuOpen(false)}
             className="block text-base font-medium"
           >
@@ -271,15 +286,38 @@ const Navbar: React.FC = () => {
           >
             Partner with Us
           </Link>
+          <div>
+            <button
+              onClick={() => setIsCoursesOpen(!isCoursesOpen)}
+              className="w-full flex items-center justify-between text-base font-medium"
+            >
+              <span>Courses</span>
+
+              <svg
+                className={`w-4 h-4 transition-transform ${
+                  isCoursesOpen ? "rotate-180" : ""
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            {isCoursesOpen && (
+              <div className="mt-3 ml-2 border-l-2 border-[#008641] pl-3">
+                <MobileCourseDropdown />
+              </div>
+            )}
+          </div>
           <Link
-            to="/courses"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-base font-medium"
-          >
-            Courses
-          </Link>
-          <Link
-            to="/contact"
+            to="/contactus"
             onClick={() => setIsMobileMenuOpen(false)}
             className="block text-base font-medium"
           >

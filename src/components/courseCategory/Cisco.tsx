@@ -12,15 +12,7 @@ interface Course {
 }
 
 const Cisco = () => {
-
-  const logos = [
-  "1.svg",
-  "2.svg",
-  "3.svg",
-  "4.svg",
-  "5.svg",
-  "6.svg",
-];
+  const logos = ["1.svg", "2.svg", "3.svg", "4.svg", "5.svg", "6.svg"];
 
   const [selected, setSelected] = useState("bundle");
 
@@ -31,30 +23,28 @@ const Cisco = () => {
     { label: "E-Learning Course", value: "self-paced-course" },
   ];
 
-  const courseData: Record<
-    string, Course[]
-  > = {
-    "bundle": [
+  const courseData: Record<string, Course[]> = {
+    bundle: [
       {
         title: "Cisco Certified Support Technician",
         description: "CCST Cybersecurity Bundle",
         image: "/Cisco/1.svg",
         duration: "₹ 3,849",
-        slug: "/CISCO-CYBERSECURITY-101"
+        slug: "/CISCO-CYBERSECURITY-101",
       },
       {
         title: "Cisco Certified Support Technician",
         description: "CCST Networking Bundle",
         image: "/Cisco/3.svg",
         duration: "₹ 3,849",
-        slug: "/CISCO-NETWORKING-102"
+        slug: "/CISCO-NETWORKING-102",
       },
       {
         title: "Cisco Certified Support Technician",
         description: "CCST IT Support Bundle",
         image: "/Cisco/2.svg",
         duration: "₹ 3,849",
-        slug: "/CISCO-ITSUPPORT-103"
+        slug: "/CISCO-ITSUPPORT-103",
       },
     ],
     "exam-vouchers": [
@@ -63,21 +53,21 @@ const Cisco = () => {
         description: "CCST Cybersecurity Exam Voucher",
         image: "/Cisco/CiscoExamVoucher1.svg",
         duration: "₹ 2,199",
-        slug: "/CISCO-CYBERSECURITY-101?tab=exam-vouchers"
+        slug: "/CISCO-CYBERSECURITY-101?tab=exam-vouchers",
       },
       {
         title: "Cisco Certified Support Technician",
         description: "CCST Networking Exam Voucher",
         image: "/Cisco/CiscoExamVoucher3.svg",
         duration: "₹ 2,199",
-        slug: "/CISCO-NETWORKING-102?tab=exam-vouchers"
+        slug: "/CISCO-NETWORKING-102?tab=exam-vouchers",
       },
       {
         title: "Cisco Certified Support Technician",
         description: "CCST IT Support Exam Voucher",
         image: "/Cisco/CiscoExamVoucher2.svg",
         duration: "₹ 2,199",
-        slug: "/CISCO-ITSUPPORT-103?tab=exam-vouchers"
+        slug: "/CISCO-ITSUPPORT-103?tab=exam-vouchers",
       },
     ],
 
@@ -87,21 +77,21 @@ const Cisco = () => {
         description: "CCST IT Support Practice Test",
         image: "/Cisco/CiscoPractice2.svg",
         duration: "₹ 899",
-        slug: "/CISCO-ITSUPPORT-103?tab=practice-tests"
+        slug: "/CISCO-ITSUPPORT-103?tab=practice-tests",
       },
       {
         title: "Cisco Certified Support Technician",
         description: "CCST Networking Practice Test",
         image: "/Cisco/CiscoPractice3.svg",
         duration: "₹ 899",
-        slug: "/CISCO-NETWORKING-102?tab=practice-tests"
+        slug: "/CISCO-NETWORKING-102?tab=practice-tests",
       },
       {
         title: "Cisco Certified Support Technician",
         description: "CCST Cybersecurity Practice Test",
         image: "/Cisco/CiscoPractice1.svg",
         duration: "₹ 899",
-        slug: "/CISCO-CYBERSECURITY-101?tab=practice-tests"
+        slug: "/CISCO-CYBERSECURITY-101?tab=practice-tests",
       },
     ],
 
@@ -112,7 +102,7 @@ const Cisco = () => {
           "CCST Cybersecurity Self-Paced Video Based Learning Course Voucher",
         image: "/Cisco/CiscoLearn1.svg",
         duration: "₹ 1,150",
-        slug: "/CISCO-CYBERSECURITY-101?tab=courseware"
+        slug: "/CISCO-CYBERSECURITY-101?tab=courseware",
       },
       {
         title: "Cisco Certified Support Technician",
@@ -120,7 +110,7 @@ const Cisco = () => {
           "CCST IT Support Self-Paced Video Based Learning Course Voucher",
         image: "/Cisco/CiscoLearn2.svg",
         duration: "₹ 1,150",
-        slug: "/CISCO-ITSUPPORT-103?tab=courseware"
+        slug: "/CISCO-ITSUPPORT-103?tab=courseware",
       },
       {
         title: "Cisco Certified Support Technician",
@@ -128,7 +118,7 @@ const Cisco = () => {
           "CCST Networking Self-Paced Video Based Learning Course Voucher",
         image: "/Cisco/CiscoLearn3.svg",
         duration: "₹ 1,150",
-        slug: "/CISCO-NETWORKING-102?tab=courseware"
+        slug: "/CISCO-NETWORKING-102?tab=courseware",
       },
     ],
   };
@@ -142,7 +132,6 @@ const Cisco = () => {
 
   return (
     <div className="relative overflow-hidden bg-white">
-
       <div className="max-w-7xl mx-auto pt-28">
         <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
@@ -156,18 +145,19 @@ const Cisco = () => {
               <div className="text-gray-700 text-sm sm:text-base leading-relaxed text-justify">
                 <p>
                   Cisco program includes three certification exams designed to
-                validate work-ready skills and knowledge to help learners find a
-                job in the field of end user support, networking, and
-                cybersecurity. Earning a Cisco Certified Support Technician
-                certification showcases the learner’s skillset to employers,
-                telling them they are ready to roll up their sleeves on day one.
+                  validate work-ready skills and knowledge to help learners find
+                  a job in the field of end user support, networking, and
+                  cybersecurity. Earning a Cisco Certified Support Technician
+                  certification showcases the learner’s skillset to employers,
+                  telling them they are ready to roll up their sleeves on day
+                  one.
                 </p>
                 <p className="mt-3 sm:mt-4">
                   EtrainIndia provides a full pathway solution that students can
-                use to prepare for the Cisco certifications. From tailored
-                learning materials and practice tests to Cisco endorsed
-                certification exams, EtrainIndia provides assistance every step
-                of the way.
+                  use to prepare for the Cisco certifications. From tailored
+                  learning materials and practice tests to Cisco endorsed
+                  certification exams, EtrainIndia provides assistance every
+                  step of the way.
                 </p>
               </div>
             </div>
@@ -205,108 +195,112 @@ const Cisco = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
           {/* Sidebar / Filters */}
           <aside className="w-full lg:w-1/4">
-          <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 shadow-sm lg:sticky lg:top-24">
-            <h4 className="text-lg font-semibold mb-4 text-center lg:text-left">
-              Product Type
-            </h4>
+            <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 shadow-sm lg:sticky lg:top-24">
+              <h4 className="text-lg font-semibold mb-4 text-center lg:text-left">
+                Product Type
+              </h4>
 
-            <ul className="flex flex-wrap justify-center lg:flex-col gap-3">
-              {options.map((option) => (
-                <li key={option.value}>
-                  <label className="flex items-center space-x-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={selected === option.value}
-                      onChange={() => setSelected(option.value)}
-                      className="form-checkbox text-blue-600"
-                    />
-                    <span className="text-sm lg:text-base">{option.label}</span>
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
+              <ul className="flex flex-wrap justify-center lg:flex-col gap-3">
+                {options.map((option) => (
+                  <li key={option.value}>
+                    <label className="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={selected === option.value}
+                        onChange={() => setSelected(option.value)}
+                        className="form-checkbox text-blue-600"
+                      />
+                      <span className="text-sm lg:text-base">
+                        {option.label}
+                      </span>
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
 
           {/* Main Content */}
           <main className="w-full lg:w-3/4 flex flex-col">
-          <div className="shrink-0">
-            {selected === "bundle" && (
-              <>
-                <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                  <img
-                    src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Cisco.svg"
-                    alt="Cisco Logo"
-                    className="h-10 sm:h-12 md:h-14 object-contain"
-                  />
-                </h1>
-                <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-                  Get the complete certification package—exam voucher, practice tests, and learning resources—designed for success at the best value.
-                </p>
-              </>
-            )}
-            {selected === "exam-vouchers" && (
-              <>
-                <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                  <img
-                    src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Cisco.svg"
-                    alt="Cisco Logo"
-                    className="h-10 sm:h-12 md:h-14 object-contain"
-                  />
-                </h1>
-                <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-                  Official digital exam codes to take your Cisco
-                  certification exam online with remote proctoring.
-                </p>
-              </>
-            )}
-            {selected === "practice-tests" && (
-              <>
-                <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                  <img
-                    src="https://etrain.blr1.cdn.digitaloceanspaces.com/certpreplogo.svg"
-                    alt="CertPREP Logo"
-                    className="h-12 sm:h-14 md:h-16 object-contain"
-                  />
-                </h1>
-                <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-                  Practice Tests are designed to simulate the real exam
-                  environment, helping you gain confidence and improve your
-                  performance.
-                </p>
-              </>
-            )}
-            {selected === "self-paced-course" && (
-              <>
-                <h1 className="text-xl sm:text-2xl text-center mb-3 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                  <img
-                    src="https://etrain.blr1.cdn.digitaloceanspaces.com/lklogo.svg"
-                    alt="Logo"
-                    className="h-10 sm:h-12 object-contain"
-                  />
-                </h1>
-                <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-                  These self-paced courses offer comprehensive training through
-                  engaging content, quizzes, and assignments—delivered by
-                  certified industry experts.
-                </p>
-              </>
-            )}
+            <div className="shrink-0">
+              {selected === "bundle" && (
+                <>
+                  <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
+                    <img
+                      src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Cisco.svg"
+                      alt="Cisco Logo"
+                      className="h-10 sm:h-12 md:h-14 object-contain"
+                    />
+                  </h1>
+                  <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
+                    Get the complete certification package—exam voucher,
+                    practice tests, and learning resources—designed for success
+                    at the best value.
+                  </p>
+                </>
+              )}
+              {selected === "exam-vouchers" && (
+                <>
+                  <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
+                    <img
+                      src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Cisco.svg"
+                      alt="Cisco Logo"
+                      className="h-10 sm:h-12 md:h-14 object-contain"
+                    />
+                  </h1>
+                  <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
+                    Official digital exam codes to take your Cisco certification
+                    exam online with remote proctoring.
+                  </p>
+                </>
+              )}
+              {selected === "practice-tests" && (
+                <>
+                  <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
+                    <img
+                      src="https://etrain.blr1.cdn.digitaloceanspaces.com/certpreplogo.svg"
+                      alt="CertPREP Logo"
+                      className="h-12 sm:h-14 md:h-16 object-contain"
+                    />
+                  </h1>
+                  <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
+                    Practice Tests are designed to simulate the real exam
+                    environment, helping you gain confidence and improve your
+                    performance.
+                  </p>
+                </>
+              )}
+              {selected === "self-paced-course" && (
+                <>
+                  <h1 className="text-xl sm:text-2xl text-center mb-3 font-semibold flex items-center justify-center gap-2 flex-wrap">
+                    <img
+                      src="https://etrain.blr1.cdn.digitaloceanspaces.com/lklogo.svg"
+                      alt="Logo"
+                      className="h-10 sm:h-12 object-contain"
+                    />
+                  </h1>
+                  <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
+                    These self-paced courses offer comprehensive training
+                    through engaging content, quizzes, and assignments—delivered
+                    by certified industry experts.
+                  </p>
+                </>
+              )}
             </div>
             <div className="flex-1 lg:max-h-[70vh] overflow-y-auto pr-1 sm:pr-2">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
-              {courseData[selected]?.map((course, index) => (
-                <CourseCard
-                  key={index}
-                  image={`https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages${course.image}`}
-                  title={course.title}
-                  price={course.duration}
-                  description={course.description}
-                  slug={course.slug || ""}
-                />
-              ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+                {courseData[selected]?.map((course, index) => (
+                  <CourseCard
+                    key={index}
+                    image={`https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages${course.image}`}
+                    title={course.title}
+                    price={course.duration}
+                    description={course.description}
+                    slug={course.slug || ""}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
           </main>
         </div>
       </div>

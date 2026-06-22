@@ -1,10 +1,9 @@
-// src/components/search/SuggestionDropdown.tsx
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type SuggestionItem = {
   id: string;
-  label: string;
-  secondary?: string;
+  title: string;
+  code?: string;
   image?: string;
 };
 
@@ -13,10 +12,6 @@ type Props = {
   onSelect: (value: string) => void;
   onNavigateToCourse?: (id: string) => void;
   inputId?: string;
-  /**
-   * Called when dropdown should close (click outside, Escape)
-   * Parent should set isSuggestionsOpen=false
-   */
   onClose?: () => void;
 };
 
@@ -30,11 +25,9 @@ export default function SuggestionDropdown({
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // reset active when items change
     setActiveIndex(-1);
   }, [items]);
 
-  // keyboard handling only while dropdown has items
   useEffect(() => {
     if (!items || items.length === 0) return;
 
@@ -48,30 +41,38 @@ export default function SuggestionDropdown({
       } else if (e.key === "Enter") {
         if (activeIndex >= 0 && activeIndex < items.length) {
           e.preventDefault();
-          onSelect(items[activeIndex].label);
+          onSelect(items[activeIndex].title);
         }
       } else if (e.key === "Escape") {
-        // return focus to input and notify parent to close
-        (document.getElementById(inputId) as HTMLInputElement | null)?.focus();
+        (
+          document.getElementById(inputId) as HTMLInputElement | null
+        )?.focus();
         onClose?.();
       }
     };
 
     window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
+
+    return () => {
+      window.removeEventListener("keydown", handler);
+    };
   }, [activeIndex, items, onSelect, inputId, onClose]);
 
-  // close if click outside — notify parent (so it can hide the dropdown)
   useEffect(() => {
     const onDocClick = (ev: MouseEvent) => {
       if (!containerRef.current) return;
+
       if (!containerRef.current.contains(ev.target as Node)) {
         setActiveIndex(-1);
         onClose?.();
       }
     };
+
     document.addEventListener("click", onDocClick);
-    return () => document.removeEventListener("click", onDocClick);
+
+    return () => {
+      document.removeEventListener("click", onDocClick);
+    };
   }, [onClose]);
 
   if (!items || items.length === 0) {
@@ -84,28 +85,46 @@ export default function SuggestionDropdown({
       role="listbox"
       aria-labelledby={inputId}
       id="search-suggestions"
-      className="absolute left-0 right-0 mt-12 bg-white rounded-md shadow-lg border border-gray-100 z-50 max-h-72 overflow-auto"
+      className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 z-50 max-h-80 overflow-y-auto"
     >
-      <ul className="divide-y">
-        {items.map((it, idx) => (
-          <li key={it.id}>
+      <ul className="divide-y divide-gray-100">
+        {items.map((item, idx) => (
+          <li key={item.id}>
             <button
               type="button"
               role="option"
               aria-selected={idx === activeIndex}
-              onMouseDown={(e) => e.preventDefault()} // avoid blur before click
-              onClick={() => onSelect(it.label)}
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={() => onSelect(item.title)}
               onMouseEnter={() => setActiveIndex(idx)}
-              className={`w-full text-left px-3 py-2 flex gap-3 items-center ${idx === activeIndex ? "bg-gray-100" : "hover:bg-gray-50"}`}
+              className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
+                idx === activeIndex
+                  ? "bg-gray-100"
+                  : "hover:bg-gray-50"
+              }`}
             >
-              {it.image ? (
-                <img src={it.image} alt={it.label} className="w-10 h-10 object-contain rounded" />
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-12 h-12 rounded object-cover border"
+                />
               ) : (
-                <div className="w-10 h-10 bg-gray-100 rounded flex items-center justify-center text-xs">C</div>
+                <div className="w-12 h-12 rounded bg-gray-100 flex items-center justify-center text-xs font-medium text-gray-500">
+                  C
+                </div>
               )}
-              <div className="truncate">
-                <div className="text-sm font-medium truncate">{it.label}</div>
-                {it.secondary && <div className="text-xs text-gray-500 truncate">{it.secondary}</div>}
+
+              <div className="flex-1 min-w-1">
+                <div className="text-sm font-medium text-gray-900 truncate">
+                  {item.title}
+                </div>
+
+                {item.code && (
+                  <div className="text-xs text-gray-500 truncate mt-1">
+                    {item.code}
+                  </div>
+                )}
               </div>
             </button>
           </li>

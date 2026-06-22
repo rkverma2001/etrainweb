@@ -26,7 +26,7 @@ const CourseSection = () => {
         description: "Adobe After Effects Bundle",
         image: "Adobe/adobeaftereffectsbundle.svg",
         duration: "3,849",
-        slug: "/ADOBE-AFTER-101"
+        slug: "/ADOBE-AFTER-101",
       },
       {
         title: "Adobe Certified Professional",
@@ -340,7 +340,9 @@ const CourseSection = () => {
                   />
                 </h1>
                 <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-                  Get the complete certification package—exam voucher, practice tests, and learning resources—designed for success at the best value.
+                  Get the complete certification package—exam voucher, practice
+                  tests, and learning resources—designed for success at the best
+                  value.
                 </p>
               </>
             )}

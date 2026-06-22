@@ -10,8 +10,13 @@ interface CourseCardProps {
   slug: string;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ title, description, image, price, slug }) => {
-
+const CourseCard: React.FC<CourseCardProps> = ({
+  title,
+  description,
+  image,
+  price,
+  slug,
+}) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -19,7 +24,11 @@ const CourseCard: React.FC<CourseCardProps> = ({ title, description, image, pric
   };
 
   return (
-    <div className="flex flex-col items-center text-center rounded-lg hover:shadow-md transition-shadow w-full max-w-xs mx-auto " onClick={handleClick} style={{ cursor: slug ? 'pointer' : 'default' }}>
+    <div
+      className="flex flex-col items-center text-center rounded-lg hover:shadow-md transition-shadow w-full max-w-xs mx-auto "
+      onClick={handleClick}
+      style={{ cursor: slug ? "pointer" : "default" }}
+    >
       {/* Image */}
       <div className="w-full aspect-square mb-4">
         <img

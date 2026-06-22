@@ -143,7 +143,7 @@ const AuthCard: React.FC = () => {
           <>
             <div className="flex justify-center mb-6">
               <img
-                src="/Icon/Auth1.svg"
+                src="https://etrain.blr1.digitaloceanspaces.com/Icon/Auth1.svg"
                 alt="OTP Illustration"
                 className="w-38 h-38"
               />
@@ -152,7 +152,7 @@ const AuthCard: React.FC = () => {
             <h2 className="text-xl font-semibold mb-6">
               Please enter your Mobile Number
               <img
-                src="/Icon/Auth2.svg"
+                src="https://etrain.blr1.digitaloceanspaces.com/Icon/Auth2.svg"
                 alt="mobile"
                 className="inline-block w-10 h-6 ml-2"
               />
@@ -199,7 +199,7 @@ const AuthCard: React.FC = () => {
           <>
             <div className="flex justify-center mb-6">
               <img
-                src="/Icon/Auth3.svg"
+                src="https://etrain.blr1.digitaloceanspaces.com/Icon/Auth3.svg"
                 alt="OTP Illustration"
                 className="w-38 h-38"
               />
@@ -208,7 +208,7 @@ const AuthCard: React.FC = () => {
             <h2 className="text-xl font-semibold mb-2">
               Enter OTP
               <img
-                src="/Icon/Auth2.svg"
+                src="https://etrain.blr1.digitaloceanspaces.com/Icon/Auth2.svg"
                 alt="mobile"
                 className="inline-block w-10 h-6 ml-2"
               />

@@ -28,6 +28,9 @@ import RefundPolicy from "./pages/RefundPolicy";
 import SearchPage from "./pages/SearchPage";
 import PaymentVerification from "./pages/PaymentVerification";
 import ScrollToTop from "./components/ScrollToTop";
+import Aiibm from "./pages/Productpage/Ibm/Aiibm";
+import CertificationsPage from "./pages/CertificationsPage";
+import CoursesPage from "./pages/CoursesPage";
 
 const App = () => {
   const { isAuthOpen } = useAuth();
@@ -63,6 +66,9 @@ const App = () => {
           <Route path="/refundpolicy" element={<RefundPolicy/>} />
           <Route path="/search" element={<SearchPage/>} />
           <Route path="/paymentVerification" element={<PaymentVerification/>} />
+          <Route path="/ai" element={<Aiibm/>} />
+          <Route path="/certifications" element={<CertificationsPage />} />
+          <Route path="/courses" element={<CoursesPage />} />
           <Route path="*" element={<div>404 Not Found</div>} />
           {/* Add more routes as needed */}
         </Routes>

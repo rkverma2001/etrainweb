@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ArrowRightIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg
@@ -24,6 +25,7 @@ const ArrowRightIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const HeroSection: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-emerald-50 to-sky-50" />
@@ -49,20 +51,22 @@ const HeroSection: React.FC = () => {
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <button className="group inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-700 focus:outline-none">
-              <span>Start Learning Now</span>
+            <button onClick={() => navigate("/certifications")}
+             className="group inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-700 focus:outline-none cursor-pointer">
+              <span>Get Certified</span>
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </button>
-            <button className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 shadow-sm hover:border-slate-300">
+            <button onClick={() => navigate("/courses")}
+             className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 shadow-sm hover:border-slate-300 cursor-pointer">
               Explore all courses
             </button>
           </div>
 
           <div className="mt-5 flex items-center gap-4">
             <div className="flex -space-x-2">
-              <div className="h-8 w-8 rounded-full bg-emerald-500 outline outline-2 outline-slate-50" />
-              <div className="h-8 w-8 rounded-full bg-sky-500 outline outline-2 outline-slate-50" />
-              <div className="h-8 w-8 rounded-full bg-indigo-500 outline outline-2 outline-slate-50" />
+              <div className="h-8 w-8 rounded-full bg-emerald-500 outline outline-2 outline-slate-50 text-white text-lg flex items-center justify-center" >R</div>
+              <div className="h-8 w-8 rounded-full bg-sky-500 outline outline-2 outline-slate-50 text-white text-lg flex items-center justify-center" >S</div>
+              <div className="h-8 w-8 rounded-full bg-indigo-500 outline outline-2 outline-slate-50 text-white text-lg flex items-center justify-center" >D</div>
             </div>
             <p className="text-xs text-slate-600 sm:text-sm">
               <span className="font-semibold text-slate-900">

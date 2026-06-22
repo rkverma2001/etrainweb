@@ -168,33 +168,36 @@ const AboutUs: React.FC = () => {
             Our Founder's Message
           </h2>
 
-          <div className="mt-10 flex flex-row md:flex-row gap-10 bg-gradient-to-br from-white to-green-50 p-8 rounded-2xl shadow">
-            {/* Founder Photo */}
-            <div className=" rounded-2xl bg-gray-200 overflow-hidden shadow-md">
-              <img
-                src="/gauravkapoor.png" // <-- replace with actual image path
-                alt="Founder"
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div className="mt-10 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 bg-gradient-to-br from-white to-green-50 p-5 sm:p-6 md:p-8 rounded-2xl shadow">
 
-            {/* Founder Details */}
-            <div>
-              <h3 className="text-3xl font-semibold text-gray-900">
-                Gaurav Kapoor
-              </h3>
-              <p className="text-green-700 font-medium mt-1">
-                Founder & Managing Director, EtrainIndia
-              </p>
+  {/* Founder Photo */}
+  <div className="w-full sm:w-[250px] md:w-[300px] lg:w-[350px] aspect-square rounded-2xl bg-gray-200 overflow-hidden shadow-md flex-shrink-0">
+    <img
+      src="https://etrain.blr1.cdn.digitaloceanspaces.com/gauravkapoor.png"
+      alt="Founder"
+      className="w-full h-full object-cover"
+    />
+  </div>
 
-              <p className="mt-4 text-gray-600 leading-relaxed max-w-2xl">
-                "At EtrainIndia, our mission is to empower every learner with
-                quality, accessible, and industry-ready education. We are
-                committed to building a future where technology bridges gaps and
-                unlocks limitless opportunities for students across the world."
-              </p>
-            </div>
-          </div>
+  {/* Founder Details */}
+  <div className="text-center md:text-left">
+    <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900">
+      Gaurav Kapoor
+    </h3>
+
+    <p className="text-green-700 font-medium mt-1 text-sm sm:text-base">
+      Founder & Managing Director, EtrainIndia
+    </p>
+
+    <p className="mt-3 sm:mt-4 text-gray-600 leading-relaxed max-w-xl md:max-w-2xl text-sm sm:text-base">
+      "At EtrainIndia, our mission is to empower every learner with
+      quality, accessible, and industry-ready education. We are
+      committed to building a future where technology bridges gaps and
+      unlocks limitless opportunities for students across the world."
+    </p>
+  </div>
+
+</div>
         </div>
       </section>
 
