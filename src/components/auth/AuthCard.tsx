@@ -70,6 +70,7 @@ const AuthCard: React.FC = () => {
     }
 
     const payload = { mobile: `+${phone}`, otp: code };
+    console.log("Verifying OTP with payload:", payload);
 
     try {
       setLoading(true);

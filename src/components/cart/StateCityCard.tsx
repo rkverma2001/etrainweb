@@ -141,7 +141,7 @@ const StateCityCard: React.FC = () => {
 
         order_id: razorpayOrder.id,
 
-        name: "eTrainIndia",
+        name: "etrainIndia",
 
         description: "Course Payment",
 
