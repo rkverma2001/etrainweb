@@ -106,18 +106,22 @@ const StateCityCard: React.FC = () => {
     ====================================
     */
 
-      const paymentResp = await api.post("/payment/create-order", {
-        currency: "INR",
+      const couponCode =
+  localStorage.getItem("couponCode") || "";
 
-        meta: {
-          name,
-          email,
-          mobile: `+91${mobile}`,
-          state: selectedState.label,
-          city: selectedCity.label,
-          method: "Online",
-        },
-      });
+const paymentResp = await api.post("/payment/create-order", {
+  couponCode,
+  currency: "INR",
+
+  meta: {
+    name,
+    email,
+    mobile: `+91${mobile}`,
+    state: selectedState.label,
+    city: selectedCity.label,
+    method: "Online",
+  },
+});
 ;
 
       const razorpayOrder = paymentResp.data.razorpayOrder;

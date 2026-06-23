@@ -32,9 +32,7 @@ const CartPage: React.FC = () => {
   const navigate = useNavigate();
 
   const token =
-    typeof window !== "undefined"
-      ? localStorage.getItem("authToken")
-      : null;
+    typeof window !== "undefined" ? localStorage.getItem("authToken") : null;
 
   useEffect(() => {
     if (!token) {
@@ -53,17 +51,18 @@ const CartPage: React.FC = () => {
           return;
         }
 
-        const formattedItems: Product[] = data.items.map(
-          (item: CartItem) => ({
-            id: item._id,
-            title: item.course.tabData[item.packageType].title,
-            subtitle: item.course.tabData[item.packageType].subtitle,
-            image: item.course.tabData[item.packageType].image,
-            price: item.price,
-            total: item.total,
-            quantity: item.quantity,
-          })
-        );
+        const formattedItems: Product[] = data.items.map((item: any) => ({
+          id: item._id,
+          courseId: item.course._id,
+          packageType: item.packageType,
+
+          title: item.course.tabData[item.packageType].title,
+          subtitle: item.course.tabData[item.packageType].subtitle,
+          image: item.course.tabData[item.packageType].image,
+          price: item.price,
+          total: item.total,
+          quantity: item.quantity,
+        }));
 
         setCartItems(formattedItems);
       } catch (err) {
@@ -77,22 +76,35 @@ const CartPage: React.FC = () => {
     fetchCartData();
   }, []);
 
-  const removeFromCart = async (id: string) => {
-    try {
-      await api.delete(`/cart/remove/${id}`);
+  const removeFromCart = async (
+  courseId: string,
+  packageType: string,
+  itemId: string,
+) => {
+  try {
+    const response = await api.post("/cart/remove", {
+      courseId,
+      packageType,
+    });
 
+    if (response.status === 200) {
       setCartItems((prev) =>
-        prev.filter((item) => item.id !== id)
+        prev.filter((item) => item.id !== itemId),
       );
-    } catch (err) {
-      console.error("Error removing item:", err);
     }
-  };
+  } catch (err: any) {
+    console.error("Error removing item:", err);
+
+    if (err.response) {
+      console.error("Backend Error:", err.response.data);
+    }
+  }
+};
 
   const handleUpdate = (
     id: string,
     updatedTotal: number,
-    updatedQty: number
+    updatedQty: number,
   ) => {
     setCartItems((prev) =>
       prev.map((item) =>
@@ -102,8 +114,8 @@ const CartPage: React.FC = () => {
               total: updatedTotal,
               quantity: updatedQty,
             }
-          : item
-      )
+          : item,
+      ),
     );
   };
 
@@ -111,10 +123,7 @@ const CartPage: React.FC = () => {
     navigate("/login");
   };
 
-  const totalPrice = cartItems.reduce(
-    (sum, item) => sum + item.total,
-    0
-  );
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.total, 0);
 
   const discount = Math.floor(totalPrice * 0.1);
   const itemCount = cartItems.length;
@@ -133,9 +142,7 @@ const CartPage: React.FC = () => {
               </h2>
 
               {loading ? (
-                <p className="text-gray-500">
-                  Loading your cart...
-                </p>
+                <p className="text-gray-500">Loading your cart...</p>
               ) : error ? (
                 <div className="text-center text-gray-700 py-8">
                   <p>{error}</p>
@@ -151,9 +158,7 @@ const CartPage: React.FC = () => {
                 </div>
               ) : cartItems.length === 0 ? (
                 <div className="text-center py-10">
-                  <p className="text-gray-500">
-                    Your cart is empty.
-                  </p>
+                  <p className="text-gray-500">Your cart is empty.</p>
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -161,7 +166,13 @@ const CartPage: React.FC = () => {
                     <ProductCard
                       key={product.id}
                       product={product}
-                      onRemove={removeFromCart}
+                      onRemove={() =>
+                        removeFromCart(
+                          product.courseId,
+                          product.packageType,
+                          product.id,
+                        )
+                      }
                       onUpdate={handleUpdate}
                     />
                   ))}

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 
 export interface Product {
   id: string;
+  courseId: string;
+  packageType: string;
+
   title: string;
   subtitle: string;
   image: string;
@@ -12,7 +15,7 @@ export interface Product {
 
 interface ProductCardProps {
   product: Product;
-  onRemove: (id: string) => void;
+  onRemove: () => void;
   onUpdate: (
     id: string,
     updatedTotal: number,
@@ -115,7 +118,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           {/* Actions */}
           <div className="flex flex-wrap items-center gap-4 mt-4">
             <button
-              onClick={() => onRemove(product.id)}
+              onClick={() => onRemove()}
               className="
                 text-red-500
                 hover:text-red-700
