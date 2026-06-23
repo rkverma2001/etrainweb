@@ -95,6 +95,10 @@ const DataScience = () => {
                     label="Course Rating"
                     value="4.8 (120+ Reviews)"
                   />
+                  <StatRow
+                    label="Price"
+                    value="₹3,000/"
+                  />
                 </div>
               </div>
             </div>
