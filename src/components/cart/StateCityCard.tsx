@@ -31,213 +31,225 @@ const StateCityCard: React.FC = () => {
       }))
     : [];
 
-  const getCartTotalInPaise = () => {
-    const total = localStorage.getItem("cartTotal"); // YOU MUST SAVE THIS IN PRICEDETAILS
-    const rupees = total ? Number(total) : 0;
-    return Math.round(rupees * 100);
-  };
-
   const handleBuyNow = async () => {
+  console.log("========== BUY NOW STARTED ==========");
 
-    setMessage(null);
-    setLoading(true);
+  setMessage(null);
+  setLoading(true);
+
+  try {
+    console.log("User Details:", {
+      name,
+      email,
+      mobile,
+      state: selectedState?.label,
+      city: selectedCity?.label,
+    });
+
+    if (!name.trim()) {
+      console.log("Validation Failed: Name Missing");
+      setMessage("Please enter your name");
+      setLoading(false);
+      return;
+    }
+
+    if (!email.trim()) {
+      console.log("Validation Failed: Email Missing");
+      setMessage("Please enter your email");
+      setLoading(false);
+      return;
+    }
+
+    if (!mobile.trim()) {
+      console.log("Validation Failed: Mobile Missing");
+      setMessage("Please enter your mobile number");
+      setLoading(false);
+      return;
+    }
+
+    if (!selectedState || !selectedCity) {
+      console.log("Validation Failed: State/City Missing");
+      setMessage("Please select state and city");
+      setLoading(false);
+      return;
+    }
+
+    console.log("========== CREATE USER ==========");
 
     try {
-      // Validation
-      if (!name.trim()) {
-        setMessage("Please enter your name");
-        setLoading(false);
-        return;
-      }
-
-      if (!email.trim()) {
-        setMessage("Please enter your email");
-        setLoading(false);
-        return;
-      }
-
-      if (!mobile.trim()) {
-        setMessage("Please enter your mobile number");
-        setLoading(false);
-        return;
-      }
-
-      if (!selectedState || !selectedCity) {
-        setMessage("Please select state and city");
-        setLoading(false);
-        return;
-      }
-
-      /*
-    ====================================
-    CREATE USER IF NOT EXISTS
-    ====================================
-    */
-
-      try {
-        const userResp = await api.post("/user", {
-          name,
-          email,
-          mobile: `+91${mobile}`,
-          userType: "Student",
-          city: selectedCity.label,
-          state: selectedState.label,
-        });
-
-      } catch (userError: any) {
-
-        const errorMessage = userError?.response?.data?.error || "";
-
-        if (
-          errorMessage.includes("already exists") ||
-          errorMessage.includes("User with this mobile already exists")
-        ) {
-        } else {
-          setMessage(errorMessage || "Unable to save user details");
-
-          setLoading(false);
-          return;
-        }
-      }
-
-      /*
-    ====================================
-    CREATE PAYMENT ORDER
-    ====================================
-    */
-
-      const couponCode =
-  localStorage.getItem("couponCode") || "";
-
-const paymentResp = await api.post("/payment/create-order", {
-  couponCode,
-  currency: "INR",
-
-  meta: {
-    name,
-    email,
-    mobile: `+91${mobile}`,
-    state: selectedState.label,
-    city: selectedCity.label,
-    method: "Online",
-  },
-});
-;
-
-      const razorpayOrder = paymentResp.data.razorpayOrder;
-
-      if (!razorpayOrder?.id) {
-        throw new Error("Razorpay order not received from backend");
-      }
-
-      /*
-    ====================================
-    OPEN RAZORPAY
-    ====================================
-    */
-
-      const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY || "rzp_live_fUOvzk20fHrJlv",
-
-        amount: razorpayOrder.amount,
-
-        currency: razorpayOrder.currency,
-
-        order_id: razorpayOrder.id,
-
-        name: "etrainIndia",
-
-        description: "Course Payment",
-
-        prefill: {
-          name,
-          email,
-          contact: mobile,
-        },
-
-        theme: {
-          color: "#0b8841",
-        },
-
-        handler: async (response: any) => {
-
-
-          try {
-            /*
-          ====================================
-          VERIFY PAYMENT
-          ====================================
-          */
-
-            const verifyResp = await api.post("/payment/verify", {
-              razorpay_order_id: response.razorpay_order_id,
-
-              razorpay_payment_id: response.razorpay_payment_id,
-
-              razorpay_signature: response.razorpay_signature,
-
-              meta: {
-                name,
-                email,
-                mobile,
-                state: selectedState.label,
-                city: selectedCity.label,
-                method: "Online",
-              },
-            });
-
-
-            if (verifyResp.data.success) {
-              setMessage("Payment Successful. Redirecting...");
-
-              setTimeout(() => {
-                window.location.href =
-                  "/paymentVerification?orderId=" + verifyResp.data.orderId;
-              }, 1000);
-            } else {
-              setMessage(
-                verifyResp.data.error || "Payment verification failed",
-              );
-            }
-          } catch (verifyError: any) {
-
-            setMessage(
-              verifyError?.response?.data?.error ||
-                "Payment verification failed",
-            );
-          } finally {
-            setLoading(false);
-          }
-        },
-
-        modal: {
-          ondismiss: () => {
-            setLoading(false);
-          },
-        },
-      };
-
-      const rzp = new (window as any).Razorpay(options);
-
-      rzp.on("payment.failed", (response: any) => {
-
-        setMessage(response?.error?.description || "Payment failed");
-
-        setLoading(false);
+      const userResp = await api.post("/user", {
+        name,
+        email,
+        mobile: `+91${mobile}`,
+        userType: "Student",
+        city: selectedCity.label,
+        state: selectedState.label,
       });
 
-      rzp.open();
-    } catch (error: any) {
+      console.log("User Created:", userResp.data);
+    } catch (userError: any) {
+      console.log("User Create Error:", userError?.response?.data);
 
-      setMessage(
-        error?.response?.data?.error ||
-          error?.message ||
-          "Payment initialization failed",
-      );
+      const errorMessage = userError?.response?.data?.error || "";
 
-      setLoading(false);
+      if (
+        errorMessage.includes("already exists") ||
+        errorMessage.includes("User with this mobile already exists")
+      ) {
+        console.log("Existing User Found. Continuing...");
+      } else {
+        setMessage(errorMessage || "Unable to save user details");
+        setLoading(false);
+        return;
+      }
     }
-  };
+
+    console.log("========== CREATE PAYMENT ORDER ==========");
+
+    const couponCode = localStorage.getItem("couponCode") || "";
+
+    console.log("Coupon From LocalStorage:", couponCode);
+
+    const paymentResp = await api.post("/payment/create-order", {
+      couponCode,
+      currency: "INR",
+      meta: {
+        name,
+        email,
+        mobile: `+91${mobile}`,
+        state: selectedState.label,
+        city: selectedCity.label,
+        method: "Online",
+      },
+    });
+
+    console.log("Create Order Response:", paymentResp.data);
+
+    const razorpayOrder = paymentResp.data.razorpayOrder;
+
+    console.log("Razorpay Order:", razorpayOrder);
+    console.log("Amount Received:", razorpayOrder.amount);
+    console.log("Amount In Rupees:", razorpayOrder.amount / 100);
+
+    if (!razorpayOrder?.id) {
+      throw new Error("Razorpay order not received from backend");
+    }
+
+    console.log("========== OPENING RAZORPAY ==========");
+
+    const options = {
+      key: import.meta.env.VITE_RAZORPAY_KEY || "rzp_live_fUOvzk20fHrJlv",
+
+      amount: razorpayOrder.amount,
+
+      currency: razorpayOrder.currency,
+
+      order_id: razorpayOrder.id,
+
+      name: "etrainIndia",
+
+      description: "Course Payment",
+
+      prefill: {
+        name,
+        email,
+        contact: mobile,
+      },
+
+      theme: {
+        color: "#0b8841",
+      },
+
+      handler: async (response: any) => {
+        console.log("========== PAYMENT SUCCESS ==========");
+        console.log("Razorpay Response:", response);
+
+        try {
+          console.log("========== VERIFY PAYMENT ==========");
+
+          const verifyResp = await api.post("/payment/verify", {
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature,
+
+            meta: {
+              name,
+              email,
+              mobile,
+              state: selectedState.label,
+              city: selectedCity.label,
+              method: "Online",
+            },
+          });
+
+          console.log("Verify Response:", verifyResp.data);
+
+          if (verifyResp.data.success) {
+            console.log("Payment Verified Successfully");
+
+            setMessage("Payment Successful. Redirecting...");
+
+            setTimeout(() => {
+              window.location.href =
+                "/paymentVerification?orderId=" +
+                verifyResp.data.orderId;
+            }, 1000);
+          } else {
+            console.log("Verification Failed:", verifyResp.data);
+
+            setMessage(
+              verifyResp.data.error || "Payment verification failed",
+            );
+          }
+        } catch (verifyError: any) {
+          console.error(
+            "VERIFY PAYMENT ERROR:",
+            verifyError?.response?.data || verifyError,
+          );
+
+          setMessage(
+            verifyError?.response?.data?.error ||
+              "Payment verification failed",
+          );
+        } finally {
+          setLoading(false);
+        }
+      },
+
+      modal: {
+        ondismiss: () => {
+          console.log("Razorpay Closed By User");
+          setLoading(false);
+        },
+      },
+    };
+
+    const rzp = new (window as any).Razorpay(options);
+
+    rzp.on("payment.failed", (response: any) => {
+      console.error("========== PAYMENT FAILED ==========");
+      console.error(response);
+
+      setMessage(response?.error?.description || "Payment failed");
+      setLoading(false);
+    });
+
+    rzp.open();
+  } catch (error: any) {
+    console.error(
+      "CREATE ORDER ERROR:",
+      error?.response?.data || error,
+    );
+
+    setMessage(
+      error?.response?.data?.error ||
+        error?.message ||
+        "Payment initialization failed",
+    );
+
+    setLoading(false);
+  }
+};
 
   return (
     <div className="max-w-sm mx-autoshadow p-6 space-y-4">

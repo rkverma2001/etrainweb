@@ -12,50 +12,83 @@ interface ProfilePanelProps {
 
 const ProfilePanel: React.FC<ProfilePanelProps> = ({ profile }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div className="col-span-1 bg-white rounded-lg p-6 shadow-sm">
-        <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-2xl">
-            {profile.name[0]}
+    <div className="w-full">
+      <div
+        className="
+          bg-white
+          rounded-xl
+          p-4
+          sm:p-6
+          shadow-sm
+          border
+        "
+      >
+        <div
+          className="
+            flex
+            flex-col
+            sm:flex-row
+            items-center
+            sm:items-start
+            gap-4
+          "
+        >
+          {/* Avatar */}
+          <div
+            className="
+              w-20
+              h-20
+              rounded-full
+              bg-green-600
+              text-white
+              flex
+              items-center
+              justify-center
+              font-bold
+              text-3xl
+              shrink-0
+            "
+          >
+            {profile?.name?.charAt(0)?.toUpperCase() || "U"}
           </div>
-          <div>
-            <div className="font-semibold">{profile.name}</div>
-            <div className="text-sm text-gray-500">{profile.email}</div>
-            <div className="text-sm text-gray-500">{profile.phone}</div>
+
+          {/* User Info */}
+          <div className="flex-1 text-center sm:text-left">
+            <h2 className="text-xl font-semibold text-gray-900">
+              {profile.name}
+            </h2>
+
+            <p className="text-sm text-gray-500 mt-2 break-all">
+              {profile.email || "No Email"}
+            </p>
+
+            <p className="text-sm text-gray-500 mt-1">
+              {profile.phone || "No Mobile Number"}
+            </p>
           </div>
         </div>
 
-        <div className="mt-6">
-          <h4 className="text-sm text-gray-500">About</h4>
-          <p className="text-sm mt-2 text-gray-600">
-            You are enrolled in {Math.floor(Math.random() * 10) + 5} courses and
-            have earned {Math.floor(Math.random() * 6) + 1} certificates.
-          </p>
-        </div>
-
-        <div className="mt-6">
-          <button className="w-full px-4 py-2 bg-green-600 text-white rounded">
-            Edit Profile
-          </button>
-        </div>
-      </div>
-
-      <div className="col-span-2 bg-white rounded-lg p-6 shadow-sm">
-        <h4 className="font-semibold">Billing & Orders</h4>
-        <div className="mt-3 text-sm text-gray-600">
-          View invoices, manage payment methods and download receipts for your
-          orders.
-        </div>
-
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-4 rounded bg-gray-50">
-            <div className="text-sm text-gray-500">Saved payment</div>
-            <div className="font-medium mt-1">Visa •••• 4242</div>
+        {/* Profile Details */}
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="border rounded-lg p-4">
+            <p className="text-xs text-gray-500">Full Name</p>
+            <p className="font-medium text-gray-800 mt-1">
+              {profile.name}
+            </p>
           </div>
 
-          <div className="p-4 rounded bg-gray-50">
-            <div className="text-sm text-gray-500">Subscriptions</div>
-            <div className="font-medium mt-1">No active subscriptions</div>
+          <div className="border rounded-lg p-4">
+            <p className="text-xs text-gray-500">Email Address</p>
+            <p className="font-medium text-gray-800 mt-1 break-all">
+              {profile.email}
+            </p>
+          </div>
+
+          <div className="border rounded-lg p-4 md:col-span-2">
+            <p className="text-xs text-gray-500">Mobile Number</p>
+            <p className="font-medium text-gray-800 mt-1">
+              {profile.phone}
+            </p>
           </div>
         </div>
       </div>

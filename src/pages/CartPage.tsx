@@ -101,11 +101,22 @@ const CartPage: React.FC = () => {
   }
 };
 
-  const handleUpdate = (
-    id: string,
-    updatedTotal: number,
-    updatedQty: number,
-  ) => {
+ const handleUpdate = async (
+  id: string,
+  updatedTotal: number,
+  updatedQty: number,
+) => {
+  try {
+    const currentItem = cartItems.find((item) => item.id === id);
+
+    if (!currentItem) return;
+
+    await api.put("/cart/update", {
+      courseId: currentItem.courseId,
+      packageType: currentItem.packageType,
+      quantity: updatedQty,
+    });
+
     setCartItems((prev) =>
       prev.map((item) =>
         item.id === id
@@ -117,7 +128,16 @@ const CartPage: React.FC = () => {
           : item,
       ),
     );
-  };
+
+    console.log("Cart Updated Successfully");
+  } catch (error: any) {
+    console.error("Update Cart Error:", error);
+
+    if (error.response) {
+      console.error("Backend Error:", error.response.data);
+    }
+  }
+};
 
   const handleLoginRedirect = () => {
     navigate("/login");
