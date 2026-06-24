@@ -1,0 +1,141 @@
+[
+  {
+    "slug": "data-science-with-python",
+    "provider": "IBM Skills Network Professional Course",
+    "title": "Data Science",
+    "subtitle": "with Python",
+    "description": "Learn Python programming, data analysis, visualization, statistics, and machine learning techniques to solve real-world business problems using data.",
+    "level": "Beginner to Intermediate",
+    "effort": "20 Hours",
+    "language": "English",
+    "rating": "4.8 (120+ Reviews)",
+    "price": 3000,
+    "currency": "INR",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+    "certificateImage": "https://etrain.blr1.cdn.digitaloceanspaces.com/dstibm/IBMsample.png",
+    "skills": [
+      "Python",
+      "Data Science",
+      "Data Analysis",
+      "Machine Learning",
+      "Pandas",
+      "NumPy",
+      "Data Visualization",
+      "Statistics"
+    ],
+    "overview": [
+      "This course introduces learners to the world of Data Science using Python.",
+      "Learn how to collect, clean, analyze and visualize data.",
+      "Gain practical experience through hands-on projects."
+    ],
+    "modules": [
+      {
+        "title": "Python Programming Fundamentals",
+        "description": "Core Python concepts and programming techniques."
+      },
+      {
+        "title": "Data Analysis with Pandas and NumPy",
+        "description": "Data manipulation and analysis techniques."
+      },
+      {
+        "title": "Data Visualization using Matplotlib and Seaborn",
+        "description": "Create impactful visualizations and dashboards."
+      },
+      {
+        "title": "Statistics and Exploratory Data Analysis",
+        "description": "Understand data patterns and distributions."
+      },
+      {
+        "title": "Machine Learning Fundamentals",
+        "description": "Introduction to machine learning concepts."
+      },
+      {
+        "title": "Regression and Classification Models",
+        "description": "Build predictive machine learning models."
+      },
+      {
+        "title": "Model Evaluation and Optimization",
+        "description": "Improve model performance and accuracy."
+      },
+      {
+        "title": "Real-World Data Science Projects",
+        "description": "Apply concepts to industry use cases."
+      }
+    ],
+    "instructor": {
+      "name": "IBM Skills Network Team",
+      "designation": "Industry Experts and Data Science Professionals",
+      "description": "Learn from experienced data scientists and AI professionals."
+    },
+    "certificateOffered": true,
+    "status": true,
+    "featured": true,
+    "ctaTitle": "Start Your Data Science Journey Today",
+    "ctaDescription": "Master Python, Data Analytics, Visualization and Machine Learning.",
+    "createdAt": "2026-06-24T00:00:00.000Z"
+  },
+  {
+    "slug": "generative-ai-essentials",
+    "provider": "IBM Skills Network Professional Course",
+    "title": "Generative AI",
+    "subtitle": "Essentials",
+    "description": "Learn the fundamentals of Generative AI, Large Language Models, Prompt Engineering, and AI-powered applications.",
+    "level": "Beginner",
+    "effort": "15 Hours",
+    "language": "English",
+    "rating": "4.9 (250+ Reviews)",
+    "price": 3000,
+    "currency": "INR",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+    "skills": [
+      "Generative AI",
+      "Prompt Engineering",
+      "LLMs",
+      "ChatGPT",
+      "AI Ethics",
+      "AI Applications"
+    ],
+    "overview": [
+      "Understand the evolution of Generative AI.",
+      "Learn Prompt Engineering and LLM concepts.",
+      "Build AI-powered workflows and applications."
+    ],
+    "modules": [
+      {
+        "title": "Introduction to Generative AI",
+        "description": "Foundations of Generative AI."
+      },
+      {
+        "title": "Large Language Models",
+        "description": "Understanding LLM architectures."
+      },
+      {
+        "title": "Prompt Engineering",
+        "description": "Creating effective prompts."
+      },
+      {
+        "title": "AI Tools and Platforms",
+        "description": "Explore leading AI tools."
+      },
+      {
+        "title": "Responsible AI",
+        "description": "Ethics and governance in AI."
+      },
+      {
+        "title": "Generative AI Use Cases",
+        "description": "Real-world AI applications."
+      }
+    ],
+    "instructor": {
+      "name": "IBM AI Experts",
+      "designation": "Generative AI Specialists",
+      "description": "Learn from professionals building enterprise AI solutions."
+    },
+    "certificateOffered": true,
+    "status": true,
+    "featured": true,
+    "ctaTitle": "Become Future Ready with AI",
+    "ctaDescription": "Build skills in the fastest-growing technology sector.",
+    "createdAt": "2026-06-24T00:00:00.000Z"
+  }
+]

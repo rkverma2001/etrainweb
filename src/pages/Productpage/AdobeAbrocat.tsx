@@ -96,7 +96,10 @@ const CoursePage = () => {
     window.scrollTo(0, 0);
   }, [courseId]);
 
-  const tabs = ["Bundle", "Exam Voucher", "Practice Test", "Courseware"];
+  const tabs =
+  course?.courseCode === "MCE-CERTIFIEDEDUCATOR-101"
+    ? ["Bundle", "Exam Voucher", "Practice Test"]
+    : ["Bundle", "Exam Voucher", "Practice Test", "Courseware"];
 
   if (loading) return <p className="text-center mt-20">Loading course...</p>;
   if (error) return <p className="text-center text-red-500 mt-20">{error}</p>;
