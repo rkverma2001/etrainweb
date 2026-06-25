@@ -323,11 +323,44 @@ const Navbar: React.FC = () => {
           >
             Contact Us
           </Link>
-          <Input
-            type="text"
-            placeholder="Search..."
-            className="w-full border rounded-md p-2"
-          />
+          <div className="relative w-full">
+  <form
+    onSubmit={onSubmitSearch}
+    className="flex items-center gap-2"
+  >
+    <Input
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      onFocus={() =>
+        query.length >= 2 &&
+        setIsSuggestionsOpen(suggestions.length > 0)
+      }
+      onBlur={() => {
+        setTimeout(() => setIsSuggestionsOpen(false), 150);
+      }}
+      type="text"
+      placeholder="Search Courses..."
+      className="w-full border rounded-md p-2 hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200"
+    />
+
+    <Button
+      type="submit"
+      variant="ghost"
+      size="icon"
+      onClick={() => onSubmitSearch()}
+      className="hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200 hover:bg-transparent"
+    >
+      <Search className="h-5 w-5" />
+    </Button>
+  </form>
+
+  {isSuggestionsOpen && (
+    <SuggestionDropdown
+      items={suggestions}
+      onSelect={(val) => onSuggestionClick(val)}
+    />
+  )}
+</div>
           <Button
             onClick={() => {
               setIsMobileMenuOpen(false);
