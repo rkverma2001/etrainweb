@@ -1,55 +1,153 @@
-import React from "react";
-import {
-  Clock3,
-  BadgeCheck,
-  BarChart3,
-  Globe,
-  ArrowRight,
-  CheckCircle,
-} from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { BadgeCheck, Globe, ArrowRight, CheckCircle } from "lucide-react";
 import { useParams } from "react-router-dom";
-import courses from "./Ibmcourses.json";
 import Footer from "@/components/footer/Footer";
+import api from "@/services/api";
 
 interface CourseData {
-  provider: string;
-  title: string;
-  subtitle: string;
-  description: string;
+  _id: string;
+  courseCode: string;
+  courseName: string;
 
-  level: string;
-  effort: string;
-  language: string;
-  rating: string;
-  price: number;
-
-  heroImage: string;
-  certificateImage?: string;
-  skills: string[];
-  modules: {
-    title: string;
-    description: string;
-  }[];
-
-  overview: string[];
-
-  instructor: {
-    name: string;
-    designation: string;
-    description: string;
+  tabData: {
+    Courseware: {
+      title: string;
+      subtitle: string;
+      image: string;
+      price: number;
+    };
   };
 
-  ctaTitle: string;
-  ctaDescription: string;
+  curriculum: {
+    question: string;
+    answers: string[];
+  }[];
+
+  banner: {
+    videoUrl: string;
+  };
+
+  video: {
+    videoUrl: string;
+  };
+
+  highlights: string[];
+
+  certificate: {
+    certifier: string;
+    certifierColor: string;
+    certificateImg: string;
+    bannerImg: string;
+  };
+
+  syllabus: string;
+  practiceTestLink: string;
+  coursewareLink: string;
 }
 
 const CourseDetails = () => {
   const { slug } = useParams();
+  const syllabusRef = useRef<HTMLElement | null>(null);
+  const [course, setCourse] = useState<CourseData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState<string | null>(null);
 
-  const course = courses.find((item) => item.slug === slug) as
-    | CourseData
-    | undefined;
+  useEffect(() => {
+  const fetchCourse = async () => {
+    try {
+      setLoading(true);
 
+      const response = await api.get(`/course/${slug}`);
+
+      if (response.data) {
+        setCourse(response.data);
+        setError("");
+      } else {
+        setError("Course not found");
+      }
+    } catch (error) {
+      console.error(error);
+      setError("Failed to fetch course.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (slug) {
+    fetchCourse();
+  }
+}, [slug]);
+
+  const handleAddToCart = async () => {
+    try {
+      setLoading(true);
+      setMessage(null);
+
+      console.log("📦 Course Code from URL:", course?.courseCode);
+
+      if (!course?.courseCode) {
+  setMessage("Invalid course. Please try again.");
+  return;
+}
+
+      const token = localStorage.getItem("authToken");
+      console.log("🔑 Auth Token:", token);
+
+      const response = await api.post(
+        "/cart/add",
+        {
+          courseCode: course?.courseCode, // ✅ dynamically from URL
+          packageType: "Courseware",
+          quantity: 1, // ✅ from state
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token ? `Bearer ${token}` : "",
+          },
+        },
+      );
+      setMessage("✅ Item added to cart successfully!");
+    } catch (error: any) {
+      console.error(
+        "❌ Add to cart failed:",
+        error.response?.data || error.message,
+      );
+      if (error.response?.status === 401) {
+        setMessage("⚠️ Please log in to add items to your cart.");
+      } else {
+        setMessage("❌ Failed to add item. Try again later.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const scrollToSyllabus = () => {
+    syllabusRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#020817] text-white">
+        <h1 className="text-3xl font-semibold">Loading...</h1>
+      </div>
+    );
+  }
+
+  if (error || !course) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#020817] text-white">
+        <h1 className="text-3xl font-semibold">
+          {error || "Course Not Found"}
+        </h1>
+      </div>
+    );
+  }
   if (!course) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#020817] text-white">
@@ -66,27 +164,24 @@ const CourseDetails = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-block px-5 py-2 rounded-full border border-blue-400/30 bg-blue-500/10 text-sm tracking-[0.2em] uppercase text-blue-200 mb-6">
-                {course.provider}
-              </div>
-
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                {course.title}
-                <br />
-                {course.subtitle}
+                {course.courseName}
               </h1>
 
               <p className="mt-6 text-lg text-gray-200 leading-8 max-w-xl">
-                {course.description}
+                {course.highlights.join(" • ")}
               </p>
 
               <div className="flex flex-wrap gap-4 mt-8">
-                <button className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 font-semibold inline-flex items-center gap-3">
-                  Enroll Now
+                <button onClick={handleAddToCart} className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 font-semibold inline-flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform duration-200">
+                  Add To Cart
                   <ArrowRight size={20} />
                 </button>
 
-                <button className="px-8 py-4 rounded-2xl border border-white/20 bg-white/10 font-medium">
+                <button
+                  onClick={scrollToSyllabus}
+                  className="px-8 py-4 rounded-2xl border border-white/20 bg-white/10 font-medium cursor-pointer hover:scale-105 transition-transform duration-200"
+                >
                   View Syllabus
                 </button>
               </div>
@@ -95,21 +190,22 @@ const CourseDetails = () => {
             <div className="flex justify-center lg:justify-end">
               <div className="rounded-[32px] border border-white/10 bg-white/10 backdrop-blur-xl p-8 shadow-2xl max-w-md w-full">
                 <img
-                  src={course.heroImage}
-                  alt={course.title}
+                  src={course.tabData.Courseware.image}
+                  alt="IBM image"
                   className="w-40 bg-white rounded-2xl p-4 mx-auto"
                 />
 
                 <div className="mt-8 space-y-4">
-                  <StatRow label="Level" value={course.level} />
+                  <StatRow label="Estimated Effort" value="Self-Paced" />
 
-                  <StatRow label="Estimated Effort" value={course.effort} />
+                  <StatRow label="Language" value="English" />
 
-                  <StatRow label="Language" value={course.language} />
+                  <StatRow label="Course Rating" value="4.8" />
 
-                  <StatRow label="Course Rating" value={course.rating} />
-
-                  <StatRow label="Price" value={`₹${course.price}`} />
+                  <StatRow
+                    label="Price"
+                    value={`₹${course.tabData.Courseware.price}`}
+                  />
                 </div>
               </div>
             </div>
@@ -121,26 +217,14 @@ const CourseDetails = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <InfoCard
-            icon={<Clock3 size={24} />}
-            title={course.effort}
-            subtitle="Estimated Effort"
-          />
-
-          <InfoCard
             icon={<BadgeCheck size={24} />}
             title="Certificate"
             subtitle="Certificate Offered"
           />
 
           <InfoCard
-            icon={<BarChart3 size={24} />}
-            title={course.level}
-            subtitle="Level"
-          />
-
-          <InfoCard
             icon={<Globe size={24} />}
-            title={course.language}
+            title="English"
             subtitle="Language"
           />
         </div>
@@ -151,12 +235,12 @@ const CourseDetails = () => {
         <h2 className="text-3xl font-bold mb-6">Skills You Will Learn</h2>
 
         <div className="flex flex-wrap gap-4">
-          {course.skills.map((skill) => (
+          {course.highlights.map((item) => (
             <div
-              key={skill}
+              key={item}
               className="px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-gray-200"
             >
-              {skill}
+              {item}
             </div>
           ))}
         </div>
@@ -167,18 +251,21 @@ const CourseDetails = () => {
         <h2 className="text-3xl font-bold mb-6">At a Glance</h2>
 
         <div className="space-y-6 text-gray-300 leading-8 text-lg">
-          {course.overview.map((item, index) => (
+          {course.highlights.map((item, index) => (
             <p key={index}>{item}</p>
           ))}
         </div>
       </section>
 
       {/* COURSE MODULES */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-12">
+      <section
+        ref={syllabusRef}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-12"
+      >
         <h2 className="text-3xl font-bold mb-8">Course Syllabus</h2>
 
         <div className="space-y-5">
-          {course.modules.map((module, index) => (
+          {course.curriculum.map((module, index) => (
             <div
               key={index}
               className="rounded-2xl border border-white/10 bg-white/5 p-6"
@@ -187,11 +274,13 @@ const CourseDetails = () => {
                 <CheckCircle className="text-blue-400 mt-1" size={22} />
 
                 <div>
-                  <h3 className="text-xl font-semibold">
-                    Module {index + 1}: {module.title}
-                  </h3>
+                  <h3 className="text-xl font-semibold">{module.question}</h3>
 
-                  <p className="text-gray-400 mt-2">{module.description}</p>
+                  <ul className="mt-3 space-y-2 text-gray-400">
+                    {module.answers.map((answer, i) => (
+                      <li key={i}>• {answer}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
@@ -209,9 +298,9 @@ const CourseDetails = () => {
             industry-recognized certificate from IBM Skills Network.
           </p>
 
-          {course.certificateImage ? (
+          {course.certificate.certificateImg ? (
             <img
-              src="https://etrain.blr1.cdn.digitaloceanspaces.com/dstibm/IBMsample.png"
+              src={course.certificate.certificateImg}
               alt="IBM Certificate"
               className="w-full max-w-4xl mx-auto rounded-2xl border border-white/10 shadow-2xl"
             />
@@ -228,26 +317,32 @@ const CourseDetails = () => {
         <h2 className="text-3xl font-bold mb-8">Instructor</h2>
 
         <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-          <h3 className="text-2xl font-semibold">{course.instructor.name}</h3>
+          <h3 className="text-2xl font-semibold">IBMCE Faculty Team</h3>
 
-          <p className="text-blue-300 mt-2">{course.instructor.designation}</p>
-
-          <p className="text-gray-300 mt-4 leading-8">
-            {course.instructor.description}
-          </p>
+          <p className="text-blue-300 mt-2">IBM Experts</p>
         </div>
       </section>
 
       {/* CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16">
         <div className="rounded-[32px] bg-gradient-to-r from-blue-600 to-purple-600 p-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">{course.ctaTitle}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            {course.tabData.Courseware.title}
+          </h2>
 
-          <p className="mt-4 text-lg text-white/90">{course.ctaDescription}</p>
+          <p className="mt-4 text-lg text-white/90">
+            {course.tabData.Courseware.subtitle}
+          </p>
 
-          <button className="mt-8 px-8 py-4 bg-white text-black rounded-2xl font-semibold">
-            Go To Class
-          </button>
+          <a
+            href="https://etrain.skillsnetwork.site/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="mt-8 px-8 py-4 bg-white text-black rounded-2xl font-semibold hover:bg-gray-100 transition-colors cursor-pointer">
+              Go To Class
+            </button>
+          </a>
         </div>
       </section>
 
