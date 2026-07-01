@@ -35,8 +35,8 @@ const HeroSection: React.FC = () => {
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-4 py-14 lg:flex-row lg:py-20">
         {/* Left content */}
         <div className="flex-1">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
-            World-class certifications &amp; training
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-lg font-medium text-emerald-700">
+            World-class training &amp; certifications
           </div>
 
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
@@ -70,7 +70,7 @@ const HeroSection: React.FC = () => {
             </div>
             <p className="text-xs text-slate-600 sm:text-sm">
               <span className="font-semibold text-slate-900">
-                15,000+ learners
+                10 lakh+ learners
               </span>{" "}
               certified across campuses &amp; corporates.
             </p>

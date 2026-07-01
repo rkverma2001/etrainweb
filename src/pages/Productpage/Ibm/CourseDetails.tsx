@@ -198,6 +198,9 @@ const CourseDetails = () => {
                 <div className="mt-8 space-y-4">
                   <StatRow label="Estimated Effort" value="Self-Paced" />
 
+                  <StatRow label="Includes" value="E-Courseware" />
+                  <StatRow label="" value=" + Assessments + Exam (Certification)" />
+
                   <StatRow label="Language" value="English" />
 
                   <StatRow label="Course Rating" value="4.8" />

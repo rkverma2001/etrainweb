@@ -15,21 +15,73 @@ const Ibm = () => {
 
   const courseData: Record<
     string,
-    { title: string; description: string; image: string; duration: string }[]
+    { title: string; description: string; image: string; duration: string; slug: string }[]
   > = {
     "exam-vouchers": [
       {
-        title: "Fundamentals of Building AI Agents",
-        description: "IBM AI Certification Course",
-        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/dstibm/images/coursesavailable/genaispecialist2.svg",
-        duration: "₹ 2,199",
+        title: "Python Programming",
+        description: "IBM Python Certification",
+        image:
+          "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/pythonprogramming.svg",
+        duration: "₹ 2,999",
+        slug: "/ibm/CEPYT1IN",  
       },
       {
-        title: "Introduction to Agentic AI",
-        description: "IBM AI Certification Course",
-        image: "/AppleImages/AppleExamVoucher2.svg",
-        duration: "₹ 2,199",
+        title: "Python for Data Science",
+        description: "IBM Data Science Certification",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/pythonfordatascience.svg",
+        duration: "₹ 2,999",
+        slug: "/ibm/PY0101EN",
       },
+      {
+        title: "Generative AI Essentials",
+        description: "IBM Gen AI Certification",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/genaiessentials.svg",
+        duration: "₹ 2,999",
+        slug: "/ibm/GENAI101",
+      },
+      {
+        title: "Data Analysis with Python",
+        description: "IBM Data Analysis Certification",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/dataanalysis.svg",
+        duration: "₹ 2,999",
+        slug: "/ibm/DA0101EN",
+      },
+      {
+        title: "Cybersecurity Fundamentals",
+        description: "IBM Cybersecurity Certification",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/cybersecurityfundamentals.svg",
+        duration: "₹ 2,999",
+        slug: "/ibm/SC0101EN",
+      },
+      {
+        title: "Internet of Things",
+        description: "IBM IoT Certification",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/internetofthings.svg",
+        duration: "₹ 2,999",
+        slug: "/ibm/IOT0101EN",
+      },
+      {
+        title: "Cloud Essentials",
+        description: "IBM Cloud Essentials",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/cloudessentials.svg",
+        duration: "₹ 2,999",
+        slug: "/ibm/CL0101EN",
+      },
+      {
+        title: "Blockchain Foundation",
+        description: "IBM Blockchain Foundation",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/blockchainfoundation.svg",
+        duration: "₹ 2,999",
+        slug: "/ibm/BC0101EN",
+      },
+      {
+        title: "AI Fundamentals",
+        description: "IBM AI Fundamentals",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/aifundamentals.svg",
+        duration: "₹ 2,999",
+        slug: "/ibm/AI0101EN",
+      }
     ],
 
     "practice-tests": [
@@ -38,12 +90,14 @@ const Ibm = () => {
         description: "Swift Certified User Practice Test Voucher",
         image: "/AppleImages/ApplePracticeTest1.svg",
         duration: "₹ 899",
+        slug: "/app-development-with-swift",
       },
       {
         title: "App Development with Swift",
         description: "Swift Associate Practice Test Voucher",
         image: "/AppleImages/ApplePracticeTest2.svg",
         duration: "₹ 899",
+        slug: "/app-development-with-swift",      
       },
     ],
 
@@ -53,12 +107,14 @@ const Ibm = () => {
         description: "Swift Certified User Self-Paced Learning Course Voucher",
         image: "/AppleImages/AppleLearning1.svg",
         duration: "Coming Soon",
+        slug: "/app-development-with-swift",
       },
       {
         title: "App Development with Swift",
         description: "Swift Associate Self-Paced Learning Course Voucher",
         image: "/AppleImages/AppleLearning2.svg",
         duration: "Coming Soon",
+        slug: "/app-development-with-swift",
       },
     ],
   };
@@ -74,165 +130,161 @@ const Ibm = () => {
     <div className="relative">
       <Navbar />
 
-      <div className="mt-20">
-        <div className="flex flex-col md:flex-row">
-          {/* Left Content Section */}
-          <div className="w-full md:w-1/2 p-6 md:p-10 bg-white overflow-y-auto">
-            <img
-              src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/IBM.svg"
-              className="mb-5 mt-[-34px] ml-[-20px] h-22"
-              alt="Adobe Category Logo"
-            />
-            <div className="mb-6 text-gray-700 text-justify leading-relaxed">
-              <span>
-                {" "}
-                The <span className="font-semibold">IBM Certification Program</span> empowers learners to validate
-                their expertise in emerging technologies such as Artificial
-                Intelligence, Data Science, Cloud Computing, Cybersecurity, and
-                more. Earning an IBM certification demonstrates
-                industry-relevant skills that are recognized and respected by
-                employers worldwide. These credentials showcase a learner’s
-                ability to apply advanced IBM tools and technologies to solve
-                real-world business challenges — a powerful advantage in today’s
-                digital economy.{" "}
-              </span>{" "}
-              <div className="mt-[15px]">
-                {" "}
-                EtrainIndia offers a complete preparation pathway for IBM
-                certifications, guiding learners from foundational concepts to
-                exam readiness. With expert-curated learning materials, hands-on
-                projects, practice assessments, and access to official
-                IBM-endorsed exams, EtrainIndia ensures that every student gains
-                the confidence and skills to excel in the rapidly evolving tech
-                industry.{" "}
+      <div className="max-w-7xl mx-auto pt-28">
+        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+            {/* Left Content Section */}
+            <div className="w-full md:w-1/2">
+              <img
+                src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/IBM.svg"
+                className="mb-4 sm:mb-5 h-12 sm:h-14 md:h-16 object-contain"
+                alt="IBM Logo"
+              />
+
+              <div className="text-gray-700 text-sm sm:text-base leading-relaxed text-justify">
+                <p>
+                  The{" "}
+                  <span className="font-semibold">
+                    IBM Certification Program
+                  </span>{" "}
+                  empowers learners to validate their expertise in emerging
+                  technologies such as Artificial Intelligence, Data Science,
+                  Cloud Computing, Cybersecurity, and more. Earning an IBM
+                  certification demonstrates industry-relevant skills that are
+                  recognized and respected by employers worldwide. These
+                  credentials showcase a learner’s ability to apply advanced IBM
+                  tools and technologies to solve real-world business
+                  challenges—a powerful advantage in today’s digital economy.
+                </p>
+
+                <p className="mt-3 sm:mt-4">
+                  EtrainIndia offers a complete preparation pathway for IBM
+                  certifications, guiding learners from foundational concepts to
+                  exam readiness. With expert-curated learning materials,
+                  hands-on projects, practice assessments, and access to
+                  official IBM-endorsed exams, EtrainIndia ensures that every
+                  student gains the confidence and skills to excel in the
+                  rapidly evolving tech industry.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Video Section */}
+            <div className="w-full md:w-1/2">
+              <div className="w-full aspect-video border-2 rounded-2xl overflow-hidden">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  src="https://etrain.blr1.cdn.digitaloceanspaces.com/videos/ibm_video.mp4"
+                />
               </div>
             </div>
           </div>
-
-          {/* Right Video Section */}
-          <div className="w-full md:w-1/2 overflow-hidden">
-            <video
-              className="w-full h-64 md:h-84 border-2 rounded-2xl object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              src="/videos/swift.mp4"
-            />
-          </div>
         </div>
       </div>
-      <div className="flex mt-10 items-center justify-center">
-        <div className="flex flex-col lg:flex-row w-full min-h-screen">
-          {/* Sidebar / Filters */}
-          <aside className="w-full lg:h-[530px] lg:w-1/5 bg-gray-100 p-4 border-b lg:border-b-0 lg:border-r">
-            <h2 className="text-lg lg:text-xl font-semibold mb-3 text-center lg:text-left">
-              Certification Course
-            </h2>
-            <ul className="flex lg:flex-col justify-center gap-3 lg:space-y-3 text-gray-800 flex-wrap">
-              {options.map((option) => (
-                <li key={option.value} className="flex items-center">
-                  <label className="flex items-center space-x-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={selected === option.value}
-                      onChange={() => setSelected(option.value)}
-                      className="form-checkbox text-blue-600"
-                    />
-                    <span className="text-sm lg:text-base">{option.label}</span>
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </aside>
+      
+      <div className="w-full mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12">
+  {/* Layout */}
+  <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
+    {/* Sidebar */}
+    <aside className="w-full lg:w-1/4">
+      <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 shadow-sm lg:sticky lg:top-24">
+        <h4 className="text-lg font-semibold mb-4 text-center lg:text-left">
+          Certification Course
+        </h4>
 
-          {/* Main Content */}
-          <main className="w-full lg:h-[530px] lg:w-4/5 p-4 sm:p-6 overflow-y-auto">
-            {selected === "exam-vouchers" && (
-              <> 
-                <p className="text-center text-2xl font-semibold mb-10">
-                  Official IBM Certification Course
-                </p>
-              </>
-            )}
-            {selected === "practice-tests" && (
-              <>
-                <h1 className="text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                  <img
-                    src="/CoursesCategories/CertPREPLogo.png"
-                    alt="CertPREP Logo"
-                    className="h-16 object-contain inline-block"
-                  />
-                </h1>
-                <p className="text-center text-lg mb-10">
-                  Practice Tests are designed to simulate the real exam
-                  environment, helping you gain confidence and improve your
-                  performance.
-                </p>
-              </>
-            )}
-            {selected === "self-paced-course" && (
-              <>
-                <h1 className="text-2xl text-center mb-3 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                  <img
-                    src="/CoursesCategories/msiLogo.svg"
-                    alt="CertPREP Logo"
-                    className="h-16 object-contain inline-block"
-                  />
-                </h1>
-                <p className="text-center text-lg mb-10">
-                  These self-paced courses offer comprehensive training through
-                  engaging content, quizzes, and assignments—delivered by
-                  certified industry experts.
-                </p>
-              </>
-            )}
-            <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-15">
-              {courseData[selected].map((course, index) => (
-                <CourseCard
-                  key={index}
-                  image={course.image} // ensure `course.image` is just the filename
-                  title={course.title}
-                  price={course.duration}
-                  description={course.description}
-                  slug=""
+        <ul className="flex flex-wrap justify-center lg:flex-col gap-3">
+          {options.map((option) => (
+            <li key={option.value}>
+              <label className="flex items-center space-x-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={selected === option.value}
+                  onChange={() => setSelected(option.value)}
+                  className="form-checkbox text-blue-600"
                 />
-              ))}
-            </div>
-          </main>
-        </div>
+                <span className="text-sm lg:text-base">
+                  {option.label}
+                </span>
+              </label>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div>
-        <div className="flex flex-col md:flex-row w-full h-auto md:h-[500px]">
-          {/* Left Section */}
-          <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-white">
-            <div className=" p-6 w-full max-w-lg h-fit">
-              <h2 className="text-4xl ml-1 font-semibold text-gray-800 mb-12">
-                Get Industry-Recognized Certifications & Digital Badge
-              </h2>
-              <ul className="space-y-4 text-gray-700 text-base">
-                {features.map((item, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <div className="w-6 h-6  rounded-full flex items-center justify-center mt-1 shrink-0">
-                      <CheckCircle2 className="text-green-600 w-4 h-4" />
-                    </div>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+    </aside>
 
-          {/* Right Section - Certificate Image */}
-          <div className="w-full md:w-1/2 flex items-center justify-center p-6">
-            <img
-              src="\CoursesCategories\AppleCertificate.png"
-              alt="Apple Certificate"
-              className="h-full w-[600px] object-contain max-h-[500px]  rounded-xl shadow-lg"
+    {/* Main Content */}
+    <main className="w-full lg:w-3/4 flex flex-col">
+      {/* Dynamic Heading */}
+      <div className="shrink-0">
+            <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center">
+              <img
+                src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/IBM.svg"
+                alt="IBM Logo"
+                className="h-10 sm:h-12 md:h-14 object-contain"
+              />
+            </h1>
+
+            <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
+              Official IBM Certification Courses designed to help learners
+              develop in-demand technical skills and earn globally recognized
+              credentials.
+            </p>
+      </div>
+
+      {/* Scrollable Grid */}
+      <div className="flex-1 lg:max-h-[70vh] overflow-y-auto pr-1 sm:pr-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+          {courseData[selected]?.map((course, index) => (
+            <CourseCard
+              key={index}
+              image={course.image}
+              title={course.title}
+              price={course.duration}
+              description={course.description}
+              slug={course.slug || ""}
             />
-          </div>
+          ))}
         </div>
       </div>
+    </main>
+  </div>
+</div>
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div className="flex flex-col md:flex-row items-center gap-10">
+    {/* Left Section */}
+    <div className="w-full md:w-1/2 flex justify-center">
+      <div className="w-full max-w-lg">
+        <h2 className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-8 leading-tight">
+          Get Industry-Recognized Certifications & Digital Badge
+        </h2>
+
+        <ul className="space-y-4 text-gray-700 text-base">
+          {features.map((item, index) => (
+            <li key={index} className="flex items-start gap-3">
+              <div className="w-6 h-6 flex items-center justify-center mt-1 shrink-0">
+                <CheckCircle2 className="w-5 h-5 text-green-600" />
+              </div>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    {/* Right Section */}
+    <div className="w-full md:w-1/2 flex justify-center">
+      <img
+        src="https://etrain.blr1.cdn.digitaloceanspaces.com/Ibm_Certificate/python_certificate.jpg"
+        alt="Apple Certificate"
+        className="w-full max-w-[600px] max-h-[500px] object-contain rounded-xl shadow-lg"
+      />
+    </div>
+  </div>
+</div>
       <div className="mt-24 mb-[-40px]">
         <Footer />
       </div>
