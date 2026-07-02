@@ -23,107 +23,103 @@ const Ibm = () => {
         description: "IBM Python Certification",
         image:
           "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/pythonprogramming.svg",
-        duration: "₹ 2,999",
+        duration: "2,999",
         slug: "/ibm/CEPYT1IN",  
       },
       {
         title: "Python for Data Science",
         description: "IBM Data Science Certification",
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/pythonfordatascience.svg",
-        duration: "₹ 2,999",
+        duration: "2,999",
         slug: "/ibm/PY0101EN",
       },
       {
         title: "Generative AI Essentials",
         description: "IBM Gen AI Certification",
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/genaiessentials.svg",
-        duration: "₹ 2,999",
+        duration: "2,999",
         slug: "/ibm/GENAI101",
       },
       {
         title: "Data Analysis with Python",
         description: "IBM Data Analysis Certification",
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/dataanalysis.svg",
-        duration: "₹ 2,999",
+        duration: "2,999",
         slug: "/ibm/DA0101EN",
       },
       {
         title: "Cybersecurity Fundamentals",
         description: "IBM Cybersecurity Certification",
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/cybersecurityfundamentals.svg",
-        duration: "₹ 2,999",
+        duration: "2,999",
         slug: "/ibm/SC0101EN",
       },
       {
         title: "Internet of Things",
         description: "IBM IoT Certification",
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/internetofthings.svg",
-        duration: "₹ 2,999",
+        duration: "2,999",
         slug: "/ibm/IOT0101EN",
       },
       {
         title: "Cloud Essentials",
         description: "IBM Cloud Essentials",
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/cloudessentials.svg",
-        duration: "₹ 2,999",
+        duration: "2,999",
         slug: "/ibm/CL0101EN",
       },
       {
         title: "Blockchain Foundation",
         description: "IBM Blockchain Foundation",
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/blockchainfoundation.svg",
-        duration: "₹ 2,999",
+        duration: "2,999",
         slug: "/ibm/BC0101EN",
       },
       {
         title: "AI Fundamentals",
         description: "IBM AI Fundamentals",
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/aifundamentals.svg",
-        duration: "₹ 2,999",
+        duration: "2,999",
         slug: "/ibm/AI0101EN",
-      }
+      },
+      {
+        title: "Machine Learning",
+        description: "IBM Machine Learning",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/machinelearning.svg",
+        duration: "2,999",
+        slug: "/ibm/ML0101EN",
+      },
+      {
+        title: "Machine Learning",
+        description: "IBM Machine Learning",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/machinelearning.svg",
+        duration: "2,999",
+        slug: "/ibm/ML0101EN",
+      },
+      {
+        title: "SQL and Relational DB 101",
+        description: "IBM SQL and Relational DB 101",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/sqlandrdbms.svg",
+        duration: "2,999",
+        slug: "/ibm/DB0101EN",
+      },
+      {
+        title: "Gen AI for Business",
+        description: "IBM Gen AI for Business",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/sqlandrdbms.svg",
+        duration: "2,999",
+        slug: "/ibm/GENAI201",
+      },
+
     ],
 
-    "practice-tests": [
-      {
-        title: "App Development with Swift",
-        description: "Swift Certified User Practice Test Voucher",
-        image: "/AppleImages/ApplePracticeTest1.svg",
-        duration: "₹ 899",
-        slug: "/app-development-with-swift",
-      },
-      {
-        title: "App Development with Swift",
-        description: "Swift Associate Practice Test Voucher",
-        image: "/AppleImages/ApplePracticeTest2.svg",
-        duration: "₹ 899",
-        slug: "/app-development-with-swift",      
-      },
-    ],
-
-    "self-paced-course": [
-      {
-        title: "App Development with Swift",
-        description: "Swift Certified User Self-Paced Learning Course Voucher",
-        image: "/AppleImages/AppleLearning1.svg",
-        duration: "Coming Soon",
-        slug: "/app-development-with-swift",
-      },
-      {
-        title: "App Development with Swift",
-        description: "Swift Associate Self-Paced Learning Course Voucher",
-        image: "/AppleImages/AppleLearning2.svg",
-        duration: "Coming Soon",
-        slug: "/app-development-with-swift",
-      },
-    ],
   };
 
   const features = [
     "Add them to your LinkedIn profile, resume, or CV to boost credibility.",
-    "Earn globally recognized certifications from Apple.",
-    "Receive official digital badges from Credly to showcase your skills online.",
+    "Earn globally recognized certifications from IBM.",
     "Enhance your career prospects during interviews, internships, or performance evaluations.",
+    "Gain hands-on, industry-aligned skills through IBM Certification courses powered by IBM Developer Skills Network.",
   ];
 
   return (
@@ -189,35 +185,9 @@ const Ibm = () => {
       <div className="w-full mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12">
   {/* Layout */}
   <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
-    {/* Sidebar */}
-    <aside className="w-full lg:w-1/4">
-      <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 shadow-sm lg:sticky lg:top-24">
-        <h4 className="text-lg font-semibold mb-4 text-center lg:text-left">
-          Certification Course
-        </h4>
-
-        <ul className="flex flex-wrap justify-center lg:flex-col gap-3">
-          {options.map((option) => (
-            <li key={option.value}>
-              <label className="flex items-center space-x-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={selected === option.value}
-                  onChange={() => setSelected(option.value)}
-                  className="form-checkbox text-blue-600"
-                />
-                <span className="text-sm lg:text-base">
-                  {option.label}
-                </span>
-              </label>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </aside>
 
     {/* Main Content */}
-    <main className="w-full lg:w-3/4 flex flex-col">
+    <main className="w-full flex flex-col">
       {/* Dynamic Heading */}
       <div className="shrink-0">
             <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center">
@@ -259,7 +229,7 @@ const Ibm = () => {
     <div className="w-full md:w-1/2 flex justify-center">
       <div className="w-full max-w-lg">
         <h2 className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-8 leading-tight">
-          Get Industry-Recognized Certifications & Digital Badge
+          Get Industry-Recognized Certifications from IBM
         </h2>
 
         <ul className="space-y-4 text-gray-700 text-base">
