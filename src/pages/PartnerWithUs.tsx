@@ -1,4 +1,5 @@
 import Footer from "@/components/footer/Footer";
+import api from "@/services/api";
 import React, { useState } from "react";
 
 // Partner With Us page for EtrainIndia
@@ -11,26 +12,68 @@ const PartnerWithUs: React.FC = () => {
     organisation: "",
     email: "",
     phone: "",
+    city: "",
+    state: "",
     message: "",
   });
   const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
-  function handleChange(e) {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setForm((s) => ({ ...s, [name]: value }));
-  }
+  };
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     setSubmitting(true);
-    setSuccess(false);
-    // Simulate API call
-    await new Promise((r) => setTimeout(r, 900));
-    setSubmitting(false);
-    setSuccess(true);
-    setForm({ name: "", organisation: "", email: "", phone: "", message: "" });
-  }
+    setSuccess("");
+    setError("");
+
+    try {
+      const { data } = await api.post("/partner", form);
+
+      if (data.success) {
+        setSuccess(
+          "Thank you for your enquiry. Our Partnership Team has successfully received your request. We will review your request and contact you within 24–48 hours.",
+        );
+
+        setForm({
+          name: "",
+          organisation: "",
+          email: "",
+          phone: "",
+          city: "",
+          state: "",
+          message: "",
+        });
+
+        setTimeout(() => {
+          setSuccess("");
+        }, 15000);
+      } else {
+        setError(data.message || "Unable to submit your request.");
+      }
+    } catch (err: any) {
+      console.error("Partner Enquiry Error:", err);
+
+      setError(
+        err.response?.data?.message ||
+          err.message ||
+          "Something went wrong. Please try again later.",
+      );
+
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
@@ -42,7 +85,7 @@ const PartnerWithUs: React.FC = () => {
               Partner with <span className="text-green-600">EtrainIndia</span>
             </h1>
             <p className="mt-6 text-lg text-slate-600 max-w-xl">
-              Grow together with India's leading certification & training
+              Grow together with India's leading training & certification
               marketplace — reach 200k+ learners, co-deliver certification
               pathways and scale your channel or institution with our support.
             </p>
@@ -53,9 +96,10 @@ const PartnerWithUs: React.FC = () => {
                   ✓
                 </div>
                 <div>
-                  <div className="font-semibold">Official Reseller</div>
+                  <div className="font-semibold">Reseller</div>
                   <div className="text-sm text-slate-500">
-                    Sell authorised certification vouchers and practice tests
+                    Sell authorised certification vouchers, practice tests and
+                    e-learning courses.
                   </div>
                 </div>
               </li>
@@ -67,7 +111,7 @@ const PartnerWithUs: React.FC = () => {
                 <div>
                   <div className="font-semibold">Co-branded Programs</div>
                   <div className="text-sm text-slate-500">
-                    Run joint campaigns and customized course bundles
+                    Run joint campaigns and customized course bundles.
                   </div>
                 </div>
               </li>
@@ -79,7 +123,7 @@ const PartnerWithUs: React.FC = () => {
                 <div>
                   <div className="font-semibold">Teaching & Proctoring</div>
                   <div className="text-sm text-slate-500">
-                    Access remote proctoring & practice test integration
+                    Access remote proctoring & practice test integration.
                   </div>
                 </div>
               </li>
@@ -89,9 +133,9 @@ const PartnerWithUs: React.FC = () => {
                   ✓
                 </div>
                 <div>
-                  <div className="font-semibold">Marketing Support</div>
+                  <div className="font-semibold">Technical Support</div>
                   <div className="text-sm text-slate-500">
-                    Shared marketing, lead-generation & distribution
+                    Online technical support offered during execution of exams.
                   </div>
                 </div>
               </li>
@@ -115,9 +159,13 @@ const PartnerWithUs: React.FC = () => {
 
           {/* Right hero — badge / mock */}
           <div className="flex items-center justify-center">
-            <div className="w-80 h-80 bg-gradient-to-br from-slate-100 to-white rounded-2xl shadow-lg flex items-center justify-center">
+            <div className="w-80 h-80 bg-gradient-to-br from-slate-100 to-white rounded-3xl shadow-lg flex items-center justify-center">
               <div className="text-center">
-                <img src="/Badges/Acrobat.svg" alt="Badge" className="h-120" />
+                <img
+                  src="https://etrain.blr1.cdn.digitaloceanspaces.com/partnershipimage.jpg"
+                  alt="Badge"
+                  className="h-80"
+                />
               </div>
             </div>
           </div>
@@ -138,15 +186,15 @@ const PartnerWithUs: React.FC = () => {
           {[
             {
               title: "List & Sell",
-              desc: "We list your certifications & vouchers on etrainIndia and handle checkout.",
+              desc: "You list our certifications & products on your portal.",
             },
             {
-              title: "Co-Marketing",
-              desc: "Joint campaigns, email blasts, and organic promotion across our channels.",
+              title: "Marketing",
+              desc: "You will be allowed to use official marketing resources and product logos.",
             },
             {
               title: "Support",
-              desc: "Technical, proctoring and fulfilment support to ensure smooth delivery.",
+              desc: "We offer technical, marketing, proctoring and fulfilment support to ensure smooth delivery.",
             },
           ].map((b) => (
             <div
@@ -219,11 +267,36 @@ const PartnerWithUs: React.FC = () => {
                     value={form.phone}
                     onChange={handleChange}
                     className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
-                    placeholder="+91 98xxxx"
+                    placeholder="+91 xxxxxx"
                   />
                 </label>
               </div>
 
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <label className="block">
+                  <span className="text-sm text-slate-600">City</span>
+                  <input
+                    required
+                    name="city"
+                    value={form.city}
+                    onChange={handleChange}
+                    className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
+                    placeholder="City"
+                  />
+                </label>
+
+                <label className="block">
+                  <span className="text-sm text-slate-600">State</span>
+                  <input
+                    required
+                    name="state"
+                    value={form.state}
+                    onChange={handleChange}
+                    className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
+                    placeholder="State"
+                  />
+                </label>
+              </div>
               <label className="block">
                 <span className="text-sm text-slate-600">
                   Message / Requirements
@@ -240,18 +313,28 @@ const PartnerWithUs: React.FC = () => {
 
               <div className="flex items-center gap-4">
                 <button
-                  type="submit"
-                  disabled={submitting}
-                  className="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-lg shadow hover:bg-green-700 disabled:opacity-60"
-                >
-                  {submitting ? "Sending..." : "Request partnership"}
-                </button>
+  type="submit"
+  disabled={submitting}
+  className="inline-flex items-center justify-center rounded-lg bg-green-600 px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer"
+>
+  {submitting ? "Sending Request..." : "Request Partnership"}
+</button>
 
-                {success && (
-                  <div className="text-green-600 font-medium">
-                    Request sent. We'll contact you soon.
-                  </div>
-                )}
+                <div className="space-y-3">
+                  {success && (
+                    <div className="rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
+                      <strong>Thank you!</strong>
+                      <br />
+                      {success}
+                    </div>
+                  )}
+
+                  {error && (
+                    <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                      <strong>Error:</strong> {error}
+                    </div>
+                  )}
+                </div>
               </div>
             </form>
 
@@ -261,7 +344,7 @@ const PartnerWithUs: React.FC = () => {
                 href="mailto:partners@etrainindia.com"
                 className="text-green-600 underline"
               >
-                info@etrainindia.com
+                sales@etrainindia.com
               </a>
             </div>
           </div>
