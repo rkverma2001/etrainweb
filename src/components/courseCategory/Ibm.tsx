@@ -90,13 +90,6 @@ const Ibm = () => {
         slug: "/ibm/ML0101EN",
       },
       {
-        title: "Machine Learning",
-        description: "IBM Machine Learning",
-        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/machinelearning.svg",
-        duration: "2,999",
-        slug: "/ibm/ML0101EN",
-      },
-      {
         title: "SQL and Relational DB 101",
         description: "IBM SQL and Relational DB 101",
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/sqlandrdbms.svg",
@@ -382,7 +375,7 @@ const Ibm = () => {
             <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
               Official IBM Certification Courses designed to help learners
               develop in-demand technical skills and earn globally recognized
-              credentials.
+              credentials. <br/> The course includes a self-paced course, assessments, MCQ's and a certification exam.
             </p>
       </div>
 
