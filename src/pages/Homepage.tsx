@@ -10,28 +10,28 @@ const Homepage = () => {
   const testimonialData = [
     {
       message:
-        "Excited to announce my graduation 🎓 from the UX Career Acceleration Program by EtrainIndia under the mentorship of Anudeep Ayyagari (UX Anudeep). It's been an enriching journey exploring UX concepts, design tools 🎨, and the realm of product design. Collaborating with talented peers, we've delved into crafting ...",
+        "Completing my certification through EtrainIndia was a seamless experience. The learning resources, support team, and certification process were excellent. The credential has strengthened my resume and boosted my confidence during job interviews ...",
       name: "Abhishika K.N",
       role: "Engineer - 2 - Version",
       image: "https://i.ibb.co/jJmYtTp/1.jpg",
     },
     {
       message:
-        "Excited to announce my graduation 🎓 from the UX Career Acceleration Program by GrowthSchool under the mentorship of Anudeep Ayyagari (UX Anudeep). It's been an enriching journey exploring UX concepts, design tools 🎨, and the realm of product design. Collaborating with talented peers, we've delved into crafting ...",
+        "EtrainIndia's industry-aligned training and certification helped me gain practical skills that employers value. The hands-on learning and globally recognized certification made a real difference in my career journey ...",
       name: "Rahul Sharma",
       role: "UI/UX Designer - TechCorp",
       image: "https://i.ibb.co/jJmYtTp/1.jpg",
     },
     {
       message:
-        "Excited to announce my graduation 🎓 from the UX Career Acceleration Program by GrowthSchool under the mentorship of Anudeep Ayyagari (UX Anudeep). It's been an enriching journey exploring UX concepts, design tools 🎨, and the realm of product design. Collaborating with talented peers, we've delved into crafting ...",
+        "The certification process was smooth, and the course content was highly relevant to current industry requirements. Thanks to EtrainIndia, I was able to upskill and secure a better career opportunity ...",
       name: "Ritesh Kumar Verma",
       role: "Software Engineer - TechCorp",
       image: "https://i.ibb.co/jJmYtTp/1.jpg",
     },
     {
       message:
-        "Excited to announce my graduation 🎓 from the UX Career Acceleration Program by GrowthSchool under the mentorship of Anudeep Ayyagari (UX Anudeep). It's been an enriching journey exploring UX concepts, design tools 🎨, and the realm of product design. Collaborating with talented peers, we've delved into crafting ...",
+        "I highly recommend EtrainIndia to anyone looking to build in-demand skills. The training was practical, the support team was responsive, and earning an industry-recognized certification gave me a competitive advantage. ...",
       name: "Ritesh Verma",
       role: "Software Developer - TechCorp",
       image: "https://i.ibb.co/jJmYtTp/1.jpg",

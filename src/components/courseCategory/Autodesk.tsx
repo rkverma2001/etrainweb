@@ -22,44 +22,42 @@ const Autodesk = () => {
     { label: "E-Learning Course", value: "self-paced-course" },
   ];
 
-  const courseData: Record<
-    string, Course[]
-  > = {
-    "bundle": [
+  const courseData: Record<string, Course[]> = {
+    bundle: [
       {
         title: "Autodesk Certified User",
         description: "Autodesk AutoCAD Bundle",
         image: "1.svg",
         duration: "₹ 3,849",
-        slug: "/AUTODESK-AUTOCAD-101"
+        slug: "/AUTODESK-AUTOCAD-101",
       },
       {
         title: "Autodesk Certified User",
         description: "Autodesk Inventor Bundle",
         image: "2.svg",
         duration: "₹ 3,849",
-        slug: "/AUTODESK-INVENTOR-102"
+        slug: "/AUTODESK-INVENTOR-102",
       },
       {
         title: "Autodesk Certified User",
         description: "Autodesk Fusion Bundle",
         image: "3.svg",
         duration: "₹ 3,849",
-        slug: "/AUTODESK-FUSION-103"
+        slug: "/AUTODESK-FUSION-103",
       },
       {
         title: "Autodesk Certified User",
         description: "Autodesk 3ds Bundle",
         image: "6.svg",
         duration: "₹ 3,849",
-        slug: "/AUTODESK-3DSMAX-104"
+        slug: "/AUTODESK-3DSMAX-104",
       },
       {
         title: "Autodesk Certified User",
         description: "Autodesk Maya Bundle",
         image: "5.svg",
         duration: "₹ 3,849",
-        slug: "/AUTODESK-MAYA-105"
+        slug: "/AUTODESK-MAYA-105",
       },
 
       {
@@ -67,7 +65,7 @@ const Autodesk = () => {
         description: "Autodesk Revit Bundle",
         image: "4.svg",
         duration: "₹ 3,849",
-        slug: "/AUTODESK-REVIT-106"
+        slug: "/AUTODESK-REVIT-106",
       },
     ],
     "exam-vouchers": [
@@ -286,125 +284,129 @@ const Autodesk = () => {
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12">
-      {/* Layout */}
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
-        {/* Sidebar */}
-        <aside className="w-full lg:w-1/4">
-          <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 shadow-sm lg:sticky lg:top-24">
-            <h4 className="text-lg font-semibold mb-4 text-center lg:text-left">
-              Product Type
-            </h4>
+        {/* Layout */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
+          {/* Sidebar */}
+          <aside className="w-full lg:w-1/4">
+            <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 shadow-sm lg:sticky lg:top-24">
+              <h4 className="text-lg font-semibold mb-4 text-center lg:text-left">
+                Product Type
+              </h4>
 
-            <ul className="flex flex-wrap justify-center lg:flex-col gap-3">
-              {options.map((option) => (
-                <li key={option.value}>
-                  <label className="flex items-center space-x-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={selected === option.value}
-                      onChange={() => setSelected(option.value)}
-                      className="form-checkbox text-blue-600"
-                    />
-                    <span className="text-sm lg:text-base">{option.label}</span>
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
-
-        {/* Main Content */}
-        <main className="w-full lg:w-3/4 flex flex-col">
-          {/* Dynamic Heading */}
-          <div className="shrink-0">
-            {selected === "bundle" && (
-              <>
-                <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                  <img
-                    src="https://etrain.blr1.cdn.digitaloceanspaces.com/ACULogo.svg"
-                    alt="Autodesk Logo"
-                    className="h-10 sm:h-12 md:h-14 object-contain"
-                  />
-                </h1>
-                <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-                  Get the complete certification package—exam voucher, practice tests, and learning resources—designed for success at the best value.
-                </p>
-              </>
-            )}
-
-            {selected === "exam-vouchers" && (
-              <>
-                <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                  <img
-                    src="https://etrain.blr1.cdn.digitaloceanspaces.com/ACULogo.svg"
-                    alt="Logo"
-                    className="h-10 sm:h-12 md:h-14 object-contain"
-                  />
-                </h1>
-                <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-                  Official digital exam codes to take your Autodesk
-                  certification exam online with remote proctoring.
-                </p>
-              </>
-            )}
-
-            {selected === "practice-tests" && (
-              <>
-                <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                  <img
-                    src="https://etrain.blr1.cdn.digitaloceanspaces.com/certpreplogo.svg"
-                    alt="CertPREP Logo"
-                    className="h-12 sm:h-14 md:h-16 object-contain"
-                  />
-                </h1>
-                <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-                  Practice Tests are designed to simulate the real exam
-                  environment, helping you gain confidence and improve your
-                  performance.
-                </p>
-              </>
-            )}
-
-            {selected === "self-paced-course" && (
-              <>
-                <h1 className="text-xl sm:text-2xl text-center mb-3 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                  <img
-                    src="https://etrain.blr1.cdn.digitaloceanspaces.com/lklogo.svg"
-                    alt="Logo"
-                    className="h-10 sm:h-12 object-contain"
-                  />
-                  <img
-                    src="https://etrain.blr1.cdn.digitaloceanspaces.com/BrainLogo.svg"
-                    alt="Brainbuffet Logo"
-                    className="h-18 object-contain inline-block"
-                  />
-                </h1>
-                <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-                  Self-paced courses with video learning, quizzes, and
-                  assignments.
-                </p>
-              </>
-            )}
-          </div>
-
-          {/* 🔥 Scrollable Grid */}
-          <div className="flex-1 lg:max-h-[70vh] overflow-y-auto pr-1 sm:pr-2">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
-              {courseData[selected]?.map((course, index) => (
-                <CourseCard
-                  key={index}
-                  image={`https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Autodesk/${course.image}`}
-                  title={course.title}
-                  price={course.duration}
-                  description={course.description}
-                  slug={course.slug || ""}
-                />
-              ))}
+              <ul className="flex flex-wrap justify-center lg:flex-col gap-3">
+                {options.map((option) => (
+                  <li key={option.value}>
+                    <label className="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={selected === option.value}
+                        onChange={() => setSelected(option.value)}
+                        className="form-checkbox text-blue-600"
+                      />
+                      <span className="text-sm lg:text-base">
+                        {option.label}
+                      </span>
+                    </label>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-        </main>
+          </aside>
+
+          {/* Main Content */}
+          <main className="w-full lg:w-3/4 flex flex-col">
+            {/* Dynamic Heading */}
+            <div className="shrink-0">
+              {selected === "bundle" && (
+                <>
+                  <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
+                    <img
+                      src="https://etrain.blr1.cdn.digitaloceanspaces.com/ACULogo.svg"
+                      alt="Autodesk Logo"
+                      className="h-10 sm:h-12 md:h-14 object-contain"
+                    />
+                  </h1>
+                  <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
+                    Get the complete certification package—exam voucher,
+                    practice tests, and learning resources—designed for success
+                    at the best value.
+                  </p>
+                </>
+              )}
+
+              {selected === "exam-vouchers" && (
+                <>
+                  <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
+                    <img
+                      src="https://etrain.blr1.cdn.digitaloceanspaces.com/ACULogo.svg"
+                      alt="Logo"
+                      className="h-10 sm:h-12 md:h-14 object-contain"
+                    />
+                  </h1>
+                  <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
+                    Official digital exam codes to take your Autodesk
+                    certification exam online with remote proctoring.
+                  </p>
+                </>
+              )}
+
+              {selected === "practice-tests" && (
+                <>
+                  <h1 className="text-xl sm:text-2xl text-center mb-2 font-semibold flex items-center justify-center gap-2 flex-wrap">
+                    <img
+                      src="https://etrain.blr1.cdn.digitaloceanspaces.com/certpreplogo.svg"
+                      alt="CertPREP Logo"
+                      className="h-12 sm:h-14 md:h-16 object-contain"
+                    />
+                  </h1>
+                  <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
+                    Practice Tests are designed to simulate the real exam
+                    environment, helping you gain confidence and improve your
+                    performance.
+                  </p>
+                </>
+              )}
+
+              {selected === "self-paced-course" && (
+                <>
+                  <h1 className="text-xl sm:text-2xl text-center mb-3 font-semibold flex items-center justify-center gap-2 flex-wrap">
+                    <img
+                      src="https://etrain.blr1.cdn.digitaloceanspaces.com/lklogo.svg"
+                      alt="Logo"
+                      className="h-10 sm:h-12 object-contain"
+                    />
+                    <img
+                      src="https://etrain.blr1.cdn.digitaloceanspaces.com/BrainLogo.svg"
+                      alt="Brainbuffet Logo"
+                      className="h-18 object-contain inline-block"
+                    />
+                  </h1>
+                  <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
+                    Self-paced courses with video learning, quizzes, and
+                    assignments.
+                  </p>
+                </>
+              )}
+            </div>
+
+            {/* 🔥 Scrollable Grid */}
+            <div className="flex-1 lg:max-h-[70vh] overflow-y-auto pr-1 sm:pr-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+                {courseData[selected]?.map((course, index) => (
+                  <CourseCard
+                    key={index}
+                    image={`https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Autodesk/${course.image}`}
+                    title={course.title}
+                    price={course.duration}
+                    description={course.description}
+                    slug={course.slug || ""}
+                  />
+                ))}
+              </div>
+            </div>
+          </main>
+        </div>
       </div>
-    </div>
       <div>
         <div className="flex flex-col md:flex-row w-full h-auto md:h-[500px]">
           {/* Left Section */}
