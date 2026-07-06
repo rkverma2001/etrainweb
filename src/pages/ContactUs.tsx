@@ -1,5 +1,7 @@
 import Footer from "@/components/footer/Footer";
+import api from "@/services/api";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ContactUs: React.FC = () => {
   const [form, setForm] = useState({
@@ -12,35 +14,39 @@ const ContactUs: React.FC = () => {
   const [success, setSuccess] = useState<string | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setForm((s) => ({ ...s, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-    setSuccess(null);
-    try {
-      // replace with your real endpoint
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      setSuccess("Message sent — our team will contact you soon.");
-      setForm({ name: "", email: "", phone: "", message: "" });
-    } catch (err) {
-      console.error(err);
-      setSuccess(
-        "Failed to send message. Please try email support@etrainindia.com"
-      );
-    } finally {
-      setSending(false);
-    }
-  };
+  e.preventDefault();
 
+  setSending(true);
+  setSuccess(null);
+
+  try {
+    const { data } = await api.post("/contact", form);
+
+    setSuccess(data.message);
+
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+  } catch (error: any) {
+    setSuccess(
+      error.response?.data?.message ||
+      error.message ||
+      "Something went wrong."
+    );
+  } finally {
+    setSending(false);
+  }
+};
 
   return (
     <div className="min-h-screen mt-18 text-slate-800">
@@ -55,7 +61,7 @@ const ContactUs: React.FC = () => {
             </p>
 
             <div className="bg-white rounded-2xl p-6 shadow-sm border">
-              <div className="font-semibold">Headquarters</div>
+              <div className="font-semibold">Head Office</div>
               <address className="not-italic mt-2 text-sm text-slate-600">
                 Etrain Education Private Limited
                 <br />
@@ -120,13 +126,20 @@ const ContactUs: React.FC = () => {
               <div className="font-semibold mb-2">Quick links</div>
               <ul className="space-y-2 text-slate-600">
                 <li>
-                  <a className="hover:text-green-600">Programs</a>
+                  <Link
+                    to="/"
+                    className="hover:text-green-600 transition-colors cursor-pointer"
+                  >
+                    Programs
+                  </Link>
                 </li>
                 <li>
-                  <a className="hover:text-green-600">Partner with us</a>
-                </li>
-                <li>
-                  <a className="hover:text-green-600">Support center</a>
+                  <Link
+                    to="/partnerwithus"
+                    className="hover:text-green-600 transition-colors cursor-pointer"
+                  >
+                    Partner with us
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -165,7 +178,8 @@ const ContactUs: React.FC = () => {
                   name="phone"
                   value={form.phone}
                   onChange={handleChange}
-                  placeholder="Phone (optional)"
+                  required
+                  placeholder="Phone"
                   className="col-span-1 md:col-span-1 rounded-md border-gray-200 shadow-sm px-4 py-3"
                 />
                 <textarea
@@ -182,7 +196,7 @@ const ContactUs: React.FC = () => {
                   <button
                     type="submit"
                     disabled={sending}
-                    className="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-lg shadow hover:bg-green-700 disabled:opacity-60"
+                    className="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-lg shadow hover:bg-green-700 disabled:opacity-60 cursor-pointer"
                   >
                     {sending ? "Sending..." : "Send message"}
                   </button>
@@ -229,7 +243,7 @@ const ContactUs: React.FC = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
