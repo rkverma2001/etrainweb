@@ -27,6 +27,10 @@ const courseData = [
     categorySlug: "/mcp",
     courses: [
       { name: "Power BI (PL-300)", slug: "/rolebased/MCP-POWERBI-101" },
+      {name: "Azure Administrator (AZ-104)", slug: "/rolebased/MCP-AZUREADMINISTRATOR-102" },
+      {name: "AI Apps & Agents on Azure (AI-103)", slug: "/rolebased/MCP-AIAPP-103" },
+      {name: "Cybersecurity Architect (SC-100)", slug: "/rolebased/MCP-CYBERSECURITYARCHITECT-104" },
+      {name: "Azure Database Administrator (DP-300)", slug: "/rolebased/MCP-AZUREDBADMINISTRATOR-105" },
     ],
   },
   {
@@ -34,6 +38,15 @@ const courseData = [
     categorySlug: "/META-DIGITALMARKETING-101",
     courses: [
       { name: "Digital Marketing Associate", slug: "/META-DIGITALMARKETING-101" },
+    ],
+  },
+  {
+    categoryName: "Cisco",
+    categorySlug: "/cisco",
+    courses: [
+      { name: "CCST Cybersecurity", slug: "/CISCO-CYBERSECURITY-101" },
+      { name: "CCST Networking", slug: "/CISCO-NETWORKING-102" },
+      { name: "CCST IT Support", slug: "/CISCO-ITSUPPORT-103" },
     ],
   },
   {
@@ -69,15 +82,6 @@ const courseData = [
     courses: [
       { name: "Swift Certified User", slug: "/APPLE-SWIFT-CERTIFIED-101" },
       { name: "Swift Associate User", slug: "/APPLE-SWIFT-ASSOCIATE-102" }
-    ],
-  },
-  {
-    categoryName: "Cisco",
-    categorySlug: "/cisco",
-    courses: [
-      { name: "CCST Cybersecurity", slug: "/CISCO-CYBERSECURITY-101" },
-      { name: "CCST Networking", slug: "/CISCO-NETWORKING-102" },
-      { name: "CCST IT Support", slug: "/CISCO-ITSUPPORT-103" },
     ],
   },
   {
