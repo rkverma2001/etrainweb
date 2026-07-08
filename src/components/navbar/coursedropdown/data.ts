@@ -1,5 +1,42 @@
 const courseData = [
   {
+    categoryName: "Microsoft Certified Fundamentals",
+    categorySlug: "/mcf",
+    courses: [
+      { name: "Azure Fundamentals (AZ-900)", slug: "/MCF-AZUREFUNDAMENTALS-101" },
+      { name: "365 Fundamentals (MS-900)", slug: "/MCF-365FUNDAMENTALS-102" },
+      { name: "Azure AI Fundamentals (AI-901)", slug: "/MCF-AZUREAIFUNDAMENTALS-103" },
+      { name: "Azure Data Fundamentals (DP-900)", slug: "/MCF-AZUREDATAFUNDAMENTALS-104" },
+      { name: "Power Platform Fundamentals (PL-900)", slug: "/MCF-POWERPLATFORMFUNDAMENTALS-105" },
+      { name: "Security Compliance (SC-900)", slug: "/MCF-SECURITYCOMPLIANCE-108" },
+    ],
+  },
+  {
+    categoryName: "Microsoft Office Specialist",
+    categorySlug: "/mos",
+    courses: [
+      { name: "Excel Expert", slug: "/MOS-EXCELEXPERT-101" },
+      { name: "Word Expert", slug: "/MOS-WORDEXPERT-102" },
+      { name: "PowerPoint Associate", slug: "/MOS-POWERPOINT-103" },
+      { name: "Excel Associate", slug: "/MOS-EXCEL-104" },
+      { name: "Word Associate", slug: "/MOS-WORD-105" }
+    ],
+  },
+  {
+    categoryName: "Microsoft Certified Professional - Role Based",
+    categorySlug: "/mcp",
+    courses: [
+      { name: "Power BI (PL-300)", slug: "/rolebased/MCP-POWERBI-101" },
+    ],
+  },
+  {
+    categoryName: "Meta",
+    categorySlug: "/META-DIGITALMARKETING-101",
+    courses: [
+      { name: "Digital Marketing Associate", slug: "/META-DIGITALMARKETING-101" },
+    ],
+  },
+  {
     categoryName: "Adobe",
     categorySlug: "/adobe",
     courses: [
@@ -91,31 +128,6 @@ const courseData = [
       { name: "Bookkeeping Professional", slug: "/INTUIT-BOOKKEEPING-102" },
       { name: "Personal Finance", slug: "/INTUIT-PERSONALFINANCE-103" },
       { name: "Design Delight", slug: "/INTUIT-DESIGNDELIGHT-104" }
-    ],
-  },
-  {
-    categoryName: "Microsoft Certified Fundamentals",
-    categorySlug: "/mcf",
-    courses: [
-      { name: "Azure Fundamentals (AZ-900)", slug: "/MCF-AZUREFUNDAMENTALS-101" },
-      { name: "365 Fundamentals (MS-900)", slug: "/MCF-365FUNDAMENTALS-102" },
-      { name: "Azure AI Fundamentals (AI-900)", slug: "/MCF-AZUREAIFUNDAMENTALS-103" },
-      { name: "Azure Data Fundamentals (DP-900)", slug: "/MCF-AZUREDATAFUNDAMENTALS-104" },
-      { name: "Power Platform Fundamentals (PL-900)", slug: "/MCF-POWERPLATFORMFUNDAMENTALS-105" },
-      { name: "Dynamics 365 Fundamentals CRM (MB-910)", slug: "/MCF-DYNAMICS365FUNDAMENTALSCRM-106" },
-      { name: "Dynamics 365 Fundamentals ERP (MB-920)", slug: "/MCF-DYNAMICS365FUNDAMENTALSERP-107" },
-      { name: "Security Compliance (SC-900)", slug: "/MCF-SECURITYCOMPLIANCE-108" },
-    ],
-  },
-  {
-    categoryName: "Microsoft Office Specialist",
-    categorySlug: "/mos",
-    courses: [
-      { name: "Excel Expert", slug: "/MOS-EXCELEXPERT-101" },
-      { name: "Word Expert", slug: "/MOS-WORDEXPERT-102" },
-      { name: "PowerPoint Associate", slug: "/MOS-POWERPOINT-103" },
-      { name: "Excel Associate", slug: "/MOS-EXCEL-104" },
-      { name: "Word Associate", slug: "/MOS-WORD-105" }
     ],
   },
   {

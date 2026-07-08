@@ -11,11 +11,11 @@ const Footer: React.FC = () => {
         
         {/* LOGO */}
         <div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 bg-white rounded-xl p-4">
             <img
               src="https://etrain.blr1.cdn.digitaloceanspaces.com/logo.webp"  // Change if path differs
               alt="EtrainIndia Logo"
-              className="h-16 object-contain"
+              className="h-12 object-contain"
             />
           </div>
 

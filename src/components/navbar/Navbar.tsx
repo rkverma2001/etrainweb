@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
           <img
             src="https://etrain.blr1.cdn.digitaloceanspaces.com/logo.gif"
             alt="EtrainIndia"
-            className="h-10 sm:h-12 object-contain"
+            className="h-12 sm:h-14 object-contain"
           />
         </Link>
 

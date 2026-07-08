@@ -97,7 +97,7 @@ const CoursePage = () => {
   }, [courseId]);
 
   const tabs =
-  course?.courseCode === "MCE-CERTIFIEDEDUCATOR-101"
+  course?.courseCode === "MCE-CERTIFIEDEDUCATOR-101" || course?.courseCode === "APPLE-SWIFT-CERTIFIED-101" || course?.courseCode === "APPLE-SWIFT-ASSOCIATE-102"
     ? ["Bundle", "Exam Voucher", "Practice Test"]
     : ["Bundle", "Exam Voucher", "Practice Test", "Courseware"];
 
