@@ -291,7 +291,7 @@ const Navbar: React.FC = () => {
               onClick={() => setIsCoursesOpen(!isCoursesOpen)}
               className="w-full flex items-center justify-between text-base font-medium"
             >
-              <span>Courses</span>
+              <span>Courses | Certifications</span>
 
               <svg
                 className={`w-4 h-4 transition-transform ${
