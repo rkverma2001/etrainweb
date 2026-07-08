@@ -10,6 +10,7 @@ import WhySection from "../Productpage/Abrocat/WhySection.tsx";
 import ExamVoucher from "../Productpage/ExamVoucher.tsx";
 import CertificateSection from "../Productpage/Abrocat/CertificateSection.tsx";
 import BannerSteps from "../Productpage/Abrocat/BannerSteps.tsx";
+import WhatsIncluded2 from "./WhatsIncluded2.tsx";
 
 type TabItem = {
   title: string;
@@ -86,7 +87,33 @@ const Rolebased = () => {
         syllabus={course.syllabus}
         coursewareLink={course.coursewareLink}
       />
-      <WhatsIncluded activeTab={"Exam Voucher"} />
+      {courseId === "AWS-CLOUD-PRACTITIONER-101" && (
+  <section className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
+    <div className="border border-gray-200 rounded-2xl p-8">
+      <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        About the AWS Certified Cloud Practitioner
+      </h2>
+
+      <p className="text-lg leading-8 text-gray-700">
+        The <span className="font-semibold">AWS Certified Cloud Practitioner</span> validates
+        foundational, high-level understanding of AWS Cloud, services, and
+        terminology.
+      </p>
+
+      <p className="mt-4 text-lg leading-8 text-gray-700">
+        This is an excellent starting point on the AWS Certification journey for
+        individuals with no prior IT or cloud experience who are switching to a
+        cloud career, as well as line-of-business employees seeking foundational
+        cloud literacy.
+      </p>
+    </div>
+  </section>
+)}
+      {courseId === "AWS-CLOUD-PRACTITIONER-101" ? (
+  <WhatsIncluded2 />
+) : (
+  <WhatsIncluded activeTab={"Exam Voucher"} />
+)}
       <div className="w-full relative">
         {/* TOP CURVE */}
         <div className="w-full relative mb-[-25px] mt-[10px]">

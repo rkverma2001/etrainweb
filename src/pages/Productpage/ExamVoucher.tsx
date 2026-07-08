@@ -164,9 +164,33 @@ const ExamVoucher = ({ highlights, videoSrc }: ExamVoucherProps) => {
                     />
                   </h2>
                 </div>
+                    {videoSrc === "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Aws/aws_video.mp4" ? 
+                    (<div className="space-y-6">
+                  <Faqs
+                    icon="https://etrain.blr1.cdn.digitaloceanspaces.com/Icon/faqicon1.svg"
+                    question="What exactly do I receive after purchase?"
+                    answer="An official AWS exam voucher code, delivered digitally via email in 24 hours."
+                  />
 
-                {/* FAQ LIST */}
-                <div className="space-y-6">
+                  <Faqs
+                    icon="https://etrain.blr1.cdn.digitaloceanspaces.com/Icon/faqicon2.svg"
+                    question="What is the exam format?"
+                    answer="65 questions (50 scored, 15 unscored), 90 minutes, multiple-choice and multiple-response. Scored on a scale of 100–1,000; passing score is 700."
+                  />
+
+                  <Faqs
+                    icon="https://etrain.blr1.cdn.digitaloceanspaces.com/Icon/faqicon3.svg"
+                    question="Are there any prerequisites?"
+                    answer="None formally required, though AWS recommends basic IT/cloud familiarity or completing AWS Cloud Practitioner Essentials."
+                  />
+
+                  <Faqs
+                    icon="https://etrain.blr1.cdn.digitaloceanspaces.com/Icon/faqicon4.svg"
+                    question="How long is the certification valid?"
+                    answer="3 years from the date you pass."
+                  />
+                </div>) : 
+                    (<div className="space-y-6">
                   <Faqs
                     icon="https://etrain.blr1.cdn.digitaloceanspaces.com/Icon/faqicon1.svg"
                     question="I have purchased the exam voucher. What's next?"
@@ -214,7 +238,7 @@ const ExamVoucher = ({ highlights, videoSrc }: ExamVoucherProps) => {
                     question="Can I reschedule or cancel my exam once booked?"
                     answer="Yes, you can — but you must inform us at least 24 hours in advance."
                   />
-                </div>
+                </div>)}
               </div>
             </div>
 

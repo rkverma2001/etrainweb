@@ -21,7 +21,7 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({link}) => {
       <GoDownload className="w-4 h-4 font-light" />
       <p className="font-extralight">
         
-        Exam Objectives
+        Exam Guide
         </p>
     </button>
   );
