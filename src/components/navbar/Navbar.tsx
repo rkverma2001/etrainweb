@@ -129,7 +129,7 @@ const Navbar: React.FC = () => {
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
           <button className="px-4 py-2 font-medium rounded-md border border-transparent hover:border-[#008641] hover:text-[#008641] transition duration-200">
-            Courses
+            Courses | Certifications
           </button>
           {isDropdownOpen && <DropdownWrapper />}
         </div>

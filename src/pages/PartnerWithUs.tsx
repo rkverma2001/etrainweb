@@ -355,16 +355,16 @@ const PartnerWithUs: React.FC = () => {
               <div className="text-xs text-slate-500">Trusted by</div>
               <div className="mt-4 grid grid-cols-2 gap-4">
                 <div className="p-4 bg-white rounded-md shadow-sm text-center">
-                  Adobe
-                </div>
-                <div className="p-4 bg-white rounded-md shadow-sm text-center">
-                  Certiport
-                </div>
-                <div className="p-4 bg-white rounded-md shadow-sm text-center">
-                  Cisco
+                  Certiport / Pearson
                 </div>
                 <div className="p-4 bg-white rounded-md shadow-sm text-center">
                   HCL
+                </div>
+                <div className="p-4 bg-white rounded-md shadow-sm text-center">
+                  IBM
+                </div>
+                <div className="p-4 bg-white rounded-md shadow-sm text-center">
+                  Tally
                 </div>
               </div>
             </div>

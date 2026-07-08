@@ -27,8 +27,8 @@ const AboutUs: React.FC = () => {
                 certification tests
               </li>
               <li>
-                Programs for Microsoft, IBM, Adobe, Autodesk, Cisco, Meta, Tally
-                and Apple
+                Programs from Microsoft, IBM, Adobe, Autodesk, Cisco, Meta, Tally,
+              Apple and more ...
               </li>
             </ul>
           </div>
@@ -53,51 +53,7 @@ const AboutUs: React.FC = () => {
             for internationally recognized skill trainings & certifications.
           </p>
 
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: "Microsoft Certifications",
-                desc: "Office Specialist, Fundamentals, role-based pathways",
-              },
-              {
-                title: "Adobe & Autodesk",
-                desc: "Creative & design certification programs",
-              },
-              {
-                title: "Networking & Security",
-                desc: "Cisco, industry-ready networking courses",
-              },
-              { title: "Emerging Tech", desc: "Meta, Apple-Swift, AI & more" },
-            ].map((p) => (
-              <div
-                key={p.title}
-                className="p-6 bg-gradient-to-br from-white to-green-50 rounded-2xl shadow-sm border"
-              >
-                <div className="font-semibold text-lg">{p.title}</div>
-                <div className="mt-2 text-slate-600">{p.desc}</div>
-                <div className="mt-4">
-                  <a className="text-green-600 text-sm font-medium">
-                    Learn more →
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PARTNERS */}
-      <section
-        id="partners"
-        className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 py-12"
-      >
-        <h2 className="text-2xl font-bold">Partner network</h2>
-        <p className="mt-2 text-slate-600 max-w-2xl">
-          We work with 600+ partners across India to deliver training and
-          certification at scale.
-        </p>
-
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
             "Adobe",
             "Certiport",
@@ -117,6 +73,20 @@ const AboutUs: React.FC = () => {
           ))}
         </div>
 
+        </div>
+      </section>
+
+      {/* PARTNERS */}
+      <section
+        id="partners"
+        className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 py-12"
+      >
+        <h2 className="text-2xl font-bold">Partner network</h2>
+        <p className="mt-2 text-slate-600 max-w-2xl">
+          We work with 600+ partners across India to deliver training and
+          certification at scale.
+        </p>
+
         <div className="mt-8 bg-green-50 rounded-lg p-6 flex flex-col sm:flex-row items-center justify-between">
           <div>
             <div className="text-3xl font-extrabold">
@@ -128,7 +98,7 @@ const AboutUs: React.FC = () => {
           </div>
           <div className="mt-4 sm:mt-0">
             <a
-              href="#contact"
+              href="/partnerwithus"
               className="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-lg"
             >
               Partner with us
@@ -191,7 +161,7 @@ const AboutUs: React.FC = () => {
 
     <p className="mt-3 sm:mt-4 text-gray-600 leading-relaxed max-w-xl md:max-w-2xl text-sm sm:text-base">
       "At EtrainIndia, our mission is to empower every learner with
-      quality, accessible, and industry-ready education. We are
+      quality, accessible, and industry-ready education. <br/> We are
       committed to building a future where technology bridges gaps and
       unlocks limitless opportunities for students across the world."
     </p>
@@ -218,7 +188,7 @@ const AboutUs: React.FC = () => {
           </div>
           <div>
             <a
-              href="/partner"
+              href="/partnerwithus"
               className="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-lg"
             >
               Become our partner
