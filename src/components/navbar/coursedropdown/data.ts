@@ -4,7 +4,7 @@ const courseData = [
     categorySlug: "/mcf",
     courses: [
       { name: "Azure Fundamentals (AZ-900)", slug: "/MCF-AZUREFUNDAMENTALS-101" },
-      { name: "365 Fundamentals (MS-900)", slug: "/MCF-365FUNDAMENTALS-102" },
+      { name: "Microsoft 365 Copilot and Agent Administration Fundamentals (AB-900)", slug: "/MCF-365AB-900-106" },
       { name: "Azure AI Fundamentals (AI-901)", slug: "/MCF-AZUREAIFUNDAMENTALS-103" },
       { name: "Azure Data Fundamentals (DP-900)", slug: "/MCF-AZUREDATAFUNDAMENTALS-104" },
       { name: "Power Platform Fundamentals (PL-900)", slug: "/MCF-POWERPLATFORMFUNDAMENTALS-105" },
