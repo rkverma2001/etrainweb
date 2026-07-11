@@ -68,21 +68,21 @@ const ItSpecialist = () => {
         title: "Information Technology Specialist",
         description: "Python Bundle",
         image: "/59.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-PYTHON-114"
       },
       {
         title: "Information Technology Specialist",
         description: "HTML and CSS Bundle",
         image: "/53.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-HTMLCSS-108"
       },
       {
         title: "Information Technology Specialist",
         description: "Databases Bundle",
         image: "/51.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-DATABASES-106"
       },
       
@@ -90,70 +90,70 @@ const ItSpecialist = () => {
         title: "Information Technology Specialist",
         description: "Data Analytics Bundle",
         image: "/50.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-DATAANALYTICS-105"
       },
       {
         title: "Information Technology Specialist",
         description: "Networking Bundle",
         image: "/57.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-NETWORKING-112"
       },
       {
         title: "Information Technology Specialist",
         description: "Java Bundle",
         image: "/55.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-JAVA-110"
       },
       {
         title: "Information Technology Specialist",
         description: "Cybersecurity Bundle",
         image: "/49.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-CYBERSECURITY-104"
       },
       {
         title: "Information Technology Specialist",
         description: "Javascript Bundle",
         image: "/56.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-JAVASCRIPT-111"
       },
       {
         title: "Information Technology Specialist",
         description: "Networking Security Bundle",
         image: "/58.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-NETWORKSECURITY-113"
       },
       {
         title: "Information Technology Specialist",
         description: "Software Development Bundle",
         image: "/60.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-SOFTWAREDEVELOPMENT-115"
       },
       {
         title: "Information Technology Specialist",
         description: "Artificial Intelligence Bundle",
         image: "/46.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-AI-101"
       },
       {
         title: "Information Technology Specialist",
         description: "Computational Thinking Bundle",
         image: "/48.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-COMPUTATIONALTHINKING-103"
       },
       {
         title: "Information Technology Specialist",
         description: "Cloud Computing Bundle",
         image: "/47.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-CLOUDCOMPUTING-102"
       },
       
@@ -161,14 +161,14 @@ const ItSpecialist = () => {
         title: "Information Technology Specialist",
         description: "Device Configuration and Management Bundle",
         image: "/52.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-DEVICECONFIG-107"
       },
       {
         title: "Information Technology Specialist",
         description: "HTML5 Application Development Bundle",
         image: "/54.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/ITS-HTML5-109"
       },
     ],
@@ -178,21 +178,21 @@ const ItSpecialist = () => {
         title: "Information Technology Specialist",
         description: "Python Exam Voucher",
         image: "/1.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-PYTHON-114?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "HTML and CSS Exam Voucher",
         image: "/2.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-HTMLCSS-108?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "Databases Exam Voucher",
         image: "/3.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-DATABASES-106?tab=exam-vouchers"
       },
       
@@ -200,70 +200,70 @@ const ItSpecialist = () => {
         title: "Information Technology Specialist",
         description: "Data Analytics Exam Voucher",
         image: "/10.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-DATAANALYTICS-105?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "Networking Exam Voucher",
         image: "/4.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-NETWORKING-112?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "Java Exam Voucher",
         image: "/5.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-JAVA-110?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "Cybersecurity Exam Voucher",
         image: "/6.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-CYBERSECURITY-104?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "Javascript Exam Voucher",
         image: "/7.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-JAVASCRIPT-111?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "Networking Security Exam Voucher",
         image: "/9.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-NETWORKSECURITY-113?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "Software Development Exam Voucher",
         image: "/11.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-SOFTWAREDEVELOPMENT-115?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "Artificial Intelligence Exam Voucher",
         image: "/12.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-AI-101?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "Computational Thinking Exam Voucher",
         image: "/14.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-COMPUTATIONALTHINKING-103?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "Cloud Computing Exam Voucher",
         image: "/15.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-CLOUDCOMPUTING-102?tab=exam-vouchers"
       },
       
@@ -271,14 +271,14 @@ const ItSpecialist = () => {
         title: "Information Technology Specialist",
         description: "Device Configuration and Management Exam Voucher",
         image: "/8.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-DEVICECONFIG-107?tab=exam-vouchers"
       },
       {
         title: "Information Technology Specialist",
         description: "HTML5 Application Development Exam Voucher",
         image: "/13.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/ITS-HTML5-109?tab=exam-vouchers"
       },
     ],
@@ -288,91 +288,91 @@ const ItSpecialist = () => {
         title: "Information Technology Specialist",
         description: "Python Practice Test Voucher",
         image: "/16.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-PYTHON-114?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "HTML and CSS Practice Test Voucher",
         image: "/17.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-HTMLCSS-108?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Databases Practice Test Voucher",
         image: "/18.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-DATABASES-106?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Networking Practice Test Voucher",
         image: "/19.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-NETWORKING-112?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Java Practice Test Voucher",
         image: "/20.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-JAVA-110?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Cybersecurity Practice Test Voucher",
         image: "/21.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-CYBERSECURITY-104?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Javascript Practice Test Voucher",
         image: "/22.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-JAVASCRIPT-111?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Networking Security Practice Test Voucher",
         image: "/24.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-NETWORKSECURITY-113?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Data Analytics Practice Test Voucher",
         image: "/25.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-DATAANALYTICS-105?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Software Development Practice Test Voucher",
         image: "/26.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-SOFTWAREDEVELOPMENT-115?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Artificial Intelligence Practice Test Voucher",
         image: "/27.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-AI-101?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Computational Thinking Practice Test Voucher",
         image: "/29.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-COMPUTATIONALTHINKING-103?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "Cloud Computing Practice Test Voucher",
         image: "/30.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-CLOUDCOMPUTING-102?tab=practice-tests"
       },
       
@@ -380,14 +380,14 @@ const ItSpecialist = () => {
         title: "Information Technology Specialist",
         description: "Device Configuration and Management Practice Test Voucher",
         image: "/23.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-DEVICECONFIG-107?tab=practice-tests"
       },
       {
         title: "Information Technology Specialist",
         description: "HTML5 Application Development Practice Test Voucher",
         image: "/28.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/ITS-HTML5-109?tab=practice-tests"
       },
     ],
@@ -397,91 +397,91 @@ const ItSpecialist = () => {
         title: "Information Technology Specialist",
         description: "Python Self-Paced Video Based Learning Course Voucher",
         image: "/31.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-PYTHON-114?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "HTML and CSS Self-Paced Video Based Learning Course Voucher",
         image: "/32.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-HTMLCSS-108?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Databases Self-Paced Video Based Learning Course Voucher",
         image: "/33.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-DATABASES-106?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Networking Self-Paced Video Based Learning Course Voucher",
         image: "/34.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-NETWORKING-112?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Java Self-Paced Video Based Learning Course Voucher",
         image: "/35.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-JAVA-110?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Cybersecurity Self-Paced Video Based Learning Course Voucher",
         image: "/36.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-CYBERSECURITY-104?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Javascript Self-Paced Video Based Learning Course Voucher",
         image: "/37.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-JAVASCRIPT-111?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Networking Security Self-Paced Video Based Learning Course Voucher",
         image: "/39.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-NETWORKSECURITY-113?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Data Analytics Self-Paced Video Based Learning Course Voucher",
         image: "/40.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-DATAANALYTICS-105?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Software Development Self-Paced Video Based Learning Course Voucher",
         image: "/41.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-SOFTWAREDEVELOPMENT-115?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Artificial Intelligence Self-Paced Video Based Learning Course Voucher",
         image: "/42.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-AI-101?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Computational Thinking Self-Paced Video Based Learning Course Voucher",
         image: "/44.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-COMPUTATIONALTHINKING-103?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "Cloud Computing Self-Paced Video Based Learning Course Voucher",
         image: "/45.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-CLOUDCOMPUTING-102?tab=courseware"
       },
       
@@ -489,14 +489,14 @@ const ItSpecialist = () => {
         title: "Information Technology Specialist",
         description: "Device Configuration and Management Self-Paced Video Based Learning Course Voucher",
         image: "/38.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-DEVICECONFIG-107?tab=courseware"
       },
       {
         title: "Information Technology Specialist",
         description: "HTML5 Application Development Self-Paced Video Based Learning Course Voucher",
         image: "/43.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/ITS-HTML5-109?tab=courseware"
       },
     ],

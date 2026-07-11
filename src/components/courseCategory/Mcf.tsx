@@ -40,56 +40,42 @@ const Mcf = () => {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Azure Fundamentals (AZ-900) Bundle",
         image: "25.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/MCF-AZUREFUNDAMENTALS-101"
       },
       {
         title: "Microsoft Certified Fundamentals",
-        description: "Microsoft 365 Fundamentals (MS-900) Bundle",
-        image: "26.svg",
-        duration: "₹ 3,849",
-        slug: "/MCF-365FUNDAMENTALS-102"
+        description: "Microsoft 365 Copilot and Agent (AB-900) Bundle",
+        image: "ab900bundle.svg",
+        duration: "3,999",
+        slug: "/MCF-365AB-900-106"
       },
       {
         title: "Microsoft Certified Fundamentals",
-        description: "Microsoft Azure AI Fundamentals (AI-900) Bundle",
+        description: "Microsoft Azure AI Fundamentals (AI-901) Bundle",
         image: "27.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/MCF-AZUREAIFUNDAMENTALS-103"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Azure Data Fundamentals (DP-900) Bundle",
         image: "28.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/MCF-AZUREDATAFUNDAMENTALS-104"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Power Platform Fundamentals (PL-900) Bundle",
         image: "29.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/MCF-POWERPLATFORMFUNDAMENTALS-105"
-      },
-      {
-        title: "Microsoft Certified Fundamentals",
-        description: "Microsoft Dynamics 365 Fundamentals CRM (MB-910) Bundle",
-        image: "30.svg",
-        duration: "₹ 3,849",
-        slug: "/MCF-DYNAMICS365FUNDAMENTALSCRM-106"
-      },
-      {
-        title: "Microsoft Certified Fundamentals",
-        description: "Microsoft Dynamics 365 Fundamentals ERP (MB-920) Bundle",
-        image: "31.svg",
-        duration: "₹ 3,849",
-        slug: "/MCF-DYNAMICS365FUNDAMENTALSERP-107"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Security, Compliance, and Identity Fundamentals (SC-900) Bundle",
         image: "32.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/MCF-SECURITYCOMPLIANCE-108"
       },
     ],
@@ -99,56 +85,42 @@ const Mcf = () => {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Azure Fundamentals (AZ-900) Exam Voucher",
         image: "1.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/MCF-AZUREFUNDAMENTALS-101?tab=exam-vouchers"
       },
       {
         title: "Microsoft Certified Fundamentals",
-        description: "Microsoft 365 Fundamentals (MS-900) Exam Voucher",
-        image: "2.svg",
-        duration: "₹ 2,199",
-        slug: "/MCF-365FUNDAMENTALS-102?tab=exam-vouchers"
+        description: "Microsoft 365 Copilot and Agent (AB-900) Exam Voucher",
+        image: "ab900exam.svg",
+        duration: "2,499",
+        slug: "/MCF-365AB-900-106?tab=exam-vouchers"
       },
       {
         title: "Microsoft Certified Fundamentals",
-        description: "Microsoft Azure AI Fundamentals (AI-900) Exam Voucher",
+        description: "Microsoft Azure AI Fundamentals (AI-901) Exam Voucher",
         image: "3.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/MCF-AZUREAIFUNDAMENTALS-103?tab=exam-vouchers"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Azure Data Fundamentals (DP-900) Exam Voucher",
         image: "4.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/MCF-AZUREDATAFUNDAMENTALS-104?tab=exam-vouchers"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Power Platform Fundamentals (PL-900) Exam Voucher",
         image: "5.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/MCF-POWERPLATFORMFUNDAMENTALS-105?tab=exam-vouchers"
-      },
-      {
-        title: "Microsoft Certified Fundamentals",
-        description: "Microsoft Dynamics 365 Fundamentals CRM (MB-910) Exam Voucher",
-        image: "6.svg",
-        duration: "₹ 2,199",
-        slug: "/MCF-DYNAMICS365FUNDAMENTALSCRM-106?tab=exam-vouchers"
-      },
-      {
-        title: "Microsoft Certified Fundamentals",
-        description: "Microsoft Dynamics 365 Fundamentals ERP (MB-920) Exam Voucher",
-        image: "7.svg",
-        duration: "₹ 2,199",
-        slug: "/MCF-DYNAMICS365FUNDAMENTALSERP-107?tab=exam-vouchers"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Security, Compliance, and Identity Fundamentals (SC-900) Exam Voucher",
         image: "8.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/MCF-SECURITYCOMPLIANCE-108?tab=exam-vouchers"
       },
     ],
@@ -158,56 +130,42 @@ const Mcf = () => {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Azure Fundamentals (AZ-900) Practice Test Voucher",
         image: "9.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/MCF-AZUREFUNDAMENTALS-101?tab=practice-tests"
       },
       {
         title: "Microsoft Certified Fundamentals",
-        description: "Microsoft 365 Fundamentals (MS-900) Practice Test Voucher",
-        image: "10.svg",
-        duration: "₹ 899",
-        slug: "/MCF-365FUNDAMENTALS-102?tab=practice-tests"
+        description: "Microsoft 365 Copilot and Agent (AB-900) Practice Test Voucher",
+        image: "ab900practice.svg",
+        duration: "899",
+        slug: "/MCF-365AB-900-106?tab=practice-tests"
       },
       {
         title: "Microsoft Certified Fundamentals",
-        description: "Microsoft Azure AI Fundamentals (AI-900) Practice Test Voucher",
+        description: "Microsoft Azure AI Fundamentals (AI-901) Practice Test Voucher",
         image: "11.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/MCF-AZUREAIFUNDAMENTALS-103?tab=practice-tests"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Azure Data Fundamentals (DP-900) Practice Test Voucher",
         image: "12.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/MCF-AZUREDATAFUNDAMENTALS-104?tab=practice-tests"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Power Platform Fundamentals (PL-900) Practice Test Voucher",
         image: "13.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/MCF-POWERPLATFORMFUNDAMENTALS-105?tab=practice-tests"
-      },
-      {
-        title: "Microsoft Certified Fundamentals",
-        description: "Microsoft Dynamics 365 Fundamentals CRM (MB-910) Practice Test Voucher",
-        image: "14.svg",
-        duration: "₹ 899",
-        slug: "/MCF-DYNAMICS365FUNDAMENTALSCRM-106?tab=practice-tests"
-      },
-      {
-        title: "Microsoft Certified Fundamentals",
-        description: "Microsoft Dynamics 365 Fundamentals ERP (MB-920) Practice Test Voucher",
-        image: "15.svg",
-        duration: "₹ 899",
-        slug: "/MCF-DYNAMICS365FUNDAMENTALSERP-107?tab=practice-tests"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Security, Compliance, and Identity Fundamentals (SC-900) Practice Test Voucher",
         image: "16.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/MCF-SECURITYCOMPLIANCE-108?tab=practice-tests"
       },
     ],
@@ -217,23 +175,15 @@ const Mcf = () => {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Azure Fundamentals (AZ-900) Self-Paced Video Based Learning Course Voucher",
         image: "17.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/MCF-AZUREFUNDAMENTALS-101?tab=courseware"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description:
-          "Microsoft 365 Fundamentals (MS-900) Self-Paced Video Based Learning Course Voucher",
-        image: "18.svg",
-        duration: "₹ 1,150",
-        slug: "/MCF-365FUNDAMENTALS-102?tab=courseware"
-      },
-      {
-        title: "Microsoft Certified Fundamentals",
-        description:
-          "Microsoft Azure AI Fundamentals (AI-900) Self-Paced Video Based Learning Course Voucher",
+          "Microsoft Azure AI Fundamentals (AI-901) Self-Paced Video Based Learning Course Voucher",
         image: "19.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/MCF-AZUREAIFUNDAMENTALS-103?tab=courseware"
       },
       {
@@ -241,38 +191,22 @@ const Mcf = () => {
         description:
           "Microsoft Azure Data Fundamentals (DP-900) Self-Paced Video Based Learning Course Voucher",
         image: "20.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/MCF-AZUREDATAFUNDAMENTALS-104?tab=courseware"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description: "Microsoft Power Platform Fundamentals (PL-900) Self-Paced Video Based Learning Course Voucher",
         image: "21.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/MCF-POWERPLATFORMFUNDAMENTALS-105?tab=courseware"
-      },
-      {
-        title: "Microsoft Certified Fundamentals",
-        description:
-          "Microsoft Dynamics 365 Fundamentals CRM (MB-910) Self-Paced Video Based Learning Course Voucher",
-        image: "22.svg",
-        duration: "₹ 1,150",
-        slug: "/MCF-DYNAMICS365FUNDAMENTALSCRM-106?tab=courseware"
-      },
-      {
-        title: "Microsoft Certified Fundamentals",
-        description:
-          "Microsoft Dynamics 365 Fundamentals ERP (MB-920) Self-Paced Video Based Learning Course Voucher",
-        image: "23.svg",
-        duration: "₹ 1,150",
-        slug: "/MCF-DYNAMICS365FUNDAMENTALSERP-107?tab=courseware"
       },
       {
         title: "Microsoft Certified Fundamentals",
         description:
           "Microsoft Security, Compliance, and Identity Fundamentals (SC-900) Self-Paced Video Based Learning Course Voucher",
         image: "24.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/MCF-SECURITYCOMPLIANCE-108?tab=courseware"
       },
     ],

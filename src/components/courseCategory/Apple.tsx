@@ -21,7 +21,6 @@ const Apple = () => {
     { label: "Best Value Bundle", value: "bundle" },
     { label: "Exam Vouchers", value: "exam-vouchers" },
     { label: "Practice Tests", value: "practice-tests" },
-    { label: "E-Learning Course", value: "self-paced-course" },
   ];
 
   const courseData: Record<string, Course[]> = {
@@ -30,14 +29,14 @@ const Apple = () => {
         title: "App Development with Swift",
         description: "Swift Certified User Bundle",
         image: "/Apple/1.svg",
-        duration: "₹ 3,849",
+        duration: "3,199",
         slug: "/APPLE-SWIFT-CERTIFIED-101",
       },
       {
         title: "App Development with Swift",
         description: "Swift Associate Bundle",
         image: "/Apple/2.svg",
-        duration: "₹ 3,849",
+        duration: "3,199",
         slug: "/APPLE-SWIFT-ASSOCIATE-102",
       },
     ],
@@ -46,14 +45,14 @@ const Apple = () => {
         title: "App Development with Swift",
         description: "Swift Certified User Exam Voucher",
         image: "/Apple/AppleExamVoucher1.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/APPLE-SWIFT-CERTIFIED-101?tab=exam-vouchers",
       },
       {
         title: "App Development with Swift",
         description: "Swift Associate User Exam Voucher",
         image: "/Apple/AppleExamVoucher2.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/APPLE-SWIFT-ASSOCIATE-102?tab=exam-vouchers",
       },
     ],
@@ -63,32 +62,15 @@ const Apple = () => {
         title: "App Development with Swift",
         description: "Swift Certified User Practice Test Voucher",
         image: "/Apple/ApplePracticeTest1.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/APPLE-SWIFT-CERTIFIED-101?tab=practice-tests",
       },
       {
         title: "App Development with Swift",
         description: "Swift Associate Practice Test Voucher",
         image: "/Apple/ApplePracticeTest2.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/APPLE-SWIFT-ASSOCIATE-102?tab=practice-tests",
-      },
-    ],
-
-    "self-paced-course": [
-      {
-        title: "App Development with Swift",
-        description: "Swift Certified User Self-Paced Learning Course Voucher",
-        image: "/Apple/AppleLearning1.svg",
-        duration: "Coming Soon",
-        slug: "/APPLE-SWIFT-CERTIFIED-101?tab=courseware",
-      },
-      {
-        title: "App Development with Swift",
-        description: "Swift Associate Self-Paced Learning Course Voucher",
-        image: "/Apple/AppleLearning2.svg",
-        duration: "Coming Soon",
-        slug: "/APPLE-SWIFT-ASSOCIATE-102?tab=courseware",
       },
     ],
   };
@@ -243,23 +225,6 @@ const Apple = () => {
                     Practice Tests are designed to simulate the real exam
                     environment, helping you gain confidence and improve your
                     performance.
-                  </p>
-                </>
-              )}
-
-              {selected === "self-paced-course" && (
-                <>
-                  <h1 className="text-xl sm:text-2xl text-center mb-3 font-semibold flex items-center justify-center gap-2 flex-wrap">
-                    <img
-                      src="https://etrain.blr1.cdn.digitaloceanspaces.com/msiLogo.svg"
-                      alt="Logo"
-                      className="h-16 sm:h-12 object-contain"
-                    />
-                  </h1>
-                  <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-                    These self-paced courses offer comprehensive training
-                    through engaging content, quizzes, and assignments—delivered
-                    by certified industry experts.
                   </p>
                 </>
               )}

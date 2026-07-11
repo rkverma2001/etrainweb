@@ -31,35 +31,35 @@ const Mos = () => {
         title: "Microsoft Office Specialist",
         description: "Excel Expert Certification Bundle",
         image: "16.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/MOS-EXCELEXPERT-101"
       },
       {
         title: "Microsoft Office Specialist",
         description: "Word Expert Certification Bundle",
         image: "17.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/MOS-WORDEXPERT-102"
       },
       {
         title: "Microsoft Office Specialist",
         description: "PowerPoint Associate Certification Bundle",
         image: "18.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/MOS-POWERPOINT-103"
       },
       {
         title: "Microsoft Office Specialist",
         description: "Excel Associate Certification Bundle",
         image: "19.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/MOS-EXCEL-104"
       },
       {
         title: "Microsoft Office Specialist",
         description: "Word Associate Certification Bundle",
         image: "20.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/MOS-WORD-105"
       },
     ],
@@ -68,35 +68,35 @@ const Mos = () => {
         title: "Microsoft Office Specialist",
         description: "Excel Expert Certification Exam Voucher",
         image: "1.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/MOS-EXCELEXPERT-101?tab=exam-vouchers"
       },
       {
         title: "Microsoft Office Specialist",
         description: "Word Expert Certification Exam Voucher",
         image: "2.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/MOS-WORDEXPERT-102?tab=exam-vouchers"
       },
       {
         title: "Microsoft Office Specialist",
         description: "PowerPoint Associate Certification Exam Voucher",
         image: "3.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/MOS-POWERPOINT-103?tab=exam-vouchers"
       },
       {
         title: "Microsoft Office Specialist",
         description: "Excel Associate Certification Exam Voucher",
         image: "4.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/MOS-EXCEL-104?tab=exam-vouchers"
       },
       {
         title: "Microsoft Office Specialist",
         description: "Word Associate Certification Exam Voucher",
         image: "5.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/MOS-WORD-105?tab=exam-vouchers"
       },
     ],
@@ -106,35 +106,35 @@ const Mos = () => {
         title: "Microsoft Office Specialist",
         description: "Excel Expert Certification Practice Test Voucher",
         image: "6.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/MOS-EXCELEXPERT-101?tab=practice-tests"
       },
       {
         title: "Microsoft Office Specialist",
         description: "Word Expert Certification Practice Test Voucher",
         image: "7.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/MOS-WORDEXPERT-102?tab=practice-tests"
       },
       {
         title: "Microsoft Office Specialist",
         description: "PowerPoint Associate Certification Practice Test Voucher",
         image: "8.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/MOS-POWERPOINT-103?tab=practice-tests"
       },
       {
         title: "Microsoft Office Specialist",
         description: "Excel Associate Certification Practice Test Voucher",
         image: "9.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/MOS-EXCEL-104?tab=practice-tests"
       },
       {
         title: "Microsoft Office Specialist",
         description: "Word Associate Certification Practice Test Voucher",
         image: "10.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/MOS-WORD-105?tab=practice-tests"
       },
     ],
@@ -145,7 +145,7 @@ const Mos = () => {
         description:
           "Excel Expert Certification Self-Paced Video Based Learning Course Voucher",
         image: "11.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/MOS-EXCELEXPERT-101?tab=courseware"
       },
       {
@@ -153,7 +153,7 @@ const Mos = () => {
         description:
           "Word Expert Certification Self-Paced Video Based Learning Course Voucher",
         image: "12.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/MOS-WORDEXPERT-102?tab=courseware"
       },
       {
@@ -161,7 +161,7 @@ const Mos = () => {
         description:
           "PowerPoint Associate Certification Self-Paced Video Based Learning Course Voucher",
         image: "13.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/MOS-POWERPOINT-103?tab=courseware"
       },
       {
@@ -169,7 +169,7 @@ const Mos = () => {
         description:
           "Excel Associate Certification Self-Paced Video Based Learning Course Voucher",
         image: "14.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/MOS-EXCEL-104?tab=courseware"
       },
       {
@@ -177,7 +177,7 @@ const Mos = () => {
         description:
           "Word Associate Certification Self-Paced Video Based Learning Course Voucher",
         image: "15.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/MOS-WORD-105?tab=courseware"
       },
     ],

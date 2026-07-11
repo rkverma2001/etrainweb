@@ -13,6 +13,7 @@ import axios from "@/services/api";
 import testimonialData from "@/data/testimonialData.json";
 import { useParams, useSearchParams } from "react-router-dom";
 import ProductTab2 from "./Abrocat/ProductTab2.tsx";
+import WhatsIncluded3 from "./Abrocat/WhatsIncluded3.tsx";
 
 type TabName = "Bundle" | "Exam Voucher" | "Practice Test" | "Courseware";
 
@@ -130,7 +131,12 @@ const CoursePage = () => {
         syllabus={course.syllabus}
         coursewareLink={course.coursewareLink}
       />
-      <WhatsIncluded activeTab={activeTab} />
+
+      {course?.courseCode === "MCE-CERTIFIEDEDUCATOR-101" || course?.courseCode === "APPLE-SWIFT-CERTIFIED-101" || course?.courseCode === "APPLE-SWIFT-ASSOCIATE-102" || course?.courseCode === "MCF-365AB-900-106" ? (
+  <WhatsIncluded3 activeTab={activeTab} />
+) : (
+  <WhatsIncluded activeTab={activeTab} />
+)}
       <div className="w-full relative">
         {/* TOP CURVE */}
         <div className="w-full relative mb-[-25px] mt-[10px]">

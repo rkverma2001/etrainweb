@@ -38,14 +38,14 @@ const Intuit = () => {
         title: "Intuit Certification",
         description: "Design for Delight Innovator Bundle",
         image: "/16.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/INTUIT-DESIGNDELIGHT-104"
       },
       {
         title: "Intuit Certification",
         description: "Personal Finance Bundle",
         image: "/15.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/INTUIT-PERSONALFINANCE-103"
 
       },
@@ -53,14 +53,14 @@ const Intuit = () => {
         title: "Intuit Certification",
         description: "Quickbooks Certified User Online Bundle",
         image: "/13.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/INTUIT-QUICKBOOKS-101"
       },
       {
         title: "Intuit Certification",
         description: "Certified Bookkeeping Professional Bundle",
         image: "/14.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/INTUIT-BOOKKEEPING-102"
       },
     ],
@@ -69,28 +69,28 @@ const Intuit = () => {
         title: "Intuit Certification",
         description: "Design for Delight Innovator Exam Voucher",
         image: "/1.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/INTUIT-DESIGNDELIGHT-104?tab=exam-vouchers"
       },
       {
         title: "Intuit Certification",
         description: "Personal Finance Exam Voucher",
         image: "/2.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/INTUIT-PERSONALFINANCE-103?tab=exam-vouchers"
       },
       {
         title: "Intuit Certification",
         description: "Quickbooks Certified User Online Exam Voucher",
         image: "/3.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/INTUIT-QUICKBOOKS-101?tab=exam-vouchers"
       },
       {
         title: "Intuit Certification",
         description: "Certified Bookkeeping Professional Exam Voucher",
         image: "/4.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/INTUIT-BOOKKEEPING-102?tab=exam-vouchers"
       },
     ],
@@ -100,28 +100,28 @@ const Intuit = () => {
         title: "Intuit Certification",
         description: "Design for Delight Innovator Practice Test Voucher",
         image: "/5.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/INTUIT-DESIGNDELIGHT-104?tab=practice-tests"
       },
       {
         title: "Intuit Certification",
         description: "Personal Finance Practice Test Voucher",
         image: "/6.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/INTUIT-PERSONALFINANCE-103?tab=practice-tests"
       },
       {
         title: "Intuit Certification",
         description: "Quickbooks Certified User Online Practice Test Voucher",
         image: "/7.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/INTUIT-QUICKBOOKS-101?tab=practice-tests"
       },
       {
         title: "Intuit Certification",
         description: "Certified Bookkeeping Professional Practice Test Voucher",
         image: "/8.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/INTUIT-BOOKKEEPING-102?tab=practice-tests"
       },
     ],
@@ -132,7 +132,7 @@ const Intuit = () => {
         description:
           "Design for Delight Innovator Self-Paced Video Based Learning Course Voucher",
         image: "/9.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/INTUIT-DESIGNDELIGHT-104?tab=courseware"
       },
       {
@@ -140,7 +140,7 @@ const Intuit = () => {
         description:
           "Personal Finance Self-Paced Video Based Learning Course Voucher",
         image: "/10.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/INTUIT-PERSONALFINANCE-103?tab=courseware"
       },
       {
@@ -148,7 +148,7 @@ const Intuit = () => {
         description:
           "Quickbooks Certified User Online Self-Paced Video Based Learning Course Voucher",
         image: "/11.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/INTUIT-QUICKBOOKS-101?tab=courseware"
       },
       {
@@ -156,7 +156,7 @@ const Intuit = () => {
         description:
           "Certified Bookkeeping Professional Self-Paced Video Based Learning Course Voucher",
         image: "/12.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/INTUIT-BOOKKEEPING-102?tab=courseware"
       },
     ],

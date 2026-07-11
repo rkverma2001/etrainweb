@@ -32,32 +32,32 @@ const Ic3 = () => {
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 1 Bundle",
         image: "/16.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/IC3-GS1-101"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 2 Bundle",
         image: "/17.svg",
-        duration: "₹ 3,849  ",
+        duration: "3,999",
         slug: "/IC3-GS2-102"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 3 Bundle",
         image: "/18.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/IC3-GS3-103"
       },
       {
         title: "IC3 Digital Literacy",
         description: "IC PHP Developer Fundamentals Bundle",
         image: "/20.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/IC3-PHP-105"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Spark Bundle",
         image: "/19.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/IC3-SPARK-104"
       },
 
@@ -67,32 +67,32 @@ const Ic3 = () => {
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 1 Exam Voucher",
         image: "/1.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/IC3-GS1-101?tab=exam-vouchers"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 2 Exam Voucher",
         image: "/2.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/IC3-GS2-102?tab=exam-vouchers"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 3 Exam Voucher",
         image: "/3.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/IC3-GS3-103?tab=exam-vouchers"
       },
       {
         title: "IC3 Digital Literacy",
         description: "IC PHP Developer Fundamentals Exam Voucher",
         image: "/5.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/IC3-PHP-105?tab=exam-vouchers"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Spark Exam Voucher",
         image: "/4.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/IC3-SPARK-104?tab=exam-vouchers"
       },
 
@@ -103,32 +103,32 @@ const Ic3 = () => {
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 1 Practice Test Voucher",
         image: "/6.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/IC3-GS1-101?tab=practice-tests"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 2 Practice Test Voucher",
         image: "/7.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/IC3-GS2-102?tab=practice-tests"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 3 Practice Test Voucher",
         image: "/8.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/IC3-GS3-103?tab=practice-tests"
       },
       {
         title: "IC3 Digital Literacy",
         description: "IC PHP Developer Fundamentals Practice Test Voucher",
         image: "/10.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/IC3-PHP-105?tab=practice-tests"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Spark Practice Test Voucher",
         image: "/9.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/IC3-SPARK-104?tab=practice-tests"
       },
     ],
@@ -138,25 +138,25 @@ const Ic3 = () => {
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 1 Self-Paced Video Based Learning Course Voucher",
         image: "/11.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/IC3-GS1-101?tab=courseware"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 2 Self-Paced Video Based Learning Course Voucher",
         image: "/12.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/IC3-GS2-102?tab=courseware"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Global Standard 6 Level 3 Self-Paced Video Based Learning Course Voucher",
         image: "/13.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/IC3-GS3-103?tab=courseware"
       },{
         title: "IC3 Digital Literacy",
         description: "IC3 Spark Self-Paced Video Based Learning Course Voucher",
         image: "/14.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/IC3-SPARK-104?tab=courseware"
       },
     ],

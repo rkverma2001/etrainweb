@@ -31,21 +31,21 @@ const Unity = () => {
         title: "Unity Certified User",
         description: "Programmer Certification Bundle",
         image: "10.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/UNITY-PROGRAMMER-101"
       },
       {
         title: "Unity Certified User",
         description: "VR Developer Certification Bundle",
         image: "11.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/UNITY-VRDEVELOPER-102"
       },
       {
         title: "Unity Certified User",
         description: "Artist Certification Bundle",
         image: "12.svg",
-        duration: "₹ 3,849",
+        duration: "3,999",
         slug: "/UNITY-ARTIST-103"
       },
     ],
@@ -54,21 +54,21 @@ const Unity = () => {
         title: "Unity Certified User",
         description: "Programmer Certification Exam Voucher",
         image: "1.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/UNITY-PROGRAMMER-101?tab=exam-vouchers"
       },
       {
         title: "Unity Certified User",
         description: "VR Developer Certification Exam Voucher",
         image: "2.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/UNITY-VRDEVELOPER-102?tab=exam-vouchers"
       },
       {
         title: "Unity Certified User",
         description: "Artist Certification Exam Voucher",
         image: "3.svg",
-        duration: "₹ 2,199",
+        duration: "2,499",
         slug: "/UNITY-ARTIST-103?tab=exam-vouchers"
       },
     ],
@@ -78,21 +78,21 @@ const Unity = () => {
         title: "Unity Certified User",
         description: "Programmer Certification Practice Test Voucher",
         image: "4.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/UNITY-PROGRAMMER-101?tab=practice-tests"
       },
       {
         title: "Unity Certified User",
         description: "VR Developer Certification Practice Test Voucher",
         image: "5.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/UNITY-VRDEVELOPER-102?tab=practice-tests"
       },
       {
         title: "Unity Certified User",
         description: "Artist Certification Practice Test Voucher",
         image: "6.svg",
-        duration: "₹ 899",
+        duration: "899",
         slug: "/UNITY-ARTIST-103?tab=practice-tests"
       },
     ],
@@ -103,7 +103,7 @@ const Unity = () => {
         description:
           "Programmer Certification Self-Paced Video Based Learning Course Voucher",
         image: "7.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/UNITY-PROGRAMMER-101?tab=courseware"
       },
       {
@@ -111,7 +111,7 @@ const Unity = () => {
         description:
           "VR Developer Certification Self-Paced Video Based Learning Course Voucher",
         image: "8.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/UNITY-VRDEVELOPER-102?tab=courseware"
       },
       {
@@ -119,7 +119,7 @@ const Unity = () => {
         description:
           "Artist Certification Self-Paced Video Based Learning Course Voucher",
         image: "9.svg",
-        duration: "₹ 1,150",
+        duration: "1,299",
         slug: "/UNITY-ARTIST-103?tab=courseware"
       },
     ],

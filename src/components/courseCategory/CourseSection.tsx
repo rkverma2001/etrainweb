@@ -25,21 +25,21 @@ const CourseSection = () => {
         title: "Adobe Certified Professional",
         description: "Adobe After Effects Bundle",
         image: "Adobe/adobeaftereffectsbundle.svg",
-        duration: "3,849",
+        duration: "3,999",
         slug: "/ADOBE-AFTER-101",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Photoshop Bundle",
         image: "Adobe/adobephotoshopbundle.svg",
-        duration: "3,849",
+        duration: "3,999",
         slug: "/ADOBE-PHOTO-102",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Acrobat Pro Bundle",
         image: "Adobe/AbrocatBundle.svg",
-        duration: "3,849",
+        duration: "3,999",
         slug: "/ADOBE-ACRO-103",
       },
 
@@ -47,42 +47,42 @@ const CourseSection = () => {
         title: "Adobe Certified Professional",
         description: "Adobe Premier Pro Bundle",
         image: "Adobe/PremierPro.svg",
-        duration: "3,849",
+        duration: "3,999",
         slug: "/ADOBE-PREMIER-104",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Animate Bundle",
         image: "Adobe/Animate.svg",
-        duration: "3,849",
+        duration: "3,999",
         slug: "/ADOBE-ANIMATE-105",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Express Bundle",
         image: "Adobe/Express.svg",
-        duration: "3,849",
+        duration: "3,999",
         slug: "/ADOBE-EXPRESS-106",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe InDesign Bundle",
         image: "Adobe/Indesign.svg",
-        duration: "3,849",
+        duration: "3,999",
         slug: "/ADOBE-INDESIGN-107",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Illustrator Bundle",
         image: "Adobe/Illustrator.svg",
-        duration: "3,849",
+        duration: "3,999",
         slug: "/ADOBE-ILLUSTRATOR-108",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Dreamweaver Bundle",
         image: "Adobe/Dreamweaver.svg",
-        duration: "3,849",
+        duration: "3,999",
         slug: "/ADOBE-DREAMWEAVER-109",
       },
     ],
@@ -91,21 +91,21 @@ const CourseSection = () => {
         title: "Adobe Certified Professional",
         description: "Adobe After Effects Exam Voucher",
         image: "Adobe/adobePIae.svg",
-        duration: "2,199",
+        duration: "2,499",
         slug: "/ADOBE-AFTER-101?tab=exam-vouchers",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Photoshop Exam Voucher",
         image: "Adobe/adobePIps.svg",
-        duration: "2,199",
+        duration: "2,499",
         slug: "/ADOBE-PHOTO-102?tab=exam-vouchers",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Acrobat Pro Exam Voucher",
         image: "Adobe/adobePIacro.svg",
-        duration: "2,199",
+        duration: "2,499",
         slug: "/ADOBE-ACRO-103?tab=exam-vouchers",
       },
 
@@ -113,42 +113,42 @@ const CourseSection = () => {
         title: "Adobe Certified Professional",
         description: "Adobe Premier Pro Exam Voucher",
         image: "Adobe/adobePIpr.svg",
-        duration: "2,199",
+        duration: "2,499",
         slug: "/ADOBE-PREMIER-104?tab=exam-vouchers",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Animate Exam Voucher",
         image: "Adobe/adobePIan.svg",
-        duration: "2,199",
+        duration: "2,499",
         slug: "/ADOBE-ANIMATE-105?tab=exam-vouchers",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Express Exam Voucher",
         image: "Adobe/adobePIexp.svg",
-        duration: "2,199",
+        duration: "2,499",
         slug: "/ADOBE-EXPRESS-106?tab=exam-vouchers",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe InDesign Exam Voucher",
         image: "Adobe/adobePIid.svg",
-        duration: "2,199",
+        duration: "2,499",
         slug: "/ADOBE-INDESIGN-107?tab=exam-vouchers",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Illustrator Exam Voucher",
         image: "Adobe/adobePIai.svg",
-        duration: "2,199",
+        duration: "2,499",
         slug: "/ADOBE-ILLUSTRATOR-108?tab=exam-vouchers",
       },
       {
         title: "Adobe Certified Professional",
         description: "Adobe Dreamweaver Exam Voucher",
         image: "Adobe/adobePIdw.svg",
-        duration: "2,199",
+        duration: "2,499",
         slug: "/ADOBE-DREAMWEAVER-109?tab=exam-vouchers",
       },
     ],
@@ -226,7 +226,7 @@ const CourseSection = () => {
         description:
           "Adobe After Effects Self-Paced Video-Based Learning Course Voucher",
         image: "AdobeLearning/adobePIae.svg",
-        duration: "1,149",
+        duration: "1,299",
         slug: "/ADOBE-AFTER-101?tab=courseware",
       },
       {
@@ -234,7 +234,7 @@ const CourseSection = () => {
         description:
           "Adobe Photoshop Self-Paced Video-Based Learning Course Voucher",
         image: "AdobeLearning/adobePIps.svg",
-        duration: "1,149",
+        duration: "1,299",
         slug: "/ADOBE-PHOTO-102?tab=courseware",
       },
       {
@@ -242,7 +242,7 @@ const CourseSection = () => {
         description:
           "Adobe Acrobat Pro Self-Paced Video-Based Learning Course Voucher",
         image: "AdobeLearning/adobePIacro.svg",
-        duration: "1,149",
+        duration: "1,299",
         slug: "/ADOBE-ACRO-103?tab=courseware",
       },
 
@@ -251,7 +251,7 @@ const CourseSection = () => {
         description:
           "Adobe Premier Pro Self-Paced Video-Based Learning Course Voucher",
         image: "AdobeLearning/adobePIpr.svg",
-        duration: "1,149",
+        duration: "1,299",
         slug: "/ADOBE-PREMIER-104?tab=courseware",
       },
       {
@@ -259,7 +259,7 @@ const CourseSection = () => {
         description:
           "Adobe Animate Self-Paced Video-Based Learning Course Voucher",
         image: "AdobeLearning/adobePIan.svg",
-        duration: "1,149",
+        duration: "1,299",
         slug: "/ADOBE-ANIMATE-105?tab=courseware",
       },
       {
@@ -267,7 +267,7 @@ const CourseSection = () => {
         description:
           "Adobe Express Self-Paced Video-Based Learning Course Voucher",
         image: "AdobeLearning/adobePIexp.svg",
-        duration: "1,149",
+        duration: "1,299",
         slug: "/ADOBE-EXPRESS-106?tab=courseware",
       },
       {
@@ -275,7 +275,7 @@ const CourseSection = () => {
         description:
           "Adobe InDesign Self-Paced Video-Based Learning Course Voucher",
         image: "AdobeLearning/adobePIid.svg",
-        duration: "1,149",
+        duration: "1,299",
         slug: "/ADOBE-INDESIGN-107?tab=courseware",
       },
       {
@@ -283,7 +283,7 @@ const CourseSection = () => {
         description:
           "Adobe Illustrator Self-Paced Video-Based Learning Course Voucher",
         image: "AdobeLearning/adobePIai.svg",
-        duration: "1,149",
+        duration: "1,299",
         slug: "/ADOBE-ILLUSTRATOR-108?tab=courseware",
       },
       {
@@ -291,7 +291,7 @@ const CourseSection = () => {
         description:
           "Adobe Dreamweaver Self-Paced Video-Based Learning Course Voucher",
         image: "AdobeLearning/adobePIdw.svg",
-        duration: "1,149",
+        duration: "1,299",
         slug: "/ADOBE-DREAMWEAVER-109?tab=courseware",
       },
     ],
