@@ -54,9 +54,9 @@ const Mcp = () => {
 
   const features = [
     "Add them to your LinkedIn profile, resume, or CV to boost credibility.",
-    "Earn globally recognized certifications from IBM.",
+    "Earn globally recognized certifications from Microsoft.",
     "Enhance your career prospects during interviews, internships, or performance evaluations.",
-    "Gain hands-on, industry-aligned skills through IBM Certification courses powered by IBM Developer Skills Network.",
+    "Gain hands-on, industry-aligned skills through Microsoft Certification.",
   ];
 
   return (

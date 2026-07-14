@@ -125,13 +125,6 @@ const Ibm = () => {
         slug: "/ibm/CEBDH1IN",
       },
       {
-        title: "Introduction to Big Data, Hadoop",
-        description: "IBM Introduction to Big Data, Hadoop",
-        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/bigdatahadoop.svg",
-        duration: "2,999",
-        slug: "/ibm/CEBDH1IN",
-      },
-      {
         title: "Java Fundamentals",
         description: "IBM Java Fundamentals",
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Ibm/java.svg",

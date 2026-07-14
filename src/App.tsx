@@ -35,6 +35,7 @@ import DataScience from "./pages/Productpage/Ibm/DataScience";
 import CourseDetails from "./pages/Productpage/Ibm/CourseDetails";
 import Rolebased from "./pages/RoleBased/Rolebased";
 import Mcp from "./components/courseCategory/Mcp";
+import Aws from "./components/courseCategory/Aws";
 
 const App = () => {
   const { isAuthOpen } = useAuth();
@@ -77,6 +78,7 @@ const App = () => {
           <Route path="/ibm/:slug" element={<CourseDetails />} />
           <Route path="/rolebased/:courseId" element={<Rolebased />} />
           <Route path="/mcp" element={<Mcp />} />
+          <Route path="/aws" element={<Aws />} />
           <Route path="*" element={<div>404 Not Found</div>} />
           {/* Add more routes as needed */}
         </Routes>
