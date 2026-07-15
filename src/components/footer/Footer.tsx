@@ -82,11 +82,11 @@ const Footer: React.FC = () => {
         <div>
           <h4 className="font-semibold mb-3">Certifications</h4>
           <ul className="space-y-2 text-slate-300">
-            <li>Microsoft Office Specialist</li>
-            <li>Autodesk Certified User</li>
-            <li>Adobe Certified Professional</li>
-            <li>IBM Certifications</li>
-            <li>AWS Cloud Certifications</li>
+            <li><Link to="/mos">Microsoft Office Specialist</Link></li>
+            <li><Link to="/autodesk">Autodesk Certified User</Link></li>
+            <li><Link to="/adobe">Adobe Certified Professional</Link></li>
+            <li><Link to="/ibm">IBM Certifications</Link></li>
+            <li><Link to="/aws">AWS Cloud Certifications</Link></li>
           </ul>
         </div>
 
@@ -95,7 +95,6 @@ const Footer: React.FC = () => {
           <ul className="space-y-2 text-slate-300">
             <li><Link to="/aboutus">About Us</Link></li>
             <li><Link to="/contactus">Contact Us</Link></li>
-            <li><Link to="/careers">Careers</Link></li>
           </ul>
         </div>
 

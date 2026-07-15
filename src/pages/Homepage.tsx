@@ -26,14 +26,14 @@ const Homepage = () => {
       message:
         "The certification process was smooth, and the course content was highly relevant to current industry requirements. Thanks to EtrainIndia, I was able to upskill and secure a better career opportunity ...",
       name: "Ritesh Kumar Verma",
-      role: "Software Engineer - TechCorp",
+      role: "Software Engineer - Innovatech",
       image: "https://i.ibb.co/jJmYtTp/1.jpg",
     },
     {
       message:
         "I highly recommend EtrainIndia to anyone looking to build in-demand skills. The training was practical, the support team was responsive, and earning an industry-recognized certification gave me a competitive advantage. ...",
-      name: "Ritesh Verma",
-      role: "Software Developer - TechCorp",
+      name: "Sneha Patel",
+      role: "Product Manager - TechSolutions",
       image: "https://i.ibb.co/jJmYtTp/1.jpg",
     },
   ];
