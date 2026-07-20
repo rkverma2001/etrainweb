@@ -90,9 +90,67 @@ export default function SearchPage() {
     const image = primary?.image;
     const price = primary?.price;
 
+    const getCourseLink = (course: CourseSearchResult) => {
+      const code = course.courseCode.toUpperCase();
+
+      // IBM Courses
+      const ibmCourses = [
+        "PY0101EN",
+        "GENAI101",
+        "DA0101EN",
+        "SC0101EN",
+        "IOT0101EN",
+        "CL0101EN",
+        "BC0101EN",
+        "AI0101EN",
+        "ML0101EN",
+        "DB0101EN",
+        "GENAI201",
+        "AGILE101",
+        "CEDEV1IN",
+        "CEBDH1IN",
+        "CEJAVA1IN",
+        "CEJS1IN",
+        "CENJS1IN",
+        "CEMDB1IN",
+        "CERDB1IN",
+        "CEREST1IN",
+        "SCALA101",
+        "CEHTML1IN",
+        "CEIBMCL1IN",
+        "CN0101EN",
+        "DL0101EN",
+        "DS0103EN",
+        "CESPR1IN",
+        "CESPS1IN",
+        "CEDOCK1IN",
+        "CEDV1IN",
+        "CEC1IN",
+        "CECPP1IN",
+        "CEIAM1IN",
+        "CEDL1IN",
+        "CENOSQL1IN",
+        "CEKAFKA1IN",
+      ];
+
+      // Role Based Courses
+      const roleBasedPrefixes = ["AWS-", "MCP-"];
+
+      if (ibmCourses.includes(code)) {
+        return `/ibm/${code}`;
+      }
+
+      if (roleBasedPrefixes.some((prefix) => code.startsWith(prefix))) {
+        return `/rolebased/${code}`;
+      }
+
+      // Everything else
+      return `/${code}`;
+    };
+
     return (
       <Link
-        to={`/${course.courseCode}`}
+        to={getCourseLink(course)}
         key={`${course._id}-${tabKey ?? "any"}`}
         className="block border rounded-lg p-4 hover:shadow-md transition"
       >
@@ -119,56 +177,57 @@ export default function SearchPage() {
 
   return (
     <>
-    <div className="max-w-6xl mx-auto px-4 py-6 mt-24 mb-24">
-      <h1 className="text-2xl font-semibold mb-4">Search results for "{q}"</h1>
+      <div className="max-w-6xl mx-auto px-4 py-6 mt-24 mb-24">
+        <h1 className="text-2xl font-semibold mb-4">
+          Search results for "{q}"
+        </h1>
 
-      {loading && <div className="py-4">Loading...</div>}
+        {loading && <div className="py-4">Loading...</div>}
 
-      {error && <div className="text-red-600 py-4">{error}</div>}
+        {error && <div className="text-red-600 py-4">{error}</div>}
 
-      {!loading && !error && results.length === 0 && (
-        <div className="text-gray-500 py-4">No results found</div>
-      )}
+        {!loading && !error && results.length === 0 && (
+          <div className="text-gray-500 py-4">No results found</div>
+        )}
 
-      {!loading && results.length > 0 && (
-        <>
-          <div className="mb-4 flex flex-wrap gap-3 items-center">
-            {allTabs.map((tab) => (
+        {!loading && results.length > 0 && (
+          <>
+            <div className="mb-4 flex flex-wrap gap-3 items-center">
+              {allTabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-3 py-1 rounded ${
+                    activeTab === tab
+                      ? "bg-[#008641] text-white"
+                      : "bg-gray-100 text-gray-700"
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+
               <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
+                onClick={() => setActiveTab(null)}
                 className={`px-3 py-1 rounded ${
-                  activeTab === tab
+                  activeTab === null
                     ? "bg-[#008641] text-white"
                     : "bg-gray-100 text-gray-700"
                 }`}
               >
-                {tab}
+                All
               </button>
-            ))}
+            </div>
 
-            <button
-              onClick={() => setActiveTab(null)}
-              className={`px-3 py-1 rounded ${
-                activeTab === null
-                  ? "bg-[#008641] text-white"
-                  : "bg-gray-100 text-gray-700"
-              }`}
-            >
-              All
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {results.map((course) =>
-              renderCard(course, activeTab ?? undefined),
-            )}
-          </div>
-        </>
-      )}
-    </div>
-    <Footer/>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {results.map((course) =>
+                renderCard(course, activeTab ?? undefined),
+              )}
+            </div>
+          </>
+        )}
+      </div>
+      <Footer />
     </>
-    
   );
 }

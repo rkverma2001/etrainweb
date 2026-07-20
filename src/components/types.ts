@@ -73,7 +73,7 @@ export type CurriculumItem = {
 
 export type CourseSearchResult = {
   _id: string;
-  courseCode?: string;
+  courseCode: string;
   courseName?: string;
   tabData?: TabData;
   banner?: { videoUrl?: string };

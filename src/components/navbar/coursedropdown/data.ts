@@ -194,6 +194,16 @@ const courseData = [
       { name: "Artist Certification", slug: "/UNITY-ARTIST-103" }
     ],
   },
+  {
+    categoryName: "Tally",
+    categorySlug: "/tally",
+    courses: [
+      { name: "Tally Essentials Level 1", slug: "/tally/TALLY-ESSENTIAL-L1-101" },
+      { name: "Tally Essentials Level 2", slug: "/tally/TALLY-ESSENTIAL-L2-102" },
+      { name: "Tally Essentials Level 3", slug: "/tally/TALLY-ESSENTIAL-L3-103" },
+      { name: "Tally Comprehensive", slug: "/tally/TALLY-COMPREHENSIVE-101" },
+    ],
+  },
 ];
 
 export default courseData;
