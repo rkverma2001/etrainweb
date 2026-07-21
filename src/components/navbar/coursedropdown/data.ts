@@ -34,7 +34,7 @@ const courseData = [
     ],
   },
   {
-    categoryName: "AWS - Role Based",
+    categoryName: "AWS",
     categorySlug: "/aws",
     courses: [
       { name: "AWS Certified Cloud Practitioner", slug: "/rolebased/AWS-CLOUD-PRACTITIONER-101" },
@@ -112,7 +112,8 @@ const courseData = [
       { name: "Express", slug: "/ADOBE-EXPRESS-106" },
       { name: "Indesign", slug: "/ADOBE-INDESIGN-107" },
       { name: "Illustrator", slug: "/ADOBE-ILLUSTRATOR-108" },
-      { name: "Dreamweaver", slug: "/ADOBE-DREAMWEAVER-109" }
+      { name: "Dreamweaver", slug: "/ADOBE-DREAMWEAVER-109" },
+      { name: "Firefly", slug: "/ADOBE-FIREFLY-110" },
     ],
   },
   {
@@ -124,7 +125,8 @@ const courseData = [
       { name: "Fusion", slug: "/AUTODESK-FUSION-103" },
       { name: "3ds Max", slug: "/AUTODESK-3DSMAX-104" },
       { name: "Maya", slug: "/AUTODESK-MAYA-105" },
-      { name: "Revit", slug: "/AUTODESK-REVIT-106" }
+      { name: "Revit", slug: "/AUTODESK-REVIT-106" },
+      { name: "Tinkercad 3D Design", slug: "/AUTODESK-TINKERCAD-107" }
     ],
   },
   {

@@ -98,7 +98,7 @@ const CoursePage = () => {
   }, [courseId]);
 
   const tabs =
-  course?.courseCode === "MCE-CERTIFIEDEDUCATOR-101" || course?.courseCode === "APPLE-SWIFT-CERTIFIED-101" || course?.courseCode === "APPLE-SWIFT-ASSOCIATE-102" || course?.courseCode === "MCF-365AB-900-106"
+  course?.courseCode === "MCE-CERTIFIEDEDUCATOR-101" || course?.courseCode === "APPLE-SWIFT-CERTIFIED-101" || course?.courseCode === "APPLE-SWIFT-ASSOCIATE-102" || course?.courseCode === "MCF-365AB-900-106" || course?.courseCode === "ADOBE-FIREFLY-110" || course?.courseCode === "AUTODESK-TINKERCAD-107"
     ? ["Bundle", "Exam Voucher", "Practice Test"]
     : ["Bundle", "Exam Voucher", "Practice Test", "Courseware"];
 
@@ -132,7 +132,7 @@ const CoursePage = () => {
         coursewareLink={course.coursewareLink}
       />
 
-      {course?.courseCode === "MCE-CERTIFIEDEDUCATOR-101" || course?.courseCode === "APPLE-SWIFT-CERTIFIED-101" || course?.courseCode === "APPLE-SWIFT-ASSOCIATE-102" || course?.courseCode === "MCF-365AB-900-106" ? (
+      {course?.courseCode === "MCE-CERTIFIEDEDUCATOR-101" || course?.courseCode === "APPLE-SWIFT-CERTIFIED-101" || course?.courseCode === "APPLE-SWIFT-ASSOCIATE-102" || course?.courseCode === "MCF-365AB-900-106" || course?.courseCode === "ADOBE-FIREFLY-110" || course?.courseCode === "AUTODESK-TINKERCAD-107" ? (
   <WhatsIncluded3 activeTab={activeTab} />
 ) : (
   <WhatsIncluded activeTab={activeTab} />
