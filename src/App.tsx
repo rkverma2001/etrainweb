@@ -37,6 +37,7 @@ import Rolebased from "./pages/RoleBased/Rolebased";
 import Mcp from "./components/courseCategory/Mcp";
 import Aws from "./components/courseCategory/Aws";
 import TallyPage from "./pages/Productpage/Tally/TallyPage";
+import Tally from "./components/courseCategory/Tally";
 
 const App = () => {
   const { isAuthOpen } = useAuth();
@@ -80,6 +81,7 @@ const App = () => {
           <Route path="/rolebased/:courseId" element={<Rolebased />} />
           <Route path="/mcp" element={<Mcp />} />
           <Route path="/aws" element={<Aws />} />
+          <Route path="/tally" element={<Tally/>} />
           <Route path="/tally/:slug" element={<TallyPage />} />
           <Route path="*" element={<div>404 Not Found</div>} />
           {/* Add more routes as needed */}

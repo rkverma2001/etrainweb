@@ -112,7 +112,7 @@ const Footer: React.FC = () => {
       {/* Bottom */}
       <div className="border-t border-slate-700">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4 text-xs text-slate-400 flex flex-col md:flex-row items-center justify-between">
-          <p>© 2025 EtrainIndia Pvt. Ltd. All rights reserved.</p>
+          <p>© 2026 EtrainIndia Pvt. Ltd. All rights reserved.</p>
           <div className="flex gap-4 mt-2 md:mt-0">
             <Link to="/privacypolicy">Privacy Policy</Link>
             <Link to="/refundpolicy">Refund Policy</Link>
