@@ -85,6 +85,13 @@ const CourseSection = () => {
         duration: "3,999",
         slug: "/ADOBE-DREAMWEAVER-109",
       },
+      {
+        title: "Adobe Certified Professional",
+        description: "Adobe Firefly Bundle",
+        image: "Adobe/fireflybundle.svg",
+        duration: "3,199",
+        slug: "/ADOBE-FIREFLY-110",
+      },
     ],
     "exam-vouchers": [
       {
@@ -136,6 +143,13 @@ const CourseSection = () => {
         image: "Adobe/adobePIid.svg",
         duration: "2,499",
         slug: "/ADOBE-INDESIGN-107?tab=exam-vouchers",
+      },
+      {
+        title: "Adobe Certified Professional",
+        description: "Adobe Firefly Exam Voucher",
+        image: "Adobe/fireflyexam.svg",
+        duration: "2,499",
+        slug: "/ADOBE-FIREFLY-110?tab=exam-vouchers",
       },
       {
         title: "Adobe Certified Professional",
@@ -217,6 +231,13 @@ const CourseSection = () => {
         image: "AdobeTest/adobePIdw.svg",
         duration: "899",
         slug: "/ADOBE-DREAMWEAVER-109?tab=practice-tests",
+      },
+      {
+        title: "Adobe Certified Professional",
+        description: "Adobe Firefly Practice Test Voucher",
+        image: "Adobe/fireflypractice.svg",
+        duration: "899",
+        slug: "/ADOBE-FIREFLY-110?tab=practice-tests",
       },
     ],
 

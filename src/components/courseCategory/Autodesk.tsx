@@ -67,6 +67,13 @@ const Autodesk = () => {
         duration: "3,999",
         slug: "/AUTODESK-REVIT-106",
       },
+      {
+        title: "Autodesk Certified User",
+        description: "Autodesk Tinkercad 3D Design Bundle",
+        image: "tinkercadbundle.svg",
+        duration: "3,199",
+        slug: "/AUTODESK-TINKERCAD-107",
+      },
     ],
     "exam-vouchers": [
       {
@@ -104,13 +111,19 @@ const Autodesk = () => {
         duration: "2,499",
         slug: "/AUTODESK-MAYA-105?tab=exam-vouchers",
       },
-
       {
         title: "Autodesk Certified User",
         description: "Autodesk Revit Exam Voucher",
         image: "AutodeskExamVoucher4.svg",
         duration: "2,499",
         slug: "/AUTODESK-REVIT-106?tab=exam-vouchers",
+      },
+      {
+        title: "Autodesk Certified User",
+        description: "Autodesk Tinkercad 3D Design Exam Voucher",
+        image: "tinkercadexam.svg",
+        duration: "2,499",
+        slug: "/AUTODESK-TINKERCAD-107?tab=exam-vouchers",
       },
     ],
     "practice-tests": [
@@ -155,6 +168,13 @@ const Autodesk = () => {
         image: "AutodeskPracticeTest6.svg",
         duration: "899",
         slug: "/AUTODESK-3DSMAX-104?tab=practice-tests",
+      },
+      {
+        title: "Autodesk Certified User",
+        description: "Autodesk Tinkercad 3D Design Practice Test Voucher",
+        image: "tinkercadexam.svg",
+        duration: "899",
+        slug: "/AUTODESK-TINKERCAD-107?tab=practice-tests",
       },
     ],
     "self-paced-course": [

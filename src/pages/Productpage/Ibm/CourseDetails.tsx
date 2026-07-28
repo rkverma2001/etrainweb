@@ -51,10 +51,8 @@ const CourseDetails = () => {
   const [course, setCourse] = useState<CourseData | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true); // Course loading
-const [addingToCart, setAddingToCart] = useState(false); // Add to cart loading
-const [message, setMessage] = useState<string | null>(null);
-
-
+  const [addingToCart, setAddingToCart] = useState(false); // Add to cart loading
+  const [message, setMessage] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCourse = async () => {
@@ -83,78 +81,78 @@ const [message, setMessage] = useState<string | null>(null);
   }, [slug]);
 
   useEffect(() => {
-  if (!message) return;
+    if (!message) return;
 
-  const timer = setTimeout(() => {
-    setMessage(null);
-  }, 5000);
+    const timer = setTimeout(() => {
+      setMessage(null);
+    }, 5000);
 
-  return () => clearTimeout(timer);
-}, [message]);
+    return () => clearTimeout(timer);
+  }, [message]);
 
   const handleAddToCart = async () => {
-  if (!course?.courseCode) {
-    setMessage("❌ Invalid course.");
-    return;
-  }
+    if (!course?.courseCode) {
+      setMessage("❌ Invalid course.");
+      return;
+    }
 
-  const token = localStorage.getItem("authToken");
+    const token = localStorage.getItem("authToken");
 
-  if (!token) {
-    setMessage("⚠️ Please login to add items to your cart.");
-    return;
-  }
+    if (!token) {
+      setMessage("⚠️ Please login to add items to your cart.");
+      return;
+    }
 
-  try {
-    setAddingToCart(true);
-    setMessage(null);
+    try {
+      setAddingToCart(true);
+      setMessage(null);
 
-    const { data } = await api.post(
-      "/cart/add",
-      {
-        courseCode: course.courseCode,
-        packageType: "Courseware",
-        quantity: 1,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const { data } = await api.post(
+        "/cart/add",
+        {
+          courseCode: course.courseCode,
+          packageType: "Courseware",
+          quantity: 1,
         },
-      }
-    );
-
-    if (data.success) {
-      setMessage(data.message || "✅ Item added to cart successfully.");
-    } else {
-      setMessage(data.message || "❌ Failed to add item.");
-    }
-  } catch (error: any) {
-    console.error(error);
-
-    if (error.response?.status === 401) {
-      setMessage("⚠️ Please login first.");
-    } else if (error.response?.status === 409) {
-      setMessage("⚠️ Item already exists in your cart.");
-    } else {
-      setMessage(
-        error.response?.data?.message ||
-          "❌ Something went wrong. Please try again."
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
       );
+
+      if (data.success) {
+        setMessage(data.message || "✅ Item added to cart successfully.");
+      } else {
+        setMessage(data.message || "❌ Failed to add item.");
+      }
+    } catch (error: any) {
+      console.error(error);
+
+      if (error.response?.status === 401) {
+        setMessage("⚠️ Please login first.");
+      } else if (error.response?.status === 409) {
+        setMessage("⚠️ Item already exists in your cart.");
+      } else {
+        setMessage(
+          error.response?.data?.message ||
+            "❌ Something went wrong. Please try again.",
+        );
+      }
+    } finally {
+      setAddingToCart(false);
     }
-  } finally {
-    setAddingToCart(false);
-  }
-};
+  };
 
   useEffect(() => {
-  if (!message) return;
+    if (!message) return;
 
-  const timer = setTimeout(() => {
-    setMessage(null);
-  }, 30000); // 30 seconds
+    const timer = setTimeout(() => {
+      setMessage(null);
+    }, 30000); // 30 seconds
 
-  return () => clearTimeout(timer);
-}, [message]);
+    return () => clearTimeout(timer);
+  }, [message]);
 
   const scrollToSyllabus = () => {
     syllabusRef.current?.scrollIntoView({
@@ -206,17 +204,17 @@ const [message, setMessage] = useState<string | null>(null);
 
               <div className="flex flex-wrap gap-4 mt-8">
                 <button
-  onClick={handleAddToCart}
-  disabled={addingToCart}
-  className={`px-8 py-4 rounded-2xl font-semibold inline-flex items-center gap-3 transition-transform duration-200 ${
-    addingToCart
-      ? "bg-gray-500 cursor-not-allowed"
-      : "bg-gradient-to-r from-blue-600 to-purple-600 hover:scale-105 cursor-pointer"
-  }`}
->
-  {addingToCart ? "Adding..." : "Add To Cart"}
-  {!addingToCart && <ArrowRight size={20} />}
-</button>
+                  onClick={handleAddToCart}
+                  disabled={addingToCart}
+                  className={`px-8 py-4 rounded-2xl font-semibold inline-flex items-center gap-3 transition-transform duration-200 ${
+                    addingToCart
+                      ? "bg-gray-500 cursor-not-allowed"
+                      : "bg-gradient-to-r from-blue-600 to-purple-600 hover:scale-105 cursor-pointer"
+                  }`}
+                >
+                  {addingToCart ? "Adding..." : "Add To Cart"}
+                  {!addingToCart && <ArrowRight size={20} />}
+                </button>
 
                 <button
                   onClick={scrollToSyllabus}
@@ -226,18 +224,18 @@ const [message, setMessage] = useState<string | null>(null);
                 </button>
               </div>
               {message && (
-  <div
-    className={`mt-4 rounded-xl px-4 py-3 font-medium ${
-      message.startsWith("✅")
-        ? "bg-green-100 text-green-700 border border-green-400"
-        : message.startsWith("⚠️")
-        ? "bg-yellow-100 text-yellow-700 border border-yellow-400"
-        : "bg-red-100 text-red-700 border border-red-400"
-    }`}
-  >
-    {message}
-  </div>
-)}
+                <div
+                  className={`mt-4 rounded-xl px-4 py-3 font-medium ${
+                    message.startsWith("✅")
+                      ? "bg-green-100 text-green-700 border border-green-400"
+                      : message.startsWith("⚠️")
+                        ? "bg-yellow-100 text-yellow-700 border border-yellow-400"
+                        : "bg-red-100 text-red-700 border border-red-400"
+                  }`}
+                >
+                  {message}
+                </div>
+              )}
             </div>
 
             <div className="flex justify-center lg:justify-end">
