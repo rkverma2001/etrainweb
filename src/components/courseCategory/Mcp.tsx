@@ -17,7 +17,7 @@ const Mcp = () => {
         description: "Microsoft Power BI Certification",
         image:
           "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Rolebased/powerbi.svg",
-        duration: "5,740",
+        duration: "4,950",
         slug: "/rolebased/MCP-POWERBI-101",  
       },
       {
@@ -40,6 +40,13 @@ const Mcp = () => {
         image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Rolebased/cybersecurityarchitect.svg",
         duration: "4,950",
         slug: "/rolebased/MCP-CYBERSECURITYARCHITECT-104",
+      },
+      {
+        title: "Agentic AI Systems (GH-600)",
+        description: "Microsoft Developing in Agentic AI Systems Certification",
+        image: "https://etrain.blr1.cdn.digitaloceanspaces.com/ProductImages/Rolebased/ghprod.svg",
+        duration: "4,950",
+        slug: "/rolebased/MCP-GH600-AGENTICAI-106",
       },
       {
         title: "Azure Database Administrator (DP-300)",

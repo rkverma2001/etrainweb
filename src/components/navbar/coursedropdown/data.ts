@@ -31,6 +31,7 @@ const courseData = [
       {name: "AI Apps & Agents on Azure (AI-103)", slug: "/rolebased/MCP-AIAPP-103" },
       {name: "Cybersecurity Architect (SC-100)", slug: "/rolebased/MCP-CYBERSECURITYARCHITECT-104" },
       {name: "Azure Database Administrator (DP-300)", slug: "/rolebased/MCP-AZUREDBADMINISTRATOR-105" },
+      {name: "Github Certified : Agentic AI Systems (GH-600)", slug: "/rolebased/MCP-GH600-AGENTICAI-106" },
     ],
   },
   {
