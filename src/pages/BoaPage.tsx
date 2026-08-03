@@ -452,7 +452,7 @@ const BoaPage = () => {
             {/* Dynamic Heading */}
             <div className="shrink-0">
               <h1 className="text-2xl sm:text-3xl text-center mb-2 font-semibold flex items-center justify-center">
-                BOA
+                Global Certifications
               </h1>
 
               <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
