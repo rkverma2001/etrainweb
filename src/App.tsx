@@ -84,7 +84,7 @@ const App = () => {
           <Route path="/aws" element={<Aws />} />
           <Route path="/tally" element={<Tally/>} />
           <Route path="/tally/:slug" element={<TallyPage />} />
-          <Route path="/boa" element={<BoaPage/>} />
+          <Route path="/globalcertifications" element={<BoaPage/>} />
           <Route path="*" element={<div>404 Not Found</div>} />
           {/* Add more routes as needed */}
         </Routes>
