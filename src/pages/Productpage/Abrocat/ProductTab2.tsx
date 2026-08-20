@@ -3,7 +3,7 @@ import { FaLaptop, FaMinus, FaPlus } from "react-icons/fa";
 import DownloadButton from "@/components/button/DownloadButton";
 import Ratings from "@/components/reviews/Ratings";
 import api from "@/services/api";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 type TabName = "Bundle" | "Exam Voucher" | "Practice Test" | "Courseware";
 
@@ -31,7 +31,7 @@ const ProductTab2: React.FC<ProductTabProps> = ({
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
-
+  const navigate = useNavigate();
   const increment = () => setQuantity((q) => q + 1);
   const decrement = () => setQuantity((q) => (q > 1 ? q - 1 : 1));
   useEffect(() => {
@@ -44,54 +44,61 @@ const ProductTab2: React.FC<ProductTabProps> = ({
   const params = useParams();
   console.log("🔍 useParams output:", params);
 
-  const handleAddToCart = async () => {
-    try {
-      setLoading(true);
-      setMessage(null);
+  const handleAddToCart = async (redirectToCart = false) => {
+  try {
+    setLoading(true);
+    setMessage(null);
 
-      console.log("📦 Course Code from URL:", courseId);
+    console.log("📦 Course Code from URL:", courseId);
 
-      if (!courseId) {
-        console.error("❌ No course code found in URL");
-        setMessage("Invalid course. Please try again.");
-        return;
-      }
-
-      const token = localStorage.getItem("authToken");
-      console.log("🔑 Auth Token:", token);
-
-      const response = await api.post(
-        "/cart/add",
-        {
-          courseCode: courseId, // ✅ dynamically from URL
-          packageType: activeTab,
-          quantity, // ✅ from state
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token ? `Bearer ${token}` : "",
-          },
-        },
-      );
-
-      console.log("✅ Cart Add Response:", response.data);
-      console.log("Quantity added:", quantity);
-      setMessage("✅ Item added to cart successfully!");
-    } catch (error: any) {
-      console.error(
-        "❌ Add to cart failed:",
-        error.response?.data || error.message,
-      );
-      if (error.response?.status === 401) {
-        setMessage("⚠️ Please log in to add items to your cart.");
-      } else {
-        setMessage("❌ Failed to add item. Try again later.");
-      }
-    } finally {
-      setLoading(false);
+    if (!courseId) {
+      console.error("❌ No course code found in URL");
+      setMessage("Invalid course. Please try again.");
+      return;
     }
-  };
+
+    const token = localStorage.getItem("authToken");
+    console.log("🔑 Auth Token:", token);
+
+    const response = await api.post(
+      "/cart/add",
+      {
+        courseCode: courseId,
+        packageType: activeTab,
+        quantity,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token ? `Bearer ${token}` : "",
+        },
+      }
+    );
+
+    console.log("✅ Cart Add Response:", response.data);
+    console.log("Quantity added:", quantity);
+
+    setMessage("✅ Item added to cart successfully!");
+
+    // Redirect only for Buy Now
+    if (redirectToCart) {
+      navigate("/cart");
+    }
+  } catch (error: any) {
+    console.error(
+      "❌ Add to cart failed:",
+      error.response?.data || error.message
+    );
+
+    if (error.response?.status === 401) {
+      setMessage("⚠️ Please log in to add items to your cart.");
+    } else {
+      setMessage("❌ Failed to add item. Try again later.");
+    }
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="flex flex-col md:flex-row px-4 sm:px-6 md:pl-14 md:pr-14 pb-10 md:pb-14 relative z-10">
@@ -207,15 +214,17 @@ const ProductTab2: React.FC<ProductTabProps> = ({
 
       <div className="ml-0 md:ml-[25px] mt-[10px] flex flex-col md:flex-row gap-2 md:gap-0 md:justify-between">
         <button
-          onClick={handleAddToCart}
+          onClick={() => handleAddToCart(false)}
           disabled={loading}
           className="flex items-center justify-center mt-[10px] md:mt-[15px] gap-2 text-white px-5 py-2 rounded-lg shadow hover:opacity-90 cursor-pointer"
           style={{ backgroundColor: "#0b8642" }}
         >
-          {loading ? "Adding..." : "Add to cart"}
+          Add to Cart
         </button>
 
         <button
+          onClick={() => handleAddToCart(true)}
+          disabled={loading}
           className="flex items-center justify-center mt-[5px] md:mt-[15px] md:mr-[20px] gap-2 text-white px-7 py-2 rounded-lg shadow hover:opacity-90 cursor-pointer"
           style={{ backgroundColor: "#0b8642" }}
         >

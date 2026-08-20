@@ -131,6 +131,7 @@ export default function SearchPage() {
         "CEDL1IN",
         "CENOSQL1IN",
         "CEKAFKA1IN",
+        "AIA01IN"
       ];
 
       // Role Based Courses
