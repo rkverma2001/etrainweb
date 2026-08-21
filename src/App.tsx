@@ -39,6 +39,7 @@ import Aws from "./components/courseCategory/Aws";
 import TallyPage from "./pages/Productpage/Tally/TallyPage";
 import Tally from "./components/courseCategory/Tally";
 import BoaPage from "./pages/BoaPage";
+import PurchaseReport from "./pages/PurchaseReport";
 
 const App = () => {
   const { isAuthOpen } = useAuth();
@@ -85,6 +86,7 @@ const App = () => {
           <Route path="/tally" element={<Tally/>} />
           <Route path="/tally/:slug" element={<TallyPage />} />
           <Route path="/globalcertifications" element={<BoaPage/>} />
+          <Route path="/adminetrainusersonly" element={<PurchaseReport/>} />
           <Route path="*" element={<div>404 Not Found</div>} />
           {/* Add more routes as needed */}
         </Routes>
