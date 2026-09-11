@@ -108,7 +108,7 @@ const courseData = [
       { name: "After Effects", slug: "/ADOBE-AFTER-101" },
       { name: "Photoshop", slug: "/ADOBE-PHOTO-102" },
       { name: "Acrobat", slug: "/ADOBE-ACRO-103" },
-      { name: "Premier", slug: "/ADOBE-PREMIER-104" },
+      { name: "Premier Pro", slug: "/ADOBE-PREMIER-104" },
       { name: "Animate", slug: "/ADOBE-ANIMATE-105" },
       { name: "Express", slug: "/ADOBE-EXPRESS-106" },
       { name: "Indesign", slug: "/ADOBE-INDESIGN-107" },

@@ -14,6 +14,7 @@ import testimonialData from "@/data/testimonialData.json";
 import { useParams, useSearchParams } from "react-router-dom";
 import ProductTab2 from "./Abrocat/ProductTab2.tsx";
 import WhatsIncluded3 from "./Abrocat/WhatsIncluded3.tsx";
+import ProductTab3 from "./Abrocat/ProductTab3.tsx";
 
 type TabName = "Bundle" | "Exam Voucher" | "Practice Test" | "Courseware";
 
@@ -125,12 +126,7 @@ const CoursePage = () => {
         ))}
       </div>
 
-      <ProductTab2
-        tabData={course.tabData}
-        activeTab={activeTab}
-        syllabus={course.syllabus}
-        coursewareLink={course.coursewareLink}
-      />
+    {course?.courseCode === "MOS-EXCELEXPERT-101" ? (<ProductTab3 tabData={course.tabData} activeTab={activeTab} syllabus={course.syllabus} coursewareLink={course.coursewareLink} />) : (<ProductTab2 tabData={course.tabData} activeTab={activeTab} syllabus={course.syllabus} coursewareLink={course.coursewareLink} />)}
 
       {course?.courseCode === "MCE-CERTIFIEDEDUCATOR-101" || course?.courseCode === "APPLE-SWIFT-CERTIFIED-101" || course?.courseCode === "APPLE-SWIFT-ASSOCIATE-102" || course?.courseCode === "MCF-365AB-900-106" || course?.courseCode === "ADOBE-FIREFLY-110" || course?.courseCode === "AUTODESK-TINKERCAD-107" ? (
   <WhatsIncluded3 activeTab={activeTab} />

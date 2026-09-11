@@ -540,7 +540,7 @@ const PurchaseReport = () => {
                 loading ||
                 records.length === 0
               }
-              className="rounded-lg bg-green-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-lg bg-green-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
             >
               Download Excel
             </button>

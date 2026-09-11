@@ -111,7 +111,7 @@ const AboutUs: React.FC = () => {
       <section className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-2xl shadow-sm border text-center">
-            <div className="text-4xl font-extrabold text-slate-900">600k+</div>
+            <div className="text-4xl font-extrabold text-slate-900">900k+</div>
             <div className="text-sm text-slate-600 mt-2">
               Learners empowered through certifications
             </div>
