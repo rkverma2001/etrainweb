@@ -126,7 +126,7 @@ const CoursePage = () => {
         ))}
       </div>
 
-    {course?.courseCode === "MOS-EXCELEXPERT-101" ? (<ProductTab3 tabData={course.tabData} activeTab={activeTab} syllabus={course.syllabus} coursewareLink={course.coursewareLink} />) : (<ProductTab2 tabData={course.tabData} activeTab={activeTab} syllabus={course.syllabus} coursewareLink={course.coursewareLink} />)}
+    {course?.courseCode === "MOS-EXCELEXPERT-101" || course?.courseCode === "MOS-WORDEXPERT-102" || course?.courseCode === "MOS-POWERPOINT-103" || course?.courseCode === "MOS-EXCEL-104" || course?.courseCode === "MOS-WORD-105" ? (<ProductTab3 tabData={course.tabData} activeTab={activeTab} syllabus={course.syllabus} coursewareLink={course.coursewareLink} />) : (<ProductTab2 tabData={course.tabData} activeTab={activeTab} syllabus={course.syllabus} coursewareLink={course.coursewareLink} />)}
 
       {course?.courseCode === "MCE-CERTIFIEDEDUCATOR-101" || course?.courseCode === "APPLE-SWIFT-CERTIFIED-101" || course?.courseCode === "APPLE-SWIFT-ASSOCIATE-102" || course?.courseCode === "MCF-365AB-900-106" || course?.courseCode === "ADOBE-FIREFLY-110" || course?.courseCode === "AUTODESK-TINKERCAD-107" ? (
   <WhatsIncluded3 activeTab={activeTab} />

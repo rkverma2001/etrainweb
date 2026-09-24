@@ -16,6 +16,7 @@ import DropdownWrapper from "./coursedropdown/DropdownWrapper";
 import SuggestionDropdown from "./search/SuggestionDropdown";
 import api from "@/services/api";
 import MobileCourseDropdown from "./coursedropdown/MobileCourseDropdown";
+import TopOfferBar from "./popup/TopOfferBar";
 
 const Navbar: React.FC = () => {
   const { openAuth } = useAuth();
@@ -31,6 +32,7 @@ const Navbar: React.FC = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<any[]>([]);
   const [isSuggestionsOpen, setIsSuggestionsOpen] = useState(false);
+  const [showOffer, setShowOffer] = useState(true);
   const debounceRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -111,7 +113,28 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="w-full bg-white fixed top-0 left-0 z-50 h-20 px-4 sm:px-6 md:px-10">
+    <>
+    {showOffer && (
+        <TopOfferBar
+          onClose={() => setShowOffer(false)}
+        />
+      )}
+    <nav
+      className={`
+        w-full
+        bg-white
+        fixed
+        left-0
+        z-50
+        h-20
+        px-4
+        sm:px-6
+        md:px-10
+        transition-all
+        duration-300
+        ${showOffer ? "top-[44px]" : "top-0"}
+      `}
+    >
       <div className="h-full max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="h-full flex items-center">
@@ -374,6 +397,7 @@ const Navbar: React.FC = () => {
         </div>
       )}
     </nav>
+    </>
   );
 };
 

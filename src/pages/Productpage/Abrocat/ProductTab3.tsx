@@ -204,10 +204,12 @@ const ProductTab3: React.FC<ProductTabProps> = ({
         localStorage.getItem("authToken");
 
       console.log("🔑 Auth Token:", token);
+
       console.log(
         "📦 Package Type:",
         activeTab
       );
+
       console.log(
         "📌 Selected Version:",
         selectedVersion
@@ -327,55 +329,6 @@ const ProductTab3: React.FC<ProductTabProps> = ({
 
   /*
    * ============================================================
-   * VERSION DROPDOWN
-   * ============================================================
-   */
-
-  const VersionDropdown = () => {
-    /*
-     * Don't show dropdown when the current package
-     * has no versions.
-     */
-
-    if (currentVersions.length === 0) {
-      return null;
-    }
-
-    return (
-      <select
-        value={selectedVersion}
-        onChange={(e) => {
-          const version = e.target.value;
-
-          setSelectedVersion(version);
-
-          console.log(
-            "📌 Selected Version:",
-            version
-          );
-        }}
-        className="mt-[10px] border rounded-lg px-3 py-2 text-sm bg-white w-[220px] focus:outline-none"
-      >
-        <option value="">
-          Select Version
-        </option>
-
-        {currentVersions.map(
-          (version) => (
-            <option
-              key={version}
-              value={version}
-            >
-              {version}
-            </option>
-          )
-        )}
-      </select>
-    );
-  };
-
-  /*
-   * ============================================================
    * CURRENT TAB
    * ============================================================
    */
@@ -412,12 +365,15 @@ const ProductTab3: React.FC<ProductTabProps> = ({
         {/* IMAGE */}
 
         <div className="flex flex-col items-center justify-center w-full md:w-auto">
+
           <img
             src={currentTab.image}
             className="mt-[20px] md:mt-[74px] md:ml-[65px] h-[140px] sm:h-[180px] md:h-66 border rounded-2xl"
             alt="IT Specialist Certification Logo"
           />
+
         </div>
+
 
         {/* CONTENT */}
 
@@ -427,13 +383,16 @@ const ProductTab3: React.FC<ProductTabProps> = ({
             {currentTab.title}
           </h1>
 
+
           <p className="text font-light ml-0 md:ml-[12px] mt-[10px]">
             {currentTab.subtitle}
           </p>
 
+
           <div className="ml-0 md:ml-[12px] mt-[5px]">
             <Ratings />
           </div>
+
 
           {/* =================================================
               BUNDLE
@@ -441,11 +400,12 @@ const ProductTab3: React.FC<ProductTabProps> = ({
 
           {activeTab === "Bundle" && (
             <div className="ml-0 md:ml-[12px] mt-[20px]">
+
               <DownloadButton link={syllabus} />
 
-              <VersionDropdown />
             </div>
           )}
+
 
           {/* =================================================
               PRACTICE TEST
@@ -466,9 +426,9 @@ const ProductTab3: React.FC<ProductTabProps> = ({
                 </p>
               </button>
 
-              <VersionDropdown />
             </div>
           )}
+
 
           {/* =================================================
               EXAM VOUCHER
@@ -479,9 +439,9 @@ const ProductTab3: React.FC<ProductTabProps> = ({
 
               <DownloadButton link={syllabus} />
 
-              <VersionDropdown />
             </div>
           )}
+
 
           {/* =================================================
               COURSEWARE
@@ -494,12 +454,12 @@ const ProductTab3: React.FC<ProductTabProps> = ({
                 link={coursewareLink}
               />
 
-              <VersionDropdown />
             </div>
           )}
 
         </div>
       </div>
+
 
       {/* =====================================================
           RIGHT SECTION
@@ -509,19 +469,31 @@ const ProductTab3: React.FC<ProductTabProps> = ({
 
         <div className="h-auto md:h-[310px] w-full max-w-[300px] bg-white rounded-xl justify-center mt-[30px] md:mt-[60px] md:ml-[-150px] p-4 md:p-0">
 
+          {/* =================================================
+              PRICE HEADER
+          ================================================= */}
+
           <div className="ml-0 md:ml-[25px] mt-[5px] flex justify-between">
 
             <div className="font-light">
               PRICE
             </div>
 
+
             <div className="flex items-center text-xs text-blue-600 font-semibold mb-1 mr-2 md:mr-[20px]">
 
               <FaLaptop className="mr-1" />
 
               DIGITAL PRODUCT
+
             </div>
+
           </div>
+
+
+          {/* =================================================
+              PRICE
+          ================================================= */}
 
           <div className="text-green-600 font-semibold text-lg md:text-xl ml-0 md:ml-[25px]">
 
@@ -529,11 +501,69 @@ const ProductTab3: React.FC<ProductTabProps> = ({
 
           </div>
 
-          {/* QUANTITY */}
+
+          {/* =================================================
+              VERSION
+          ================================================= */}
+
+          {currentVersions.length > 0 && (
+            <div className="ml-0 md:ml-[25px] mt-[15px]">
+
+              <label
+                htmlFor="version"
+                className="block font-light mb-2"
+              >
+                VERSION
+              </label>
+
+              <select
+                id="version"
+                value={selectedVersion}
+                onChange={(e) => {
+                  const version =
+                    e.target.value;
+
+                  setSelectedVersion(
+                    version
+                  );
+
+                  console.log(
+                    "📌 Selected Version:",
+                    version
+                  );
+                }}
+                className="border rounded-lg px-3 py-2 text-sm bg-white w-[220px] focus:outline-none"
+              >
+
+                <option value="">
+                  Select Version
+                </option>
+
+                {currentVersions.map(
+                  (version) => (
+                    <option
+                      key={version}
+                      value={version}
+                    >
+                      {version}
+                    </option>
+                  )
+                )}
+
+              </select>
+
+            </div>
+          )}
+
+
+          {/* =================================================
+              QUANTITY
+          ================================================= */}
 
           <div className="ml-0 md:ml-[25px] mt-[15px] font-light">
             QUANTITY
           </div>
+
 
           <div className="flex mt-2">
 
@@ -547,9 +577,11 @@ const ProductTab3: React.FC<ProductTabProps> = ({
                 <FaMinus className="w-3 h-3" />
               </button>
 
+
               <div className="px-2 py-1 text-center min-w-[10px]">
                 {quantity}
               </div>
+
 
               <button
                 onClick={increment}
@@ -560,9 +592,13 @@ const ProductTab3: React.FC<ProductTabProps> = ({
               </button>
 
             </div>
+
           </div>
 
-          {/* PRODUCT TOTAL */}
+
+          {/* =================================================
+              PRODUCT TOTAL
+          ================================================= */}
 
           <div className="ml-0 md:ml-[25px] mt-[20px] flex justify-between">
 
@@ -570,6 +606,7 @@ const ProductTab3: React.FC<ProductTabProps> = ({
               Product Total
             </div>
 
+
             <div className="font-light mr-2 md:mr-[20px]">
 
               ₹{" "}
@@ -580,9 +617,13 @@ const ProductTab3: React.FC<ProductTabProps> = ({
               )}
 
             </div>
+
           </div>
 
-          {/* GRAND TOTAL */}
+
+          {/* =================================================
+              GRAND TOTAL
+          ================================================= */}
 
           <div className="ml-0 md:ml-[25px] mt-[5px] flex justify-between">
 
@@ -590,6 +631,7 @@ const ProductTab3: React.FC<ProductTabProps> = ({
               Grand Total
             </div>
 
+
             <div className="font-light mr-2 md:mr-[20px]">
 
               ₹{" "}
@@ -600,9 +642,13 @@ const ProductTab3: React.FC<ProductTabProps> = ({
               )}
 
             </div>
+
           </div>
 
-          {/* BUTTONS */}
+
+          {/* =================================================
+              BUTTONS
+          ================================================= */}
 
           <div className="ml-0 md:ml-[25px] mt-[10px] flex flex-col md:flex-row gap-2 md:gap-0 md:justify-between">
 
@@ -619,10 +665,13 @@ const ProductTab3: React.FC<ProductTabProps> = ({
                   "#0b8642",
               }}
             >
+
               {loading
                 ? "Adding..."
                 : "Add to Cart"}
+
             </button>
+
 
             {/* BUY NOW */}
 
@@ -637,14 +686,19 @@ const ProductTab3: React.FC<ProductTabProps> = ({
                   "#0b8642",
               }}
             >
+
               {loading
                 ? "Processing..."
                 : "Buy Now"}
+
             </button>
 
           </div>
 
-          {/* MESSAGE */}
+
+          {/* =================================================
+              MESSAGE
+          ================================================= */}
 
           {message && (
             <p className="ml-0 md:ml-[25px] mt-3 text-sm text-gray-700">
@@ -653,7 +707,9 @@ const ProductTab3: React.FC<ProductTabProps> = ({
           )}
 
         </div>
+
       </div>
+
     </div>
   );
 };
