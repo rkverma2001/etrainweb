@@ -35,14 +35,14 @@ const Cisco = () => {
       {
         title: "Cisco Certified Support Technician",
         description: "CCST Networking Bundle",
-        image: "/Cisco/3.svg",
+        image: "/Cisco/2.svg",
         duration: "3,999",
         slug: "/CISCO-NETWORKING-102",
       },
       {
         title: "Cisco Certified Support Technician",
         description: "CCST IT Support Bundle",
-        image: "/Cisco/2.svg",
+        image: "/Cisco/3.svg",
         duration: "3,999",
         slug: "/CISCO-ITSUPPORT-103",
       },
