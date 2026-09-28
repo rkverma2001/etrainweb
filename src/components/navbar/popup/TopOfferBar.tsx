@@ -24,6 +24,15 @@ const TopOfferBar: React.FC<TopOfferBarProps> = ({ onClose }) => {
           <span className="hidden md:inline text-yellow-200">
             • Limited Time Offer
           </span>
+
+          <a
+            href="https://skills.etraineducation.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-yellow-300 hover:text-white underline underline-offset-2 whitespace-nowrap"
+          >
+            Click Here
+          </a>
         </div>
 
         {/* CROSS BUTTON */}
