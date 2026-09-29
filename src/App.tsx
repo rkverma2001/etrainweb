@@ -59,7 +59,7 @@ const App = () => {
   <main
         className={`
           transition-[padding] duration-300
-          ${showOffer ? "pt-20" : "pt-0"}
+          ${showOffer ? "pt-12" : "pt-0"}
         `}
       >
     <Routes>
