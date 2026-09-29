@@ -63,12 +63,12 @@ const ContactUs: React.FC = () => {
             <div className="bg-white rounded-2xl p-6 shadow-sm border">
               <div className="font-semibold">Head Office</div>
               <address className="not-italic mt-2 text-sm text-slate-600">
-                Etrain Education Private Limited
-                <br />
-                1211, 12th Floor Hemkunt Chambers 89,
-                <br />
-                Nehru Place, New Delhi – 110019 INDIA
-              </address>
+  Etrain Education Private Limited
+  <br />
+  11th Floor, DLF TOWER, 1109, B,
+  <br />
+  Jasola Vihar, New Delhi, Delhi 110025
+</address>
 
               <div className="mt-4 text-sm">
                 <div className="flex items-center gap-2">
@@ -208,38 +208,39 @@ const ContactUs: React.FC = () => {
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-sm border">
-              <h3 className="font-semibold">Our location</h3>
-              <p className="text-sm text-slate-600 mt-2">
-                1211, 12th Floor Hemkunt Chambers 89, Nehru Place, New Delhi –
-                110019
-              </p>
+  <h3 className="font-semibold">Our location</h3>
 
-              <div className="mt-4 h-[420px] w-full overflow-hidden rounded-lg">
-                {/* Embedded Google map - using a safe query embed */}
-                <iframe
-                  title="EtrainIndia location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.1223070659467!2d77.24950587545995!3d28.62321968489244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3c2d0661fc9%3A0x967fdc3d9a3f2cf0!2sHemkunt%20Chambers%2C%20Nehru%20Pl%20Market%20Rd%2C%20Nehru%20Place%2C%20New%20Delhi%2C%20Delhi%20110019!5e0!3m2!1sen!2sin!4v1714045080736!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="border-0"
-                />
-              </div>
+  <p className="text-sm text-slate-600 mt-2">
+    11th Floor, DLF TOWER, 1109, B, Jasola Vihar,
+    New Delhi, Delhi 110025
+  </p>
 
-              <div className="mt-4 text-sm text-slate-600">
-                Need directions? Open in{" "}
-                <a
-                  className="text-green-600"
-                  href="https://www.google.com/maps/dir//12th,+Hemkunt+Chambers,+1211,+89,+Nehru+Pl+Market+Rd,+Nehru+Place,+New+Delhi,+Delhi+110019/@28.5480555,77.1709813,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x390ce3c55dd5b595:0xa57597ae89f55a52!2m2!1d77.2533827!2d28.5480804?entry=ttu&g_ep=EgoyMDI1MTExMi4wIKXMDSoASAFQAw%3D%3D"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Google Maps
-                </a>
-                .
-              </div>
-            </div>
+  <div className="mt-4 h-[420px] w-full overflow-hidden rounded-lg">
+    {/* Embedded Google map - using a safe query embed */}
+    <iframe
+      title="EtrainIndia location"
+      src="https://www.google.com/maps?q=11th+Floor,+DLF+TOWER,+1109+B,+Jasola+Vihar,+New+Delhi,+Delhi+110025&output=embed"
+      width="100%"
+      height="100%"
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      className="border-0"
+    />
+  </div>
+
+  <div className="mt-4 text-sm text-slate-600">
+    Need directions? Open in{" "}
+    <a
+      className="text-green-600"
+      href="https://www.google.com/maps/dir/?api=1&destination=11th+Floor,+DLF+TOWER,+1109+B,+Jasola+Vihar,+New+Delhi,+Delhi+110025"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Google Maps
+    </a>
+    .
+  </div>
+</div>
           </div>
         </div>
       </div>
