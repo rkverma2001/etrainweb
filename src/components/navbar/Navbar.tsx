@@ -18,7 +18,15 @@ import api from "@/services/api";
 import MobileCourseDropdown from "./coursedropdown/MobileCourseDropdown";
 import TopOfferBar from "./popup/TopOfferBar";
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  showOffer: boolean;
+  setShowOffer: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Navbar: React.FC<NavbarProps> = ({
+  showOffer,
+  setShowOffer,
+}) => {
   const { openAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -32,7 +40,6 @@ const Navbar: React.FC = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<any[]>([]);
   const [isSuggestionsOpen, setIsSuggestionsOpen] = useState(false);
-  const [showOffer, setShowOffer] = useState(true);
   const debounceRef = useRef<number | null>(null);
 
   useEffect(() => {

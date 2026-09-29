@@ -40,62 +40,79 @@ import TallyPage from "./pages/Productpage/Tally/TallyPage";
 import Tally from "./components/courseCategory/Tally";
 import BoaPage from "./pages/BoaPage";
 import PurchaseReport from "./pages/PurchaseReport";
+import { useState } from "react";
 
 const App = () => {
   const { isAuthOpen } = useAuth();
+  const [showOffer, setShowOffer] = useState(true);
   return (
     <div>
       <Router>
-          <Navbar />
+      <Navbar
+        showOffer={showOffer}
+        setShowOffer={setShowOffer}
+      />
 
-          <ScrollToTop/>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/adobe" element={<CourseCategory />} />
-          <Route path="/apple" element={<Apple />} />
-          <Route path="/autodesk" element={<Autodesk />} />
-          <Route path="/cisco" element={<Cisco />} />
-          <Route path="/criticalcareerskills" element={<Ccs />} />
-          <Route path="/ic3" element={<Ic3 />} />
-          <Route path="/itspecialist" element={<ItSpecialist />} />
-          <Route path="/intuit" element={<Intuit />} />
-          <Route path="/ibm" element={<Ibm />} />
-          <Route path="/mcf" element={<Mcf />} />
-          <Route path="/mos" element={<Mos />} />
-          <Route path="/unity" element={<Unity />} />
-          <Route path="/:courseId" element={<AdobeAbrocat/>} />
-          <Route path="/cart" element={<CartPage/>} />
-          <Route path="/state" element={<StateCityCard />} />
-          <Route path="/dashboard" element={<Dashboard/>} />
-          <Route path="/partnerwithus" element={<PartnerWithUs/>} />
-          <Route path="/aboutus" element={<AboutUs/>} />
-          <Route path="/contactus" element={<ContactUs/>} />
-          <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
-          <Route path="/termsandconditions" element={<TermsAndConditions/>} />
-          <Route path="/refundpolicy" element={<RefundPolicy/>} />
-          <Route path="/search" element={<SearchPage/>} />
-          <Route path="/paymentVerification" element={<PaymentVerification/>} />
-          <Route path="/ai" element={<Aiibm/>} />
-          <Route path="/certifications" element={<CertificationsPage />} />
-          <Route path="/courses" element={<CoursesPage />} />
-          <Route path="/datascience" element={<DataScience/>} />
-          <Route path="/ibm/:slug" element={<CourseDetails />} />
-          <Route path="/rolebased/:courseId" element={<Rolebased />} />
-          <Route path="/mcp" element={<Mcp />} />
-          <Route path="/aws" element={<Aws />} />
-          <Route path="/tally" element={<Tally/>} />
-          <Route path="/tally/:slug" element={<TallyPage />} />
-          <Route path="/globalcertifications" element={<BoaPage/>} />
-          <Route path="/adminetrainusersonly" element={<PurchaseReport/>} />
-          <Route path="*" element={<div>404 Not Found</div>} />
-          {/* Add more routes as needed */}
-        </Routes>
-        {isAuthOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <AuthCard />
-        </div>
-      )}
-      </Router>
+
+  <ScrollToTop />
+
+  <main
+        className={`
+          transition-[padding] duration-300
+          ${showOffer ? "pt-20" : "pt-0"}
+        `}
+      >
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/adobe" element={<CourseCategory />} />
+      <Route path="/apple" element={<Apple />} />
+      <Route path="/autodesk" element={<Autodesk />} />
+      <Route path="/cisco" element={<Cisco />} />
+      <Route path="/criticalcareerskills" element={<Ccs />} />
+      <Route path="/ic3" element={<Ic3 />} />
+      <Route path="/itspecialist" element={<ItSpecialist />} />
+      <Route path="/intuit" element={<Intuit />} />
+      <Route path="/ibm" element={<Ibm />} />
+      <Route path="/mcf" element={<Mcf />} />
+      <Route path="/mos" element={<Mos />} />
+      <Route path="/unity" element={<Unity />} />
+      <Route path="/:courseId" element={<AdobeAbrocat />} />
+      <Route path="/cart" element={<CartPage />} />
+      <Route path="/state" element={<StateCityCard />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/partnerwithus" element={<PartnerWithUs />} />
+      <Route path="/aboutus" element={<AboutUs />} />
+      <Route path="/contactus" element={<ContactUs />} />
+      <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+      <Route path="/termsandconditions" element={<TermsAndConditions />} />
+      <Route path="/refundpolicy" element={<RefundPolicy />} />
+      <Route path="/search" element={<SearchPage />} />
+      <Route path="/paymentVerification" element={<PaymentVerification />} />
+      <Route path="/ai" element={<Aiibm />} />
+      <Route path="/certifications" element={<CertificationsPage />} />
+      <Route path="/courses" element={<CoursesPage />} />
+      <Route path="/datascience" element={<DataScience />} />
+      <Route path="/ibm/:slug" element={<CourseDetails />} />
+      <Route path="/rolebased/:courseId" element={<Rolebased />} />
+      <Route path="/mcp" element={<Mcp />} />
+      <Route path="/aws" element={<Aws />} />
+      <Route path="/tally" element={<Tally />} />
+      <Route path="/tally/:slug" element={<TallyPage />} />
+      <Route path="/globalcertifications" element={<BoaPage />} />
+      <Route
+        path="/adminetrainusersonly"
+        element={<PurchaseReport />}
+      />
+      <Route path="*" element={<div>404 Not Found</div>} />
+    </Routes>
+  </main>
+
+  {isAuthOpen && (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <AuthCard />
+    </div>
+  )}
+</Router>
     </div>
   );
 };
