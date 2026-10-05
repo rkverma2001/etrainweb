@@ -65,9 +65,9 @@ const ContactUs: React.FC = () => {
               <address className="not-italic mt-2 text-sm text-slate-600">
   Etrain Education Private Limited
   <br />
-  11th Floor, DLF TOWER, 1109, B,
-  <br />
-  Jasola Vihar, New Delhi, Delhi 110025
+  1109, 11th Floor, DLF Tower B, 
+  <br/>
+  Jasola, New Delhi, Delhi 110025
 </address>
 
               <div className="mt-4 text-sm">
@@ -211,8 +211,7 @@ const ContactUs: React.FC = () => {
   <h3 className="font-semibold">Our location</h3>
 
   <p className="text-sm text-slate-600 mt-2">
-    11th Floor, DLF TOWER, 1109, B, Jasola Vihar,
-    New Delhi, Delhi 110025
+    1109, 11th Floor, DLF Tower B, Jasola, New Delhi, Delhi 110025
   </p>
 
   <div className="mt-4 h-[420px] w-full overflow-hidden rounded-lg">
