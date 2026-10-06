@@ -19,7 +19,10 @@ const courseData = [
       { name: "Word Expert", slug: "/MOS-WORDEXPERT-102" },
       { name: "PowerPoint Associate", slug: "/MOS-POWERPOINT-103" },
       { name: "Excel Associate", slug: "/MOS-EXCEL-104" },
-      { name: "Word Associate", slug: "/MOS-WORD-105" }
+      { name: "Word Associate", slug: "/MOS-WORD-105" },
+      { name: "Excel for Accounting", slug: "/MOS-EXCEL-ACCOUNTING-107" },
+      { name: "Excel for Business Finance", slug: "/MOS-EXCEL-BUSINESS-FINANCE-106" },
+      { name: "Excel for Operational Management", slug: "/rolebased/MOS-EXCEL-OPERATIONAL-MANAGEMENT-108" },
     ],
   },
   {
