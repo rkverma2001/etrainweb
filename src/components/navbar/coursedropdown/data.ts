@@ -8,6 +8,8 @@ const courseData = [
       { name: "Azure AI Fundamentals (AI-901)", slug: "/MCF-AZUREAIFUNDAMENTALS-103" },
       { name: "Azure Data Fundamentals (DP-900)", slug: "/MCF-AZUREDATAFUNDAMENTALS-104" },
       { name: "Power Platform Fundamentals (PL-900)", slug: "/MCF-POWERPLATFORMFUNDAMENTALS-105" },
+      { name: "Microsoft Certified: GitHub Foundations Certification (GH-900)", slug: "/rolebased/GH-900-GITHUB-FOUNDATIONS" },
+      { name: "Microsoft Certified: GitHub Copilot Certification (GH-300)", slug: "/rolebased/GH-300-GITHUB-COPILOT" },
       { name: "Security Compliance (SC-900)", slug: "/MCF-SECURITYCOMPLIANCE-108" },
     ],
   },
