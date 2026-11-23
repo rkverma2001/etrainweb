@@ -30,7 +30,7 @@ const PartnersSection = () => {
         </span>
       </div>
 
-      <div className="h-full p-5 sm:p-6 md:p-8 flex flex-col sm:flex-row items-center gap-4">
+      <div className="h-full p-5 sm:p-6 md:p-8 flex flex-col sm:flex-row md:flex-col xl:flex-row items-center gap-4">
         <img
           src="https://etrain.blr1.cdn.digitaloceanspaces.com/partnerslogo/CertiportPearsonLogo.png"
           alt="Certiport"
@@ -69,7 +69,7 @@ const PartnersSection = () => {
         </span>
       </div>
 
-      <div className="h-full p-5 sm:p-6 md:p-8 flex flex-col sm:flex-row items-center gap-4">
+      <div className="h-full p-5 sm:p-6 md:p-8 flex flex-col sm:flex-row md:flex-col xl:flex-row items-center gap-4">
         <img
           src="https://etrain.blr1.cdn.digitaloceanspaces.com/partnerslogo/IBM_Silver.png"
           alt="IBM"
@@ -108,7 +108,7 @@ const PartnersSection = () => {
         </span>
       </div>
 
-      <div className="h-full p-5 sm:p-6 md:p-8 flex flex-col sm:flex-row items-center gap-4">
+      <div className="h-full p-5 sm:p-6 md:p-8 flex flex-col sm:flex-row md:flex-col xl:flex-row items-center gap-4">
         <img
           src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/HCLTech.svg"
           alt="HCL"
@@ -148,7 +148,7 @@ const PartnersSection = () => {
         </span>
       </div>
 
-      <div className="h-full p-5 sm:p-6 md:p-8 flex flex-col sm:flex-row items-center gap-4">
+      <div className="h-full p-5 sm:p-6 md:p-8 flex flex-col sm:flex-row md:flex-col xl:flex-row items-center gap-4">
         <img
           src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/Tally.svg"
           alt="Tally"

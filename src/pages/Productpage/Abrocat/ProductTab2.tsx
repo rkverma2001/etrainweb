@@ -4,6 +4,7 @@ import DownloadButton from "@/components/button/DownloadButton";
 import Ratings from "@/components/reviews/Ratings";
 import api from "@/services/api";
 import { useNavigate, useParams } from "react-router-dom";
+import { useCart } from "@/components/cart/CartContext";
 
 type TabName = "Bundle" | "Exam Voucher" | "Practice Test" | "Courseware";
 
@@ -44,6 +45,9 @@ const ProductTab2: React.FC<ProductTabProps> = ({
   const params = useParams();
   console.log("🔍 useParams output:", params);
 
+  const { refreshCart } = useCart();
+
+
   const handleAddToCart = async (redirectToCart = false) => {
   try {
     setLoading(true);
@@ -58,7 +62,6 @@ const ProductTab2: React.FC<ProductTabProps> = ({
     }
 
     const token = localStorage.getItem("authToken");
-    console.log("🔑 Auth Token:", token);
 
     const response = await api.post(
       "/cart/add",
@@ -79,6 +82,7 @@ const ProductTab2: React.FC<ProductTabProps> = ({
     console.log("Quantity added:", quantity);
 
     setMessage("✅ Item added to cart successfully!");
+    refreshCart();
 
     // Redirect only for Buy Now
     if (redirectToCart) {
@@ -101,10 +105,10 @@ const ProductTab2: React.FC<ProductTabProps> = ({
 };
 
   return (
-    <div className="flex flex-col md:flex-row px-4 sm:px-6 md:pl-14 md:pr-14 pb-10 md:pb-14 relative z-10">
+    <div className="flex flex-col lg:flex-row lg:gap-6 px-4 sm:px-6 md:pl-14 md:pr-14 pb-10 md:pb-14 relative z-10">
 
   {/* LEFT SECTION */}
-  <div className="flex flex-col md:flex-row items-center justify-center w-full md:w-[75%] md:items-start md:justify-start">
+  <div className="flex flex-col md:flex-row items-center justify-center w-full lg:flex-1 lg:min-w-0 md:items-start md:justify-start">
 
     {/* IMAGE */}
     <div className="flex flex-col items-center justify-center w-full md:w-auto">
@@ -164,9 +168,9 @@ const ProductTab2: React.FC<ProductTabProps> = ({
   </div>
 
   {/* RIGHT SECTION (PRICE CARD) */}
-  <div className="flex flex-col w-full md:w-[25%] items-center justify-center md:mt-0 md:ml-10">
+  <div className="flex flex-col w-full lg:w-[300px] lg:shrink-0 items-center justify-center md:mt-0">
 
-    <div className="h-auto md:h-[310px] w-full max-w-[300px] bg-white rounded-xl justify-center mt-[30px] md:mt-[60px] md:ml-[-150px] p-4 md:p-0">
+    <div className="h-auto w-full max-w-[300px] bg-white rounded-xl justify-center mt-[30px] lg:mt-[60px] p-4 md:p-0 md:pb-4">
 
       <div className="ml-0 md:ml-[25px] mt-[5px] flex justify-between">
         <div className="font-light">PRICE</div>
@@ -212,11 +216,11 @@ const ProductTab2: React.FC<ProductTabProps> = ({
         </div>
       </div>
 
-      <div className="ml-0 md:ml-[25px] mt-[10px] flex flex-col md:flex-row gap-2 md:gap-0 md:justify-between">
+      <div className="ml-0 md:mx-[25px] mt-[10px] flex flex-col sm:flex-row gap-2">
         <button
           onClick={() => handleAddToCart(false)}
           disabled={loading}
-          className="flex items-center justify-center mt-[10px] md:mt-[15px] gap-2 text-white px-5 py-2 rounded-lg shadow hover:opacity-90 cursor-pointer"
+          className="flex-1 whitespace-nowrap flex items-center justify-center mt-[10px] md:mt-[15px] gap-2 text-white px-4 py-2 rounded-lg shadow hover:opacity-90 cursor-pointer"
           style={{ backgroundColor: "#0b8642" }}
         >
           Add to Cart
@@ -225,7 +229,7 @@ const ProductTab2: React.FC<ProductTabProps> = ({
         <button
           onClick={() => handleAddToCart(true)}
           disabled={loading}
-          className="flex items-center justify-center mt-[5px] md:mt-[15px] md:mr-[20px] gap-2 text-white px-7 py-2 rounded-lg shadow hover:opacity-90 cursor-pointer"
+          className="flex-1 whitespace-nowrap flex items-center justify-center mt-[5px] sm:mt-[10px] md:mt-[15px] gap-2 text-white px-4 py-2 rounded-lg shadow hover:opacity-90 cursor-pointer"
           style={{ backgroundColor: "#0b8642" }}
         >
           Buy Now

@@ -324,7 +324,7 @@ const CourseSection = () => {
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
         {/* Sidebar */}
         <aside className="w-full lg:w-1/4">
-          <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 shadow-sm lg:sticky lg:top-24">
+          <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 shadow-sm lg:sticky lg:top-36">
             <h4 className="text-lg font-semibold mb-4 text-center lg:text-left">
               Product Type
             </h4>
@@ -418,7 +418,7 @@ const CourseSection = () => {
           </div>
 
           {/* 🔥 Scrollable Grid */}
-          <div className="flex-1 lg:max-h-[70vh] overflow-y-auto pr-1 sm:pr-2">
+          <div className="flex-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
               {courseData[selected]?.map((course, index) => (
                 <CourseCard

@@ -18,7 +18,7 @@ const DropdownWrapper: React.FC = () => {
   return (
     <>
       {/* Desktop */}
-      <div className="hidden md:flex absolute left-0 top-full w-[650px] bg-white shadow-xl rounded-lg border border-gray-200 z-50">
+      <div className="hidden lg:flex absolute left-0 top-full w-[650px] bg-white shadow-xl rounded-lg border border-gray-200 z-50">
         <CategoryList
           categories={courseData}
           activeCategory={activeCategory}
@@ -31,7 +31,7 @@ const DropdownWrapper: React.FC = () => {
       </div>
 
       {/* Mobile */}
-      <div className="block md:hidden">
+      <div className="block lg:hidden">
         <MobileCourseDropdown />
       </div>
     </>

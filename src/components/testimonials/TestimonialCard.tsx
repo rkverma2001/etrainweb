@@ -12,7 +12,7 @@ const TestimonialCard = ({
   image,
 }: TestimonialCardProps) => {
   return (
-    <div className="border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white w-[300px]">
+    <div className="border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white w-full max-w-[300px]">
       <div className="relative">
         <img className="absolute right-0" src="https://etrain.blr1.cdn.digitaloceanspaces.com/Icon/linkedin_icon.svg" />
         <div className="h-12"></div>

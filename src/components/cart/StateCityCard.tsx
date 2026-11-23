@@ -1,14 +1,36 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Select from "react-select";
 import { State, City } from "country-state-city";
-import api from "@/services/api"; // << USING YOUR AXIOS INSTANCE
+import api from "@/services/api";
 
 interface OptionType {
   value: string;
   label: string;
 }
 
-const StateCityCard: React.FC = () => {
+interface StateCityCardProps {
+  /** Coupon code applied in the cart, validated again by the backend. */
+  couponCode?: string;
+}
+
+declare global {
+  interface Window {
+    // Loaded via <script src="https://checkout.razorpay.com/v1/checkout.js">
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    Razorpay: any;
+  }
+}
+
+type ApiError = { response?: { data?: { error?: string } }; message?: string };
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const stateOptions: OptionType[] = State.getStatesOfCountry("IN").map((s) => ({
+  value: s.isoCode,
+  label: s.name,
+}));
+
+const StateCityCard: React.FC<StateCityCardProps> = ({ couponCode = "" }) => {
   const [selectedState, setSelectedState] = useState<OptionType | null>(null);
   const [selectedCity, setSelectedCity] = useState<OptionType | null>(null);
   const [name, setName] = useState("");
@@ -17,242 +39,146 @@ const StateCityCard: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
-  const stateOptions: OptionType[] = State.getStatesOfCountry("IN").map(
-    (s) => ({
-      value: s.isoCode,
-      label: s.name,
-    }),
+  const cityOptions: OptionType[] = useMemo(
+    () =>
+      selectedState
+        ? City.getCitiesOfState("IN", selectedState.value).map((c) => ({
+            value: c.name,
+            label: c.name,
+          }))
+        : [],
+    [selectedState],
   );
 
-  const cityOptions: OptionType[] = selectedState
-    ? City.getCitiesOfState("IN", selectedState.value).map((c) => ({
-        value: c.name,
-        label: c.name,
-      }))
-    : [];
+  const validate = (): string | null => {
+    if (!name.trim()) return "Please enter your name";
+    if (!EMAIL_RE.test(email.trim())) return "Please enter a valid email";
+    if (!/^[6-9]\d{9}$/.test(mobile)) return "Please enter a valid 10-digit mobile number";
+    if (!selectedState || !selectedCity) return "Please select state and city";
+    return null;
+  };
 
   const handleBuyNow = async () => {
-  console.log("========== BUY NOW STARTED ==========");
+    setMessage(null);
 
-  setMessage(null);
-  setLoading(true);
-
-  try {
-    console.log("User Details:", {
-      name,
-      email,
-      mobile,
-      state: selectedState?.label,
-      city: selectedCity?.label,
-    });
-
-    if (!name.trim()) {
-      console.log("Validation Failed: Name Missing");
-      setMessage("Please enter your name");
-      setLoading(false);
+    const validationError = validate();
+    if (validationError || !selectedState || !selectedCity) {
+      setMessage(validationError);
       return;
     }
 
-    if (!email.trim()) {
-      console.log("Validation Failed: Email Missing");
-      setMessage("Please enter your email");
-      setLoading(false);
-      return;
-    }
+    setLoading(true);
 
-    if (!mobile.trim()) {
-      console.log("Validation Failed: Mobile Missing");
-      setMessage("Please enter your mobile number");
-      setLoading(false);
-      return;
-    }
-
-    if (!selectedState || !selectedCity) {
-      console.log("Validation Failed: State/City Missing");
-      setMessage("Please select state and city");
-      setLoading(false);
-      return;
-    }
-
-    console.log("========== CREATE USER ==========");
-
-    try {
-      const userResp = await api.post("/user", {
-        name,
-        email,
-        mobile: `+91${mobile}`,
-        userType: "Student",
-        city: selectedCity.label,
-        state: selectedState.label,
-      });
-
-      console.log("User Created:", userResp.data);
-    } catch (userError: any) {
-      console.log("User Create Error:", userError?.response?.data);
-
-      const errorMessage = userError?.response?.data?.error || "";
-
-      if (
-        errorMessage.includes("already exists") ||
-        errorMessage.includes("User with this mobile already exists")
-      ) {
-        console.log("Existing User Found. Continuing...");
-      } else {
-        setMessage(errorMessage || "Unable to save user details");
-        setLoading(false);
-        return;
-      }
-    }
-
-    console.log("========== CREATE PAYMENT ORDER ==========");
-
-    const couponCode = localStorage.getItem("couponCode") || "";
-
-    console.log("Coupon From LocalStorage:", couponCode);
-
-    const paymentResp = await api.post("/payment/create-order", {
-      couponCode,
-      currency: "INR",
-      meta: {
-        name,
-        email,
-        mobile: `+91${mobile}`,
-        state: selectedState.label,
-        city: selectedCity.label,
-        method: "Online",
-      },
-    });
-
-    console.log("Create Order Response:", paymentResp.data);
-
-    const razorpayOrder = paymentResp.data.razorpayOrder;
-
-    console.log("Razorpay Order:", razorpayOrder);
-    console.log("Amount Received:", razorpayOrder.amount);
-    console.log("Amount In Rupees:", razorpayOrder.amount / 100);
-
-    if (!razorpayOrder?.id) {
-      throw new Error("Razorpay order not received from backend");
-    }
-
-    console.log("========== OPENING RAZORPAY ==========");
-
-    const options = {
-      key: import.meta.env.VITE_RAZORPAY_KEY || "rzp_live_fUOvzk20fHrJlv",
-
-      amount: razorpayOrder.amount,
-
-      currency: razorpayOrder.currency,
-
-      order_id: razorpayOrder.id,
-
-      name: "etrainIndia",
-
-      description: "Course Payment",
-
-      prefill: {
-        name,
-        email,
-        contact: mobile,
-      },
-
-      theme: {
-        color: "#0b8841",
-      },
-
-      handler: async (response: any) => {
-        console.log("========== PAYMENT SUCCESS ==========");
-        console.log("Razorpay Response:", response);
-
-        try {
-          console.log("========== VERIFY PAYMENT ==========");
-
-          const verifyResp = await api.post("/payment/verify", {
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-
-            meta: {
-              name,
-              email,
-              mobile,
-              state: selectedState.label,
-              city: selectedCity.label,
-              method: "Online",
-            },
-          });
-
-          console.log("Verify Response:", verifyResp.data);
-
-          if (verifyResp.data.success) {
-            console.log("Payment Verified Successfully");
-
-            setMessage("Payment Successful. Redirecting...");
-
-            setTimeout(() => {
-              window.location.href =
-                "/paymentVerification?orderId=" +
-                verifyResp.data.orderId;
-            }, 1000);
-          } else {
-            console.log("Verification Failed:", verifyResp.data);
-
-            setMessage(
-              verifyResp.data.error || "Payment verification failed",
-            );
-          }
-        } catch (verifyError: any) {
-          console.error(
-            "VERIFY PAYMENT ERROR:",
-            verifyError?.response?.data || verifyError,
-          );
-
-          setMessage(
-            verifyError?.response?.data?.error ||
-              "Payment verification failed",
-          );
-        } finally {
-          setLoading(false);
-        }
-      },
-
-      modal: {
-        ondismiss: () => {
-          console.log("Razorpay Closed By User");
-          setLoading(false);
-        },
-      },
+    const fullMobile = `+91${mobile}`;
+    const meta = {
+      name: name.trim(),
+      email: email.trim(),
+      mobile: fullMobile,
+      state: selectedState.label,
+      city: selectedCity.label,
+      method: "Online",
     };
 
-    const rzp = new (window as any).Razorpay(options);
+    try {
+      try {
+        await api.post("/user", {
+          name: meta.name,
+          email: meta.email,
+          mobile: fullMobile,
+          userType: "Student",
+          city: meta.city,
+          state: meta.state,
+        });
+      } catch (userError) {
+        const errorMessage = (userError as ApiError)?.response?.data?.error || "";
+        // An existing user is fine; anything else stops checkout.
+        if (!errorMessage.includes("already exists")) {
+          setMessage(errorMessage || "Unable to save user details");
+          setLoading(false);
+          return;
+        }
+      }
 
-    rzp.on("payment.failed", (response: any) => {
-      console.error("========== PAYMENT FAILED ==========");
-      console.error(response);
+      const paymentResp = await api.post("/payment/create-order", {
+        couponCode,
+        currency: "INR",
+        meta,
+      });
 
-      setMessage(response?.error?.description || "Payment failed");
+      const razorpayOrder = paymentResp.data?.razorpayOrder;
+      if (!razorpayOrder?.id) {
+        throw new Error("Razorpay order not received from backend");
+      }
+
+      if (!window.Razorpay) {
+        throw new Error("Payment gateway failed to load. Please refresh and try again.");
+      }
+
+      const rzp = new window.Razorpay({
+        key: import.meta.env.VITE_RAZORPAY_KEY || "rzp_live_U3i6IY2fjrefgE",
+        amount: razorpayOrder.amount,
+        currency: razorpayOrder.currency,
+        order_id: razorpayOrder.id,
+        name: "etrainIndia",
+        description: "Course Payment",
+        prefill: { name: meta.name, email: meta.email, contact: fullMobile },
+        theme: { color: "#0b8841" },
+
+        handler: async (response: {
+          razorpay_order_id: string;
+          razorpay_payment_id: string;
+          razorpay_signature: string;
+        }) => {
+          try {
+            const verifyResp = await api.post("/payment/verify", {
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              meta,
+            });
+
+            if (verifyResp.data?.success) {
+              setMessage("Payment Successful. Redirecting...");
+              const orderId = verifyResp.data.orderId || response.razorpay_order_id;
+              setTimeout(() => {
+                window.location.href =
+                  "/paymentVerification?orderId=" + encodeURIComponent(orderId);
+              }, 1000);
+            } else {
+              setMessage(verifyResp.data?.error || "Payment verification failed");
+            }
+          } catch (verifyError) {
+            console.error("Payment verification error");
+            setMessage(
+              (verifyError as ApiError)?.response?.data?.error ||
+                "Payment verification failed",
+            );
+          } finally {
+            setLoading(false);
+          }
+        },
+
+        modal: {
+          ondismiss: () => setLoading(false),
+        },
+      });
+
+      rzp.on("payment.failed", (response: { error?: { description?: string } }) => {
+        setMessage(response?.error?.description || "Payment failed");
+        setLoading(false);
+      });
+
+      rzp.open();
+    } catch (error) {
+      console.error("Create order error");
+      const err = error as ApiError;
+      setMessage(err?.response?.data?.error || err?.message || "Payment initialization failed");
       setLoading(false);
-    });
-
-    rzp.open();
-  } catch (error: any) {
-    console.error(
-      "CREATE ORDER ERROR:",
-      error?.response?.data || error,
-    );
-
-    setMessage(
-      error?.response?.data?.error ||
-        error?.message ||
-        "Payment initialization failed",
-    );
-
-    setLoading(false);
-  }
-};
+    }
+  };
 
   return (
-    <div className="max-w-sm mx-autoshadow p-6 space-y-4">
+    <div className="max-w-sm mx-auto p-6 space-y-4">
       <h2 className="text-2xl font-semibold text-gray-800 text-center mb-4">
         Fill Your Details
       </h2>

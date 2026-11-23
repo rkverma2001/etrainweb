@@ -1,5 +1,4 @@
 import Footer from "@/components/footer/Footer";
-import Navbar from "@/components/navbar/Navbar";
 import { useState } from "react";
 import CourseCard from "./CourseCard";
 import { CheckCircle2 } from "lucide-react";
@@ -286,12 +285,11 @@ const Ibm = () => {
     "Add them to your LinkedIn profile, resume, or CV to boost credibility.",
     "Earn globally recognized certifications from IBM.",
     "Enhance your career prospects during interviews, internships, or performance evaluations.",
-    "Gain hands-on, industry-aligned skills through IBM Certification courses powered by IBM Developer Skills Network.",
+    "Gain hands-on, industry-aligned skills through IBM Certificate courses powered by IBM Developer Skills Network.",
   ];
 
   return (
     <div className="relative">
-      <Navbar />
 
       <div className="max-w-7xl mx-auto pt-28">
         <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -304,11 +302,11 @@ const Ibm = () => {
                 alt="IBM Logo"
               />
 
-              <div className="text-gray-700 text-sm sm:text-base leading-relaxed text-justify">
+              <div className="text-gray-700 text-sm sm:text-base leading-relaxed text-left lg:text-justify">
                 <p>
                   The{" "}
                   <span className="font-semibold">
-                    IBM Certification Program
+                    IBM Certificate Program
                   </span>{" "}
                   empowers learners to validate their expertise in emerging
                   technologies such as Artificial Intelligence, Data Science,
@@ -366,14 +364,14 @@ const Ibm = () => {
             </h1>
 
             <p className="text-center text-sm sm:text-base mb-6 sm:mb-8">
-              Official IBM Certification Courses designed to help learners
+              Official IBM Certificate Courses designed to help learners
               develop in-demand technical skills and earn globally recognized
               credentials. <br/> The course includes a self-paced course, assessments, MCQ's and a certification exam.
             </p>
       </div>
 
       {/* Scrollable Grid */}
-      <div className="flex-1 lg:max-h-[70vh] overflow-y-auto pr-1 sm:pr-2">
+      <div className="flex-1">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {courseData[selected]?.map((course, index) => (
             <CourseCard

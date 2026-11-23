@@ -44,7 +44,7 @@ const CourseHero: React.FC = () => {
           </h1>
 
           <p className="text-gray-600 mt-3 text-lg">
-            Master data analysis with Python and earn an industry-recognized IBM certification.
+            Master data analysis with Python and earn an industry-recognized IBM certificate.
           </p>
 
           {/* Rating */}
@@ -109,7 +109,7 @@ const CourseHero: React.FC = () => {
 
           {/* Benefits */}
           <ul className="mt-6 space-y-2 text-gray-700">
-            <li>✔ Official IBM Certification</li>
+            <li>✔ Official IBM Certificate</li>
             <li>✔ Lifetime Access</li>
             <li>✔ Free exam voucher included</li>
           </ul>

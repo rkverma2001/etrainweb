@@ -112,7 +112,7 @@ const Ccs = () => {
                 className="mb-4 sm:mb-5 h-12 sm:h-14 md:h-16 object-contain"
                 alt="CCS Category Logo"
               />
-              <div className="text-gray-700 text-sm sm:text-base leading-relaxed text-justify">
+              <div className="text-gray-700 text-sm sm:text-base leading-relaxed text-left lg:text-justify">
                 <p>
                   This Critical Career Skills shift aims to prepare learners
                   across various fields with versatile, in-demand skills. By
@@ -166,7 +166,7 @@ const Ccs = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
           {/* Sidebar / Filters */}
           <aside className="w-full lg:w-1/4">
-            <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 shadow-sm lg:sticky lg:top-24">
+            <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 shadow-sm lg:sticky lg:top-36">
               <h4 className="text-lg font-semibold mb-4 text-center lg:text-left">
                 Product Type
               </h4>
@@ -259,7 +259,7 @@ const Ccs = () => {
               )}
             </div>
 
-            <div className="flex-1 lg:max-h-[70vh] overflow-y-auto pr-1 sm:pr-2">
+            <div className="flex-1">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
                 {courseData[selected]?.map((course, index) => (
                   <CourseCard
@@ -277,11 +277,11 @@ const Ccs = () => {
         </div>
       </div>
       <div>
-        <div className="flex flex-col md:flex-row w-full h-auto md:h-[500px]">
+        <div className="flex flex-col md:flex-row w-full h-auto lg:h-[500px]">
           {/* Left Section */}
           <div className="w-full md:w-1/2 flex items-center justify-center p-6 bg-white">
-            <div className=" p-6 w-full max-w-lg h-fit">
-              <h2 className="text-4xl ml-1 font-semibold text-gray-800 mb-12">
+            <div className="p-0 md:p-6 w-full max-w-lg h-fit">
+              <h2 className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-6 sm:mb-12 leading-tight">
                 Get Industry-Recognized Certifications & Digital Badge
               </h2>
               <ul className="space-y-4 text-gray-700 text-base">
@@ -302,12 +302,12 @@ const Ccs = () => {
             <img
               src="https://etrain.blr1.cdn.digitaloceanspaces.com/Certificate/CcsGenaiCertificate.svg"
               alt="Apple Swift Certificate"
-              className="h-full w-[600px] object-contain max-h-[500px]  rounded-xl shadow-lg"
+              className="h-auto w-full max-w-[600px] object-contain max-h-[500px] rounded-xl shadow-lg"
             />
           </div>
         </div>
       </div>
-      <div className="mt-24">
+      <div className="mt-12 md:mt-24">
         <Footer />
       </div>
     </div>

@@ -163,7 +163,7 @@ const ContactUs: React.FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your name"
-                  className="col-span-1 md:col-span-1 rounded-md border-gray-200 shadow-sm px-4 py-3"
+                  className="col-span-1 md:col-span-1 rounded-md border border-gray-300 shadow-sm px-4 py-3"
                 />
                 <input
                   name="email"
@@ -172,7 +172,7 @@ const ContactUs: React.FC = () => {
                   required
                   type="email"
                   placeholder="Your email"
-                  className="col-span-1 md:col-span-1 rounded-md border-gray-200 shadow-sm px-4 py-3"
+                  className="col-span-1 md:col-span-1 rounded-md border border-gray-300 shadow-sm px-4 py-3"
                 />
                 <input
                   name="phone"
@@ -180,7 +180,7 @@ const ContactUs: React.FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="Phone"
-                  className="col-span-1 md:col-span-1 rounded-md border-gray-200 shadow-sm px-4 py-3"
+                  className="col-span-1 md:col-span-1 rounded-md border border-gray-300 shadow-sm px-4 py-3"
                 />
                 <textarea
                   name="message"
@@ -189,7 +189,7 @@ const ContactUs: React.FC = () => {
                   required
                   rows={4}
                   placeholder="How can we help?"
-                  className="col-span-1 md:col-span-2 rounded-md border-gray-200 shadow-sm px-4 py-3"
+                  className="col-span-1 md:col-span-2 rounded-md border border-gray-300 shadow-sm px-4 py-3"
                 />
 
                 <div className="col-span-1 md:col-span-2 flex items-center gap-4">

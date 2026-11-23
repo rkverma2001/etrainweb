@@ -10,8 +10,8 @@ const WhySection: React.FC<WhySectionProps> = ({ activeTab }) => {
       {activeTab === "Bundle" && (
         <div className="flex flex-col lg:flex-row justify-between mt-12 lg:mt-[80px] px-6 lg:px-20">
           {/* LEFT TEXT */}
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-[#17345b] leading-tight lg:leading-[80px] text-center lg:text-left">
-            Why <br /> This <br /> Certification
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-[#17345b] leading-tight lg:leading-[70px] xl:leading-[80px] text-center lg:text-left">
+            Why <br className="hidden lg:block" /> This <br className="hidden lg:block" /> Certification
           </div>
 
           {/* RIGHT CONTENT */}
@@ -57,8 +57,8 @@ const WhySection: React.FC<WhySectionProps> = ({ activeTab }) => {
       {activeTab === "Exam Voucher" && (
         <div className="flex flex-col lg:flex-row justify-between mt-12 lg:mt-[80px] px-6 lg:px-20">
           {/* LEFT TEXT */}
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-[#17345b] leading-tight lg:leading-[80px] text-center lg:text-left">
-            Why <br /> This <br /> Certification
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-[#17345b] leading-tight lg:leading-[70px] xl:leading-[80px] text-center lg:text-left">
+            Why <br className="hidden lg:block" /> This <br className="hidden lg:block" /> Certification
           </div>
 
           {/* RIGHT CONTENT */}
@@ -104,7 +104,7 @@ const WhySection: React.FC<WhySectionProps> = ({ activeTab }) => {
       {activeTab === "Practice Test" && (
         <div className="flex flex-col lg:flex-row justify-between mt-12 lg:mt-[80px] px-6 lg:px-35">
           {/* LEFT TEXT */}
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-[#17345b] leading-tight lg:leading-[80px] text-center lg:text-left mt-6 lg:mt-[68px]">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-[#17345b] leading-tight lg:leading-[70px] xl:leading-[80px] text-center lg:text-left mt-6 lg:mt-[68px]">
             Why <br /> CertPREP <br /> Practice Tests
           </div>
           {/* RIGHT CONTENT */}
@@ -182,7 +182,7 @@ const WhySection: React.FC<WhySectionProps> = ({ activeTab }) => {
       {activeTab === "Courseware" && (
         <div className="flex flex-col lg:flex-row justify-between mt-12 lg:mt-[80px] px-6 lg:px-35">
           {/* LEFT TEXT */}
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-[#17345b] leading-tight lg:leading-[80px] text-center lg:text-left mt-6 lg:mt-[68px]">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-[#17345b] leading-tight lg:leading-[70px] xl:leading-[80px] text-center lg:text-left mt-6 lg:mt-[68px]">
             Why <br /> Choose <br /> LearnKey
           </div>
 

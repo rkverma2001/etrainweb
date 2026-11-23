@@ -14,8 +14,7 @@ const TopOfferBar: React.FC<TopOfferBarProps> = ({ onClose }) => {
 
           <span>
             <span className="font-bold text-yellow-300">50% OFF</span> on{" "}
-            <span className="font-semibold">All Exam Vouchers</span> &{" "}
-            <span className="font-semibold">All IBM Products</span> under{" "}
+            <span className="font-semibold">All Exam Vouchers</span> under{" "}
             <span className="font-bold text-yellow-300">
               NASSCOM & GOI Scheme
             </span>

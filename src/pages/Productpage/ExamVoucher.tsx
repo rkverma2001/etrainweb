@@ -100,10 +100,10 @@ const ExamVoucher = ({ highlights, videoSrc }: ExamVoucherProps) => {
               <div className="flex mt-18 text-4xl font-medium">
                 Why buy from us?
               </div>
-              <div className="mt-12 flex flex-wrap gap-7 items-center">
+              <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-7">
                 <div
                   ref={counterRef}
-                  className="border-1 rounded-2xl p-2 pl-5 pt-5 h-[165px] w-[320px] bg-[#faf5ed] cursor-pointer"
+                  className="border-1 rounded-2xl p-2 pl-5 pt-5 h-[165px] w-full max-w-[320px] bg-[#faf5ed] relative cursor-pointer"
                 >
                   <h1
                     className={`text-5xl font-semibold ${
@@ -116,7 +116,7 @@ const ExamVoucher = ({ highlights, videoSrc }: ExamVoucherProps) => {
                     Certified Learners <br /> and Growing Strong
                   </p>
                 </div>
-                <div className="border-1 rounded-2xl p-2 pl-5 h-[165px] w-[320px] bg-[#faf5ed] cursor-pointer">
+                <div className="border-1 rounded-2xl p-2 pl-5 h-[165px] w-full max-w-[320px] bg-[#faf5ed] relative cursor-pointer">
                   <img
                     src="https://etrain.blr1.cdn.digitaloceanspaces.com/Icon/Certiportblacklogo.svg"
                     alt="Exam Voucher"
@@ -128,7 +128,7 @@ const ExamVoucher = ({ highlights, videoSrc }: ExamVoucherProps) => {
                     <br /> India
                   </p>
                 </div>
-                <div className="border-1 rounded-2xl p-2 pl-5 pt-5 h-[165px] w-[320px] bg-[#faf5ed]  cursor-pointer">
+                <div className="border-1 rounded-2xl p-2 pl-5 pt-5 h-[165px] w-full max-w-[320px] bg-[#faf5ed] relative  cursor-pointer">
                   <h1 className="text-4xl font-semibold text-[#0b8642]">
                     Instant Delivery
                   </h1>
@@ -137,7 +137,7 @@ const ExamVoucher = ({ highlights, videoSrc }: ExamVoucherProps) => {
                     <br /> Flexible Exams
                   </p>
                 </div>
-                <div className="border-1 rounded-2xl p-2 pl-5 pt-5 h-[165px] w-[320px] bg-[#faf5ed]  cursor-pointer">
+                <div className="border-1 rounded-2xl p-2 pl-5 pt-5 h-[165px] w-full max-w-[320px] bg-[#faf5ed] relative  cursor-pointer">
                   <h1 className="text-4xl font-semibold text-[#0b8642]">
                     Expert Support
                   </h1>
@@ -148,7 +148,7 @@ const ExamVoucher = ({ highlights, videoSrc }: ExamVoucherProps) => {
                   <img
                     src="https://etrain.blr1.cdn.digitaloceanspaces.com/Icon/support.svg"
                     alt="Support Icon"
-                    className="h-20 ml-[241px] mt-[-41px]"
+                    className="h-16 sm:h-20 absolute right-2 bottom-2"
                   />
                 </div>
               </div>
@@ -156,7 +156,7 @@ const ExamVoucher = ({ highlights, videoSrc }: ExamVoucherProps) => {
                 {/* HEADING */}
                 <div className="mb-8">
                   <h2 className="text-[#002726] text-2xl sm:text-3xl md:text-4xl font-medium relative inline-block">
-                    Looking for some answers ?
+                    Looking for some answers&nbsp;?
                     <img
                       src="https://etrain.blr1.cdn.digitaloceanspaces.com/Icon/line.svg"
                       alt="line"

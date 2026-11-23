@@ -92,7 +92,7 @@ const PartnerWithUs: React.FC = () => {
 
             <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <li className="flex items-start gap-3">
-                <div className="mt-1 w-9 h-9 rounded-full bg-green-50 flex items-center justify-center text-green-600">
+                <div className="mt-1 w-9 h-9 shrink-0 rounded-full bg-green-50 flex items-center justify-center text-green-600">
                   ✓
                 </div>
                 <div>
@@ -105,7 +105,7 @@ const PartnerWithUs: React.FC = () => {
               </li>
 
               <li className="flex items-start gap-3">
-                <div className="mt-1 w-9 h-9 rounded-full bg-green-50 flex items-center justify-center text-green-600">
+                <div className="mt-1 w-9 h-9 shrink-0 rounded-full bg-green-50 flex items-center justify-center text-green-600">
                   ✓
                 </div>
                 <div>
@@ -117,7 +117,7 @@ const PartnerWithUs: React.FC = () => {
               </li>
 
               <li className="flex items-start gap-3">
-                <div className="mt-1 w-9 h-9 rounded-full bg-green-50 flex items-center justify-center text-green-600">
+                <div className="mt-1 w-9 h-9 shrink-0 rounded-full bg-green-50 flex items-center justify-center text-green-600">
                   ✓
                 </div>
                 <div>
@@ -129,7 +129,7 @@ const PartnerWithUs: React.FC = () => {
               </li>
 
               <li className="flex items-start gap-3">
-                <div className="mt-1 w-9 h-9 rounded-full bg-green-50 flex items-center justify-center text-green-600">
+                <div className="mt-1 w-9 h-9 shrink-0 rounded-full bg-green-50 flex items-center justify-center text-green-600">
                   ✓
                 </div>
                 <div>
@@ -229,7 +229,7 @@ const PartnerWithUs: React.FC = () => {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
+                    className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
                     placeholder="Your name"
                   />
                 </label>
@@ -240,7 +240,7 @@ const PartnerWithUs: React.FC = () => {
                     name="organisation"
                     value={form.organisation}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
+                    className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
                     placeholder="School / Company"
                   />
                 </label>
@@ -255,7 +255,7 @@ const PartnerWithUs: React.FC = () => {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
+                    className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
                     placeholder="name@company.com"
                   />
                 </label>
@@ -266,7 +266,7 @@ const PartnerWithUs: React.FC = () => {
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
+                    className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
                     placeholder="+91 xxxxxx"
                   />
                 </label>
@@ -280,7 +280,7 @@ const PartnerWithUs: React.FC = () => {
                     name="city"
                     value={form.city}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
+                    className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
                     placeholder="City"
                   />
                 </label>
@@ -292,7 +292,7 @@ const PartnerWithUs: React.FC = () => {
                     name="state"
                     value={form.state}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
+                    className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
                     placeholder="State"
                   />
                 </label>
@@ -306,7 +306,7 @@ const PartnerWithUs: React.FC = () => {
                   value={form.message}
                   onChange={handleChange}
                   rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
+                  className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 focus:ring-2 focus:ring-green-200"
                   placeholder="Tell us how you'd like to partner..."
                 />
               </label>

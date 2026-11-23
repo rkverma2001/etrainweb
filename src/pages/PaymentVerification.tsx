@@ -10,7 +10,8 @@ const PaymentVerification: React.FC = () => {
   // Read optional query param ?order_id=...
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const oid = params.get("order_id") || params.get("razorpay_order_id");
+    const oid =
+      params.get("orderId") || params.get("order_id") || params.get("razorpay_order_id");
     if (oid) setOrderId(oid);
 
     // store human readable timestamp
@@ -19,7 +20,7 @@ const PaymentVerification: React.FC = () => {
   }, [location.search]);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gray-50 flex items-start sm:items-center justify-center px-4 pt-28 pb-10 sm:p-6 sm:pt-28">
       <div className="w-full max-w-xl bg-white rounded-2xl shadow-lg p-8 sm:p-12">
         <div className="flex items-center justify-center mb-6">
           <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center">

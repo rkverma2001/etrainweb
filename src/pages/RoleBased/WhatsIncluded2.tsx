@@ -15,7 +15,7 @@ const WhatsIncluded2: React.FC = () => {
         />
       </div>
       <div className="flex items-center justify-center mt-10">
-          <div className="grid grid-cols-1 gap-4 sm:gap-6 place-items-center w-full px-4 sm:px-6 md:px-0">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 place-items-center w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-14">
             {/* CARD 1 */}
             <Card className="w-full max-w-xl p-4 sm:p-5 transition-all duration-300 ease-in-out hover:scale-105 shadow-[0_0_10px_rgba(0,0,0,0.2)] items-center">
               <div className="flex items-center gap-4 sm:gap-6 w-full">

@@ -8,7 +8,7 @@ import axios from "../../services/api";
 import { useAuth } from "./AuthContext";
 
 const AuthCard: React.FC = () => {
-  const { closeAuth } = useAuth();
+  const { closeAuth, login } = useAuth();
 
   const [phone, setPhone] = useState("");
   const [otpSent, setOtpSent] = useState(false);
@@ -70,7 +70,6 @@ const AuthCard: React.FC = () => {
     }
 
     const payload = { mobile: `+${phone}`, otp: code };
-    console.log("Verifying OTP with payload:", payload);
 
     try {
       setLoading(true);
@@ -83,15 +82,9 @@ const AuthCard: React.FC = () => {
         null;
       
       if (token) {
-      // Save JWT in localStorage
-      localStorage.setItem("authToken", token);
-
-      // Show success message
-      toast.success(typeof msg === "string" ? msg : "OTP verified");
-       setTimeout(() => {
-    closeAuth();
-    window.location.reload(); // 👈 reload the entire app after login
-  }, 1000);
+        login(token);
+        toast.success(typeof msg === "string" ? msg : "OTP verified");
+        setTimeout(closeAuth, 1000);
       } else {
       toast.error(msg || "Invalid OTP!");
       }
@@ -242,7 +235,14 @@ const AuthCard: React.FC = () => {
 
             <p className="text-sm text-gray-500 text-center mb-4">
               Didn't receive OTP?{" "}
-              <button className="text-blue-600 font-medium cursor-pointer">
+              <button
+                onClick={() => {
+                  setOtp(["", "", "", "", "", ""]);
+                  handleGetOtp();
+                }}
+                disabled={loading}
+                className="text-blue-600 font-medium cursor-pointer disabled:opacity-50"
+              >
                 Resend OTP
               </button>
             </p>

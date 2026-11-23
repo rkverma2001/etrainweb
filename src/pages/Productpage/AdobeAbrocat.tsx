@@ -15,6 +15,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import ProductTab2 from "./Abrocat/ProductTab2.tsx";
 import WhatsIncluded3 from "./Abrocat/WhatsIncluded3.tsx";
 import ProductTab3 from "./Abrocat/ProductTab3.tsx";
+import NotFound from "../NotFound";
 
 type TabName = "Bundle" | "Exam Voucher" | "Practice Test" | "Courseware";
 
@@ -56,6 +57,7 @@ const CoursePage = () => {
   const [course, setCourse] = useState<Course | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string>("");
+  const [notFound, setNotFound] = useState(false);
   const [searchParams] = useSearchParams();
   const tabFromURL = searchParams.get("tab");
 
@@ -78,12 +80,20 @@ const CoursePage = () => {
 
   useEffect(() => {
     const fetchCourse = async () => {
+      setLoading(true);
+      setError("");
+      setNotFound(false);
       try {
         const response = await axios.get(`/course/${courseId}`);
+        if (!response.data) setNotFound(true);
         setCourse(response.data);
       } catch (err) {
-        console.error(err);
-        setError("Failed to load course data.");
+        if ((err as { response?: { status?: number } })?.response?.status === 404) {
+          setNotFound(true);
+        } else {
+          console.error(err);
+          setError("Failed to load course data.");
+        }
       } finally {
         setLoading(false);
       }
@@ -105,7 +115,7 @@ const CoursePage = () => {
 
   if (loading) return <p className="text-center mt-20">Loading course...</p>;
   if (error) return <p className="text-center text-red-500 mt-20">{error}</p>;
-  if (!course) return <p className="text-center mt-20">No course found.</p>;
+  if (notFound || !course) return <NotFound />;
 
   return (
     <div className="">

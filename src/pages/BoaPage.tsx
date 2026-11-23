@@ -1,5 +1,4 @@
 import Footer from "@/components/footer/Footer";
-import Navbar from "@/components/navbar/Navbar";
 import { useState } from "react";
 import CourseCard from "../components/courseCategory/CourseCard";
 
@@ -442,7 +441,6 @@ const BoaPage = () => {
 
   return (
     <div className="relative">
-      <Navbar />
 
       <div className="w-full mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12">
         {/* Layout */}

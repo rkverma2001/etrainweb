@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         
         {/* LOGO */}
         <div>
-          <div className="flex items-center gap-3 bg-white rounded-xl p-4">
+          <div className="inline-flex self-start items-center gap-3 bg-white rounded-xl p-4">
             <img
               src="https://etrain.blr1.cdn.digitaloceanspaces.com/logo.webp"  // Change if path differs
               alt="EtrainIndia Logo"
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 bg-gray-700 border border-slate-700 rounded-lg py-3 px-4 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-emerald-400"
+              className="flex-1 min-w-0 bg-gray-700 border border-slate-700 rounded-lg py-3 px-4 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-emerald-400"
             />
             <button
               type="submit"
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
             <li><Link to="/mos">Microsoft Office Specialist</Link></li>
             <li><Link to="/autodesk">Autodesk Certified User</Link></li>
             <li><Link to="/adobe">Adobe Certified Professional</Link></li>
-            <li><Link to="/ibm">IBM Certifications</Link></li>
+            <li><Link to="/ibm">IBM Certificates</Link></li>
             <li><Link to="/aws">AWS Cloud Certifications</Link></li>
           </ul>
         </div>

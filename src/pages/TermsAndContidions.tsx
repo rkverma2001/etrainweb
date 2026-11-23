@@ -3,8 +3,8 @@ import React from 'react';
 
 const TermsAndConditions: React.FC = () => {
   return (
-    <div className="min-h-screen text-slate-800 mt-22">
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border mb-10 p-8">
+    <div className="min-h-screen text-slate-800 mt-22 px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border mb-10 p-5 sm:p-8">
         {/* Header */}
         <div className="flex items-start justify-between gap-4">
           <div>

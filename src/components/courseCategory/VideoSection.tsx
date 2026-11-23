@@ -12,7 +12,7 @@ const VideoSection = () => {
             alt="Adobe Category Logo"
           />
 
-          <div className="text-gray-700 text-sm sm:text-base leading-relaxed text-justify">
+          <div className="text-gray-700 text-sm sm:text-base leading-relaxed text-left lg:text-justify">
             <p>
               Adobe Certified Professional is the industry-recognized
               certification that demonstrates mastery of Adobe Creative Cloud

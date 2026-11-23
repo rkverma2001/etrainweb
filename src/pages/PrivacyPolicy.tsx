@@ -3,8 +3,8 @@ import React from "react";
 
 const PrivacyPolicy: React.FC = () => {
   return (
-    <div className="min-h-screen text-slate-800 mt-28">
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border p-8 mb-18">
+    <div className="min-h-screen text-slate-800 mt-28 px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border p-5 sm:p-8 mb-18">
         {/* Header */}
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -42,7 +42,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* Table of contents */}
           <nav className="mb-6">
-            <ul className="grid grid-cols-2 gap-2 text-sm">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
               <li>
                 <a href="#collect" className="text-green-600">
                   • Collecting information

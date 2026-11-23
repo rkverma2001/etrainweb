@@ -99,7 +99,7 @@ const AboutUs: React.FC = () => {
           <div className="mt-4 sm:mt-0">
             <a
               href="/partnerwithus"
-              className="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-lg"
+              className="inline-flex whitespace-nowrap shrink-0 items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-lg"
             >
               Partner with us
             </a>
@@ -189,7 +189,7 @@ const AboutUs: React.FC = () => {
           <div>
             <a
               href="/partnerwithus"
-              className="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-lg"
+              className="inline-flex whitespace-nowrap shrink-0 items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-lg"
             >
               Become our partner
             </a>

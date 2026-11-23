@@ -847,7 +847,7 @@ const PurchaseReport = () => {
 
                             <td className="px-4 py-4">
 
-                              <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">
+                              <span className="whitespace-nowrap rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">
                                 {
                                   item.purchase
                                     ?.packageType ||
@@ -879,7 +879,7 @@ const PurchaseReport = () => {
 
                                 <div>
 
-                                  <span className="rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-700">
+                                  <span className="whitespace-nowrap rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-700">
                                     {
                                       item.coupon
                                         .code

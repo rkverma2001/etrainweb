@@ -4,6 +4,7 @@ import DownloadButton from "@/components/button/DownloadButton";
 import Ratings from "@/components/reviews/Ratings";
 import api from "@/services/api";
 import { useParams } from "react-router-dom";
+import { useCart } from "@/components/cart/CartContext";
 
 type TabName = "Bundle" | "Exam Voucher" | "Practice Test" | "Courseware";
 
@@ -44,6 +45,9 @@ const ProductTab: React.FC<ProductTabProps> = ({
   const params = useParams();
   console.log("🔍 useParams output:", params);
 
+  const { refreshCart } = useCart();
+
+
   const handleAddToCart = async () => {
     try {
       setLoading(true);
@@ -58,7 +62,6 @@ const ProductTab: React.FC<ProductTabProps> = ({
       }
 
       const token = localStorage.getItem("authToken");
-      console.log("🔑 Auth Token:", token);
 
       const response = await api.post(
         "/cart/add",
@@ -78,6 +81,7 @@ const ProductTab: React.FC<ProductTabProps> = ({
       console.log("✅ Cart Add Response:", response.data);
       console.log("Quantity added:", quantity);
       setMessage("✅ Item added to cart successfully!");
+      refreshCart();
     } catch (error: any) {
       console.error(
         "❌ Add to cart failed:",

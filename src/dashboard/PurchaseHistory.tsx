@@ -20,8 +20,8 @@ const PurchaseHistory: React.FC<PurchaseHistoryProps> = ({ purchases, currency }
       <h3 className="text-xl font-semibold">Purchase History</h3>
       <p className="text-sm text-gray-500 mt-1">All orders, invoices and actions.</p>
 
-      <div className="mt-6 bg-white rounded-xl shadow overflow-hidden">
-        <table className="w-full table-auto">
+      <div className="mt-6 bg-white rounded-xl shadow overflow-x-auto">
+        <table className="w-full min-w-[640px] table-auto">
           <thead className="bg-gray-50">
             <tr className="text-left">
               <th className="px-6 py-3 text-sm text-gray-600">Order</th>

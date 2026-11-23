@@ -46,7 +46,7 @@ export default function TallyHero({ course }: TallyHeroProps) {
 
         <div className="flex-1">
 
-          <h1 className="mt-6 text-5xl font-bold leading-tight text-slate-900">
+          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight text-slate-900">
             {firstPart}{" "}
             <span className="text-green-600">{secondPart}</span>{" "}
             {thirdPart}
@@ -161,7 +161,7 @@ export default function TallyHero({ course }: TallyHeroProps) {
 
           {/* Floating Cards */}
 
-          <div className="absolute -left-6 top-10 rounded-2xl bg-white p-4 shadow-xl">
+          <div className="absolute left-2 sm:-left-6 top-10 rounded-2xl bg-white p-4 shadow-xl">
             <p className="text-sm text-slate-500">
               GST Return
             </p>
@@ -171,7 +171,7 @@ export default function TallyHero({ course }: TallyHeroProps) {
             </h4>
           </div>
 
-          <div className="absolute -right-6 bottom-16 rounded-2xl bg-white p-4 shadow-xl">
+          <div className="absolute right-2 sm:-right-6 bottom-16 rounded-2xl bg-white p-4 shadow-xl">
             <p className="text-sm text-slate-500">
               Profit
             </p>

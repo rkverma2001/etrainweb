@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export interface Product {
   id: string;
@@ -28,40 +28,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
   onRemove,
   onUpdate,
 }) => {
-  const [localQty, setLocalQty] = useState(product.quantity);
-
-  const [localTotal, setLocalTotal] = useState(
-    product.total ??
-      product.price * (product.quantity || 1)
-  );
-
-  useEffect(() => {
-    setLocalQty(product.quantity || 1);
-
-    setLocalTotal(
-      product.total ??
-        product.price * (product.quantity || 1)
-    );
-  }, [product]);
-
-  useEffect(() => {
-    onUpdate(product.id, localTotal, localQty);
-  }, [localTotal, localQty]);
+  const localQty = product.quantity || 1;
+  const localTotal = product.total ?? product.price * localQty;
 
   const handleDecrease = () => {
     if (localQty > 1) {
-      const newQty = localQty - 1;
-
-      setLocalQty(newQty);
-      setLocalTotal(localTotal - product.price);
+      onUpdate(product.id, product.price * (localQty - 1), localQty - 1);
     }
   };
 
   const handleIncrease = () => {
-    const newQty = localQty + 1;
-
-    setLocalQty(newQty);
-    setLocalTotal(localTotal + product.price);
+    onUpdate(product.id, product.price * (localQty + 1), localQty + 1);
   };
 
   return (
@@ -180,7 +157,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
           >
             <button
               onClick={handleDecrease}
+              disabled={localQty <= 1}
+              aria-label="Decrease quantity"
               className="
+                disabled:opacity-40
+                disabled:cursor-not-allowed
                 px-3
                 py-2
                 hover:bg-gray-100
@@ -204,6 +185,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
             <button
               onClick={handleIncrease}
+              aria-label="Increase quantity"
               className="
                 px-3
                 py-2

@@ -3,9 +3,10 @@ import api from "@/services/api";
 
 interface PriceDetailsCardProps {
   price: number;
-  discount: number;
   itemCount?: number;
   onPlaceOrder?: () => void;
+  /** Called with the applied coupon code, or null when no coupon applies. */
+  onCouponChange?: (code: string | null) => void;
 }
 
 type Coupon = {
@@ -23,16 +24,42 @@ type Coupon = {
   applicableCourses?: unknown[];
 };
 
+// Discount for a coupon at the current cart price. Recomputed whenever the
+// price changes so quantity edits after applying a coupon stay correct.
+const computeDiscount = (coupon: Coupon | null, price: number): number => {
+  if (!coupon) return 0;
+  if (coupon.minPurchaseAmount && price < coupon.minPurchaseAmount) return 0;
+
+  let amount =
+    coupon.discountType === "percentage"
+      ? Math.floor((price * coupon.discountValue) / 100)
+      : coupon.discountValue;
+
+  if (coupon.discountType === "percentage" && coupon.maxDiscountAmount) {
+    amount = Math.min(amount, coupon.maxDiscountAmount);
+  }
+
+  return Math.max(0, Math.min(amount, price));
+};
+
 const PriceDetailsCard: React.FC<PriceDetailsCardProps> = ({
   price,
-  discount,
   itemCount = 1,
   onPlaceOrder,
+  onCouponChange,
 }) => {
   const [couponCode, setCouponCode] = useState("");
   const [isApplying, setIsApplying] = useState(false);
+  const [appliedCoupon, setAppliedCoupon] = useState<Coupon | null>(null);
 
-  const [appliedDiscount, setAppliedDiscount] = useState(discount || 0);
+  const appliedDiscount = computeDiscount(appliedCoupon, price);
+  const couponBelowMinimum =
+    !!appliedCoupon?.minPurchaseAmount && price < appliedCoupon.minPurchaseAmount;
+
+  // Tell the parent which coupon (if any) currently applies.
+  useEffect(() => {
+    onCouponChange?.(appliedCoupon && !couponBelowMinimum ? appliedCoupon.code : null);
+  }, [appliedCoupon, couponBelowMinimum, onCouponChange]);
 
   const [toast, setToast] = useState<{
     msg: string;
@@ -69,7 +96,6 @@ const PriceDetailsCard: React.FC<PriceDetailsCardProps> = ({
 
     try {
       const { data } = await api.get("/coupon");
-      console.log("Coupons API Response:", data);
 
       const coupons: Coupon[] = data;
 
@@ -116,29 +142,7 @@ const PriceDetailsCard: React.FC<PriceDetailsCardProps> = ({
         return;
       }
 
-      let computedDiscount = 0;
-
-      if (found.discountType === "percentage") {
-        computedDiscount = Math.floor((price * found.discountValue) / 100);
-
-        if (
-          found.maxDiscountAmount &&
-          computedDiscount > found.maxDiscountAmount
-        ) {
-          computedDiscount = found.maxDiscountAmount;
-        }
-      } else {
-        computedDiscount = found.discountValue;
-      }
-
-      computedDiscount = Math.min(computedDiscount, price);
-
-      setAppliedDiscount(computedDiscount);
-
-      localStorage.setItem("couponCode", found.code);
-
-      localStorage.setItem("couponDiscount", computedDiscount.toString());
-
+      setAppliedCoupon(found);
       showToast("Coupon applied successfully", "success");
     } catch (error) {
       console.error("Coupon apply error:", error);
@@ -149,12 +153,13 @@ const PriceDetailsCard: React.FC<PriceDetailsCardProps> = ({
     }
   };
 
-  useEffect(() => {
-    localStorage.setItem("cartTotal", totalAmount.toString());
-  }, [totalAmount]);
+  const removeCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponCode("");
+  };
 
   return (
-    <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6">
+    <div className="w-full lg:max-w-md bg-white shadow-lg rounded-2xl p-6">
       <h2 className="text-lg font-semibold text-gray-700 mb-4">
         PRICE DETAILS
       </h2>
@@ -172,6 +177,22 @@ const PriceDetailsCard: React.FC<PriceDetailsCardProps> = ({
 
         <span>- ₹{appliedDiscount.toLocaleString()}</span>
       </div>
+
+      {appliedCoupon && (
+        <div className="flex items-center justify-between text-sm bg-green-50 border border-green-200 rounded-lg px-3 py-2 mt-2">
+          <span className={couponBelowMinimum ? "text-amber-700" : "text-green-700"}>
+            {couponBelowMinimum
+              ? `${appliedCoupon.code} needs a minimum purchase of ₹${appliedCoupon.minPurchaseAmount}`
+              : `${appliedCoupon.code} applied`}
+          </span>
+          <button
+            onClick={removeCoupon}
+            className="text-red-600 hover:text-red-700 font-medium cursor-pointer"
+          >
+            Remove
+          </button>
+        </div>
+      )}
 
       <div className="gap-3 my-4 flex flex-col">
         <input

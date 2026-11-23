@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
+import { useCart } from "../cart/CartContext";
 import DropdownWrapper from "./coursedropdown/DropdownWrapper";
 import SuggestionDropdown from "./search/SuggestionDropdown";
 import api from "@/services/api";
@@ -27,25 +28,20 @@ const Navbar: React.FC<NavbarProps> = ({
   showOffer,
   setShowOffer,
 }) => {
-  const { openAuth } = useAuth();
+  const { openAuth, isAuthenticated, logout } = useAuth();
+  const { cartCount } = useCart();
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Search states
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<any[]>([]);
   const [isSuggestionsOpen, setIsSuggestionsOpen] = useState(false);
   const debounceRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    setIsAuthenticated(!!token);
-  }, []);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -113,9 +109,9 @@ const Navbar: React.FC<NavbarProps> = ({
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    setIsAuthenticated(false);
+    logout();
     setIsProfileDropdownOpen(false);
+    setIsMobileMenuOpen(false);
     navigate("/");
   };
 
@@ -154,21 +150,21 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* Courses Dropdown */}
           <div
-            className="relative group hidden md:block"
+            className="relative group hidden lg:block"
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <button className="px-4 py-2 font-medium rounded-md border border-transparent hover:border-[#008641] hover:text-[#008641] transition duration-200">
+            <button className="px-3 xl:px-4 py-2 whitespace-nowrap font-medium rounded-md border border-transparent hover:border-[#008641] hover:text-[#008641] transition duration-200">
               Courses | Certifications
             </button>
             {isDropdownOpen && <DropdownWrapper />}
           </div>
 
           {/* Desktop Search */}
-          <div className="hidden md:flex gap-4 items-center">
+          <div className="hidden lg:flex gap-2 xl:gap-4 items-center">
             <form
               onSubmit={onSubmitSearch}
-              className="flex flex-row relative gap-4"
+              className="flex flex-row relative gap-2 xl:gap-4"
             >
               <Input
                 value={query}
@@ -183,7 +179,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 }}
                 type="text"
                 placeholder="Search Courses..."
-                className="border rounded-md p-2 hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200"
+                className="w-40 xl:w-56 border rounded-md p-2 hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200"
               />
               <Button
                 type="submit"
@@ -208,25 +204,38 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-3 md:gap-4">
             <Link
               to="/"
-              className="hidden md:flex text-sm sm:text-base font-medium hover:text-[#008641]"
+              className="hidden lg:flex whitespace-nowrap text-sm xl:text-base font-medium hover:text-[#008641]"
             >
               Home
             </Link>
             <Link
               to="/partnerwithus"
-              className="hidden md:flex text-sm sm:text-base font-medium hover:text-[#008641]"
+              className="hidden lg:flex whitespace-nowrap text-sm xl:text-base font-medium hover:text-[#008641]"
             >
               Partner with Us
             </Link>
 
-            <Link to="/cart">
+            <Link
+              to="/cart"
+              aria-label={cartCount > 0 ? `Cart, ${cartCount} item${cartCount > 1 ? "s" : ""}` : "Cart"}
+              className="relative"
+            >
               <Button
                 variant="ghost"
                 size="icon"
+                tabIndex={-1}
                 className="hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200 hover:bg-transparent cursor-pointer"
               >
                 <ShoppingCart className="h-6 w-6" />
               </Button>
+              {cartCount > 0 && (
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-[#008641] text-white text-[11px] font-semibold leading-5 text-center ring-2 ring-white pointer-events-none"
+                >
+                  {cartCount > 99 ? "99+" : cartCount}
+                </span>
+              )}
             </Link>
 
             {/* Profile Dropdown (on hover) */}
@@ -270,7 +279,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <Button
                 onClick={openAuth}
                 variant="outline"
-                className="hidden md:flex items-center gap-2 hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200 hover:bg-transparent hover:text-inherit border-[#e5e7eb] cursor-pointer"
+                className="hidden lg:flex whitespace-nowrap items-center gap-2 hover:ring-2 hover:ring-[#008641] focus:ring-2 focus:ring-[#008641] focus:outline-none transition duration-200 hover:bg-transparent hover:text-inherit border-[#e5e7eb] cursor-pointer"
               >
                 <User className="h-5 w-5" /> Login / Signup
               </Button>
@@ -280,7 +289,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
@@ -294,7 +303,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile Dropdown Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-2 bg-white rounded-md shadow-md px-4 py-4 space-y-3">
+          <div className="lg:hidden mt-2 bg-white rounded-md shadow-md px-4 py-4 space-y-3">
             <Link
               to="/"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -391,16 +400,38 @@ const Navbar: React.FC<NavbarProps> = ({
                 />
               )}
             </div>
-            <Button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                openAuth();
-              }}
-              variant="outline"
-              className="w-full flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <User className="h-5 w-5" /> Login / Signup
-            </Button>
+            {isAuthenticated ? (
+              <div className="flex gap-2">
+                <Button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    navigate("/dashboard");
+                  }}
+                  variant="outline"
+                  className="flex-1 flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <LayoutDashboard className="h-5 w-5" /> Dashboard
+                </Button>
+                <Button
+                  onClick={handleLogout}
+                  variant="outline"
+                  className="flex-1 flex items-center justify-center gap-2 cursor-pointer text-red-600"
+                >
+                  <LogOut className="h-5 w-5" /> Logout
+                </Button>
+              </div>
+            ) : (
+              <Button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  openAuth();
+                }}
+                variant="outline"
+                className="w-full flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <User className="h-5 w-5" /> Login / Signup
+              </Button>
+            )}
           </div>
         )}
       </nav>

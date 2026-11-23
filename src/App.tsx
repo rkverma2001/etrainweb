@@ -16,7 +16,7 @@ import CartPage from "./pages/CartPage";
 import Navbar from "./components/navbar/Navbar";
 import AuthCard from "./components/auth/AuthCard";
 import { useAuth } from "./components/auth/AuthContext";
-import StateCityCard from "./components/cart/StateCityCard";
+import NotFound from "./pages/NotFound";
 import Dashboard from "./dashboard/Dashboard";
 import Ibm from "./components/courseCategory/Ibm";
 import PartnerWithUs from "./pages/PartnerWithUs";
@@ -78,7 +78,6 @@ const App = () => {
       <Route path="/unity" element={<Unity />} />
       <Route path="/:courseId" element={<AdobeAbrocat />} />
       <Route path="/cart" element={<CartPage />} />
-      <Route path="/state" element={<StateCityCard />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/partnerwithus" element={<PartnerWithUs />} />
       <Route path="/aboutus" element={<AboutUs />} />
@@ -103,12 +102,12 @@ const App = () => {
         path="/adminetrainusersonly"
         element={<PurchaseReport />}
       />
-      <Route path="*" element={<div>404 Not Found</div>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </main>
 
   {isAuthOpen && (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/50 px-4 overflow-y-auto">
       <AuthCard />
     </div>
   )}

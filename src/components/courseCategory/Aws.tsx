@@ -1,5 +1,4 @@
 import Footer from "@/components/footer/Footer";
-import Navbar from "@/components/navbar/Navbar";
 import { useState } from "react";
 import CourseCard from "./CourseCard";
 import { CheckCircle2 } from "lucide-react";
@@ -46,7 +45,6 @@ const Aws = () => {
 
   return (
     <div className="relative">
-      <Navbar />
 
       <div className="max-w-7xl mx-auto pt-28">
         <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -56,10 +54,10 @@ const Aws = () => {
               <img
                 src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/AWS.svg"
                 className="mb-4 ml-[-30px] sm:mb-5 h-12 sm:h-14 md:h-16 object-contain"
-                alt="Microsoft Logo"
+                alt="AWS Logo"
               />
 
-              <div className="text-gray-700 text-sm sm:text-base leading-relaxed text-justify">
+              <div className="text-gray-700 text-sm sm:text-base leading-relaxed text-left lg:text-justify">
                 <p>
                   The{" "}
                   <span className="font-semibold">AWS Certified Program</span>{" "}
@@ -109,7 +107,7 @@ const Aws = () => {
               <h1 className="text-xl sm:text-2xl text-center mb-4 font-semibold flex items-center justify-center">
                 <img
                   src="https://etrain.blr1.cdn.digitaloceanspaces.com/Logos/AWS.svg"
-                  alt="Microsoft Logo"
+                  alt="AWS Logo"
                   className="h-10 sm:h-12 md:h-14 object-contain"
                 />
               </h1>
@@ -122,7 +120,7 @@ const Aws = () => {
             </div>
 
             {/* Scrollable Grid */}
-            <div className="flex-1 lg:max-h-[70vh] overflow-y-auto pr-1 sm:pr-2">
+            <div className="flex-1">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
                 {courseData[selected]?.map((course, index) => (
                   <CourseCard
@@ -171,7 +169,7 @@ const Aws = () => {
           </div>
         </div>
       </div>
-      <div className="mt-24 mb-[-40px]">
+      <div className="mt-12 md:mt-24 mb-[-40px]">
         <Footer />
       </div>
     </div>

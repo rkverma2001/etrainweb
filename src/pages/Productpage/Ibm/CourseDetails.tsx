@@ -3,6 +3,7 @@ import { BadgeCheck, Globe, ArrowRight, CheckCircle } from "lucide-react";
 import { useParams } from "react-router-dom";
 import Footer from "@/components/footer/Footer";
 import api from "@/services/api";
+import { useCart } from "@/components/cart/CartContext";
 
 interface CourseData {
   _id: string;
@@ -90,6 +91,9 @@ const CourseDetails = () => {
     return () => clearTimeout(timer);
   }, [message]);
 
+  const { refreshCart } = useCart();
+
+
   const handleAddToCart = async () => {
     if (!course?.courseCode) {
       setMessage("❌ Invalid course.");
@@ -123,6 +127,7 @@ const CourseDetails = () => {
 
       if (data.success) {
         setMessage(data.message || "✅ Item added to cart successfully.");
+        refreshCart();
       } else {
         setMessage(data.message || "❌ Failed to add item.");
       }

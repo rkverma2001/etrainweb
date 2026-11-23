@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "@/components/navbar/Navbar";
 import PriceDetailsCard from "@/components/cart/PriceDetailsCard";
 import ProductCard, { Product } from "@/components/cart/ProductCard";
 import api from "@/services/api";
-import { useNavigate } from "react-router-dom";
 import StateCityCard from "@/components/cart/StateCityCard";
+import { useAuth } from "@/components/auth/AuthContext";
+import { useCart } from "@/components/cart/CartContext";
 
-interface CartItem {
+interface CartApiItem {
   _id: string;
   course: {
-    tabData: {
-      [key: string]: {
-        title: string;
-        subtitle: string;
-        image: string;
-      };
-    };
+    _id: string;
+    tabData: Record<string, { title: string; subtitle: string; image: string }>;
   };
   packageType: string;
   price: number;
@@ -24,138 +19,119 @@ interface CartItem {
 }
 
 const CartPage: React.FC = () => {
+  const { isAuthenticated, openAuth } = useAuth();
+  const { syncCartCount } = useCart();
+
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
-
-  const navigate = useNavigate();
-
-  const token =
-    typeof window !== "undefined" ? localStorage.getItem("authToken") : null;
+  const [couponCode, setCouponCode] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!token) {
+    if (!isAuthenticated) {
+      setCartItems([]);
       setError("Please log in to view your cart.");
       setLoading(false);
       return;
     }
 
+    let cancelled = false;
+
     const fetchCartData = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        const response = await api.get("/cart");
-        const data = response.data;
+        const { data } = await api.get("/cart");
+        if (cancelled) return;
 
-        if (!data || !data.items) {
-          setCartItems([]);
-          return;
-        }
-
-        const formattedItems: Product[] = data.items.map((item: any) => ({
-          id: item._id,
-          courseId: item.course._id,
-          packageType: item.packageType,
-
-          title: item.course.tabData[item.packageType].title,
-          subtitle: item.course.tabData[item.packageType].subtitle,
-          image: item.course.tabData[item.packageType].image,
-          price: item.price,
-          total: item.total,
-          quantity: item.quantity,
-        }));
-
-        setCartItems(formattedItems);
+        const items: CartApiItem[] = data?.items ?? [];
+        setCartItems(
+          items.map((item) => {
+            const tab = item.course?.tabData?.[item.packageType];
+            return {
+              id: item._id,
+              courseId: item.course?._id,
+              packageType: item.packageType,
+              title: tab?.title ?? "",
+              subtitle: tab?.subtitle ?? "",
+              image: tab?.image ?? "",
+              price: item.price,
+              total: item.total,
+              quantity: item.quantity,
+            };
+          }),
+        );
       } catch (err) {
+        if (cancelled) return;
         console.error("Error fetching cart:", err);
         setError("Failed to load cart. Please try again later.");
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
 
     fetchCartData();
-  }, []);
+    return () => {
+      cancelled = true;
+    };
+  }, [isAuthenticated]);
 
-  const removeFromCart = async (
-  courseId: string,
-  packageType: string,
-  itemId: string,
-) => {
-  try {
-    const response = await api.post("/cart/remove", {
-      courseId,
-      packageType,
-    });
+  // Keep the navbar badge in step with quantity changes and removals here.
+  useEffect(() => {
+    if (isAuthenticated && !loading && !error) syncCartCount(cartItems);
+  }, [cartItems, isAuthenticated, loading, error, syncCartCount]);
 
-    if (response.status === 200) {
-      setCartItems((prev) =>
-        prev.filter((item) => item.id !== itemId),
-      );
+  const removeFromCart = async (product: Product) => {
+    try {
+      await api.post("/cart/remove", {
+        courseId: product.courseId,
+        packageType: product.packageType,
+      });
+      setCartItems((prev) => prev.filter((item) => item.id !== product.id));
+    } catch (err) {
+      console.error("Error removing item:", err);
     }
-  } catch (err: any) {
-    console.error("Error removing item:", err);
+  };
 
-    if (err.response) {
-      console.error("Backend Error:", err.response.data);
-    }
-  }
-};
-
- const handleUpdate = async (
-  id: string,
-  updatedTotal: number,
-  updatedQty: number,
-) => {
-  try {
+  const handleUpdate = async (id: string, updatedTotal: number, updatedQty: number) => {
     const currentItem = cartItems.find((item) => item.id === id);
-
     if (!currentItem) return;
 
-    await api.put("/cart/update", {
-      courseId: currentItem.courseId,
-      packageType: currentItem.packageType,
-      quantity: updatedQty,
-    });
-
+    // Optimistic update; roll back if the server rejects it.
     setCartItems((prev) =>
       prev.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              total: updatedTotal,
-              quantity: updatedQty,
-            }
-          : item,
+        item.id === id ? { ...item, total: updatedTotal, quantity: updatedQty } : item,
       ),
     );
 
-    console.log("Cart Updated Successfully");
-  } catch (error: any) {
-    console.error("Update Cart Error:", error);
-
-    if (error.response) {
-      console.error("Backend Error:", error.response.data);
+    try {
+      await api.put("/cart/update", {
+        courseId: currentItem.courseId,
+        packageType: currentItem.packageType,
+        quantity: updatedQty,
+      });
+    } catch (err) {
+      console.error("Update Cart Error:", err);
+      setCartItems((prev) =>
+        prev.map((item) =>
+          item.id === id
+            ? { ...item, total: currentItem.total, quantity: currentItem.quantity }
+            : item,
+        ),
+      );
     }
-  }
-};
-
-  const handleLoginRedirect = () => {
-    navigate("/login");
   };
 
   const totalPrice = cartItems.reduce((sum, item) => sum + item.total, 0);
-
-  const discount = Math.floor(totalPrice * 0.1);
   const itemCount = cartItems.length;
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
-        <div className="flex flex-col xl:flex-row gap-6">
+        <div className="flex flex-col lg:flex-row gap-6">
           {/* Cart Items Section */}
-          <div className="w-full xl:w-2/3">
+          <div className="w-full lg:w-2/3">
             <div className="w-full bg-white shadow-md rounded-xl p-4 sm:p-6">
               <h2 className="text-xl sm:text-2xl font-medium mb-4 border-b pb-4">
                 Cart Items
@@ -167,10 +143,10 @@ const CartPage: React.FC = () => {
                 <div className="text-center text-gray-700 py-8">
                   <p>{error}</p>
 
-                  {!localStorage.getItem("authToken") && (
+                  {!isAuthenticated && (
                     <button
-                      onClick={handleLoginRedirect}
-                      className="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg"
+                      onClick={openAuth}
+                      className="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg cursor-pointer"
                     >
                       Login Now
                     </button>
@@ -186,13 +162,7 @@ const CartPage: React.FC = () => {
                     <ProductCard
                       key={product.id}
                       product={product}
-                      onRemove={() =>
-                        removeFromCart(
-                          product.courseId,
-                          product.packageType,
-                          product.id,
-                        )
-                      }
+                      onRemove={() => removeFromCart(product)}
                       onUpdate={handleUpdate}
                     />
                   ))}
@@ -202,18 +172,17 @@ const CartPage: React.FC = () => {
           </div>
 
           {/* Price Details Section */}
-          <div className="w-full xl:w-1/3">
-            <div className="xl:sticky xl:top-28">
+          <div className="w-full lg:w-1/3">
+            <div className="lg:sticky lg:top-36">
               <PriceDetailsCard
                 price={totalPrice}
-                discount={discount}
                 itemCount={itemCount}
+                onCouponChange={setCouponCode}
                 onPlaceOrder={() => {
-                  if (!token) {
-                    navigate("/login");
+                  if (!isAuthenticated) {
+                    openAuth();
                     return;
                   }
-
                   setShowCheckoutModal(true);
                 }}
               />
@@ -229,38 +198,16 @@ const CartPage: React.FC = () => {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
         >
-          <div
-            className="
-              bg-white
-              rounded-2xl
-              shadow-xl
-              p-4
-              sm:p-6
-              relative
-              w-full
-              max-w-lg
-              max-h-[90vh]
-              overflow-y-auto
-            "
-          >
+          <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 relative w-full max-w-lg max-h-[90vh] overflow-y-auto">
             <button
               aria-label="Close checkout"
               onClick={() => setShowCheckoutModal(false)}
-              className="
-                absolute
-                top-4
-                right-4
-                text-xl
-                font-bold
-                cursor-pointer
-                text-black
-                hover:text-gray-700
-              "
+              className="absolute top-4 right-4 text-xl font-bold cursor-pointer text-black hover:text-gray-700"
             >
               ✕
             </button>
 
-            <StateCityCard />
+            <StateCityCard couponCode={couponCode ?? ""} />
           </div>
         </div>
       )}

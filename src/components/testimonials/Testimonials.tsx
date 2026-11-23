@@ -26,7 +26,7 @@ const Testimonials = ({ data }: TestimonialsProps) => {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-15">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 justify-items-center">
         {data.map((item, idx) => (
           <TestimonialCard
             key={idx}

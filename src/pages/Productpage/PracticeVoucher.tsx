@@ -213,7 +213,7 @@ const PracticeVoucher = ({ videoSrc }: PracticeVoucherProps) => {
               {/* FAQ */}
               <div className="mt-16">
                 <h2 className="text-[#002726] text-2xl sm:text-3xl md:text-4xl font-medium mb-8 relative inline-block">
-                  Looking for some answers ?
+                  Looking for some answers&nbsp;?
                   <img
                     src="https://etrain.blr1.digitaloceanspaces.com/Icon/line.svg"
                     className="absolute left-[60%] sm:left-[75%] md:left-[190px] top-[100%] mt-[-6px] w-28 sm:w-40 md:w-56"
