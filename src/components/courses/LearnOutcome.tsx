@@ -8,6 +8,8 @@ const LearnerOutcome: React.FC = () => {
         <img
           src="https://etrain.blr1.cdn.digitaloceanspaces.com/others/agirlimage.png"
           alt="Learner"
+          loading="lazy"
+          decoding="async"
           className="w-[260px] sm:w-[300px] md:w-[380px] lg:w-96 h-auto rounded-xl object-cover"
         />
       </div>

@@ -1,46 +1,46 @@
+import { lazy, Suspense, useState } from "react";
 import Homepage from "./pages/Homepage";
-import Apple from "./components/courseCategory/Apple";
-import Autodesk from "./components/courseCategory/Autodesk";
-import Ccs from "./components/courseCategory/Ccs";
-import Cisco from "./components/courseCategory/Cisco";
-import Ic3 from "./components/courseCategory/Ic3";
-import Intuit from "./components/courseCategory/Intuit";
-import ItSpecialist from "./components/courseCategory/ItSpecialist";
-import Mcf from "./components/courseCategory/Mcf";
-import Mos from "./components/courseCategory/Mos";
-import Unity from "./components/courseCategory/Unity";
-import CourseCategory from "./pages/CourseCategory";
+const Apple = lazy(() => import("./components/courseCategory/Apple"));
+const Autodesk = lazy(() => import("./components/courseCategory/Autodesk"));
+const Ccs = lazy(() => import("./components/courseCategory/Ccs"));
+const Cisco = lazy(() => import("./components/courseCategory/Cisco"));
+const Ic3 = lazy(() => import("./components/courseCategory/Ic3"));
+const Intuit = lazy(() => import("./components/courseCategory/Intuit"));
+const ItSpecialist = lazy(() => import("./components/courseCategory/ItSpecialist"));
+const Mcf = lazy(() => import("./components/courseCategory/Mcf"));
+const Mos = lazy(() => import("./components/courseCategory/Mos"));
+const Unity = lazy(() => import("./components/courseCategory/Unity"));
+const CourseCategory = lazy(() => import("./pages/CourseCategory"));
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AdobeAbrocat from "./pages/Productpage/AdobeAbrocat";
-import CartPage from "./pages/CartPage";
+const AdobeAbrocat = lazy(() => import("./pages/Productpage/AdobeAbrocat"));
+const CartPage = lazy(() => import("./pages/CartPage"));
 import Navbar from "./components/navbar/Navbar";
 import AuthCard from "./components/auth/AuthCard";
 import { useAuth } from "./components/auth/AuthContext";
 import NotFound from "./pages/NotFound";
-import Dashboard from "./dashboard/Dashboard";
-import Ibm from "./components/courseCategory/Ibm";
-import PartnerWithUs from "./pages/PartnerWithUs";
-import AboutUs from "./pages/AboutUs";
-import ContactUs from "./pages/ContactUs";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsAndConditions from "./pages/TermsAndContidions";
-import RefundPolicy from "./pages/RefundPolicy";
-import SearchPage from "./pages/SearchPage";
-import PaymentVerification from "./pages/PaymentVerification";
+const Dashboard = lazy(() => import("./dashboard/Dashboard"));
+const Ibm = lazy(() => import("./components/courseCategory/Ibm"));
+const PartnerWithUs = lazy(() => import("./pages/PartnerWithUs"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const ContactUs = lazy(() => import("./pages/ContactUs"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsAndConditions = lazy(() => import("./pages/TermsAndContidions"));
+const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
+const SearchPage = lazy(() => import("./pages/SearchPage"));
+const PaymentVerification = lazy(() => import("./pages/PaymentVerification"));
 import ScrollToTop from "./components/ScrollToTop";
-import Aiibm from "./pages/Productpage/Ibm/Aiibm";
-import CertificationsPage from "./pages/CertificationsPage";
-import CoursesPage from "./pages/CoursesPage";
-import DataScience from "./pages/Productpage/Ibm/DataScience";
-import CourseDetails from "./pages/Productpage/Ibm/CourseDetails";
-import Rolebased from "./pages/RoleBased/Rolebased";
-import Mcp from "./components/courseCategory/Mcp";
-import Aws from "./components/courseCategory/Aws";
-import TallyPage from "./pages/Productpage/Tally/TallyPage";
-import Tally from "./components/courseCategory/Tally";
-import BoaPage from "./pages/BoaPage";
-import PurchaseReport from "./pages/PurchaseReport";
-import { useState } from "react";
+const Aiibm = lazy(() => import("./pages/Productpage/Ibm/Aiibm"));
+const CertificationsPage = lazy(() => import("./pages/CertificationsPage"));
+const CoursesPage = lazy(() => import("./pages/CoursesPage"));
+const DataScience = lazy(() => import("./pages/Productpage/Ibm/DataScience"));
+const CourseDetails = lazy(() => import("./pages/Productpage/Ibm/CourseDetails"));
+const Rolebased = lazy(() => import("./pages/RoleBased/Rolebased"));
+const Mcp = lazy(() => import("./components/courseCategory/Mcp"));
+const Aws = lazy(() => import("./components/courseCategory/Aws"));
+const TallyPage = lazy(() => import("./pages/Productpage/Tally/TallyPage"));
+const Tally = lazy(() => import("./components/courseCategory/Tally"));
+const BoaPage = lazy(() => import("./pages/BoaPage"));
+const PurchaseReport = lazy(() => import("./pages/PurchaseReport"));
 
 const App = () => {
   const { isAuthOpen } = useAuth();
@@ -62,6 +62,7 @@ const App = () => {
           ${showOffer ? "pt-12" : "pt-0"}
         `}
       >
+    <Suspense fallback={<div className="min-h-[60vh]" />}>
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="/adobe" element={<CourseCategory />} />
@@ -104,6 +105,7 @@ const App = () => {
       />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    </Suspense>
   </main>
 
   {isAuthOpen && (

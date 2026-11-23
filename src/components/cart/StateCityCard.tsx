@@ -1,7 +1,10 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Select from "react-select";
-import { State, City } from "country-state-city";
 import api from "@/services/api";
+
+// India-only list generated from country-state-city (the full library ships
+// every city in the world, ~8 MB). Loaded on demand when this form opens.
+type IndiaState = { code: string; name: string; cities: string[] };
 
 interface OptionType {
   value: string;
@@ -25,12 +28,24 @@ type ApiError = { response?: { data?: { error?: string } }; message?: string };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const stateOptions: OptionType[] = State.getStatesOfCountry("IN").map((s) => ({
-  value: s.isoCode,
-  label: s.name,
-}));
-
 const StateCityCard: React.FC<StateCityCardProps> = ({ couponCode = "" }) => {
+  const [indiaStates, setIndiaStates] = useState<IndiaState[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    import("@/data/indiaStatesCities.json").then((m) => {
+      if (!cancelled) setIndiaStates(m.default as IndiaState[]);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const stateOptions: OptionType[] = useMemo(
+    () => indiaStates.map((s) => ({ value: s.code, label: s.name })),
+    [indiaStates],
+  );
+
   const [selectedState, setSelectedState] = useState<OptionType | null>(null);
   const [selectedCity, setSelectedCity] = useState<OptionType | null>(null);
   const [name, setName] = useState("");
@@ -42,12 +57,11 @@ const StateCityCard: React.FC<StateCityCardProps> = ({ couponCode = "" }) => {
   const cityOptions: OptionType[] = useMemo(
     () =>
       selectedState
-        ? City.getCitiesOfState("IN", selectedState.value).map((c) => ({
-            value: c.name,
-            label: c.name,
-          }))
+        ? (indiaStates.find((s) => s.code === selectedState.value)?.cities ?? []).map(
+            (c) => ({ value: c, label: c }),
+          )
         : [],
-    [selectedState],
+    [selectedState, indiaStates],
   );
 
   const validate = (): string | null => {
@@ -135,7 +149,7 @@ const StateCityCard: React.FC<StateCityCardProps> = ({ couponCode = "" }) => {
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
               meta,
-            });
+            }, { timeout: 30000 });
 
             if (verifyResp.data?.success) {
               setMessage("Payment Successful. Redirecting...");
@@ -149,10 +163,20 @@ const StateCityCard: React.FC<StateCityCardProps> = ({ couponCode = "" }) => {
             }
           } catch (verifyError) {
             console.error("Payment verification error");
-            setMessage(
-              (verifyError as ApiError)?.response?.data?.error ||
-                "Payment verification failed",
-            );
+            const apiError = verifyError as ApiError;
+            if (!apiError?.response) {
+              // No reply from the server (timeout / network drop). Razorpay has
+              // already taken the payment, so don't report a failure: show the
+              // "Payment Received" page and let the server finish verifying.
+              setMessage("Payment received. Confirming your order...");
+              window.location.href =
+                "/paymentVerification?orderId=" +
+                encodeURIComponent(response.razorpay_order_id);
+            } else {
+              setMessage(
+                apiError.response.data?.error || "Payment verification failed",
+              );
+            }
           } finally {
             setLoading(false);
           }
@@ -241,6 +265,7 @@ const StateCityCard: React.FC<StateCityCardProps> = ({ couponCode = "" }) => {
         value={selectedState}
         onChange={setSelectedState}
         placeholder="Select State"
+        isLoading={indiaStates.length === 0}
       />
 
       <Select
